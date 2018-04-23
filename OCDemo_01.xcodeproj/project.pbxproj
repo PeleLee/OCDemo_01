@@ -7,21 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB8C640F208DAE7A00012736 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8C640E208DAE7A00012736 /* BaseViewController.m */; };
+		DB8C6413208DAF0100012736 /* RootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8C6412208DAF0100012736 /* RootTableViewController.m */; };
+		DB8C6417208DB20000012736 /* PrintTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8C6416208DB20000012736 /* PrintTestVC.m */; };
+		DB8C641C208DB7FB00012736 /* UIView+Add.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8C641B208DB7FB00012736 /* UIView+Add.m */; };
 		DBECBF142089D056004FED83 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DBECBF132089D056004FED83 /* AppDelegate.m */; };
-		DBECBF172089D056004FED83 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DBECBF162089D056004FED83 /* ViewController.m */; };
-		DBECBF1A2089D056004FED83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBECBF182089D056004FED83 /* Main.storyboard */; };
 		DBECBF1C2089D056004FED83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBECBF1B2089D056004FED83 /* Assets.xcassets */; };
 		DBECBF1F2089D056004FED83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBECBF1D2089D056004FED83 /* LaunchScreen.storyboard */; };
 		DBECBF222089D056004FED83 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBECBF212089D056004FED83 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB8C640D208DAE7A00012736 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		DB8C640E208DAE7A00012736 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		DB8C6411208DAF0100012736 /* RootTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootTableViewController.h; sourceTree = "<group>"; };
+		DB8C6412208DAF0100012736 /* RootTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootTableViewController.m; sourceTree = "<group>"; };
+		DB8C6415208DB20000012736 /* PrintTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrintTestVC.h; sourceTree = "<group>"; };
+		DB8C6416208DB20000012736 /* PrintTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PrintTestVC.m; sourceTree = "<group>"; };
+		DB8C641A208DB7FB00012736 /* UIView+Add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Add.h"; sourceTree = "<group>"; };
+		DB8C641B208DB7FB00012736 /* UIView+Add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Add.m"; sourceTree = "<group>"; };
 		DBECBF0F2089D056004FED83 /* OCDemo_01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OCDemo_01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBECBF122089D056004FED83 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DBECBF132089D056004FED83 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DBECBF152089D056004FED83 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DBECBF162089D056004FED83 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		DBECBF192089D056004FED83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DBECBF1B2089D056004FED83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBECBF1E2089D056004FED83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBECBF202089D056004FED83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -39,6 +46,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB8C6409208DAE3300012736 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				DB8C640D208DAE7A00012736 /* BaseViewController.h */,
+				DB8C640E208DAE7A00012736 /* BaseViewController.m */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		DB8C6410208DAE8E00012736 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				DBECBF1B2089D056004FED83 /* Assets.xcassets */,
+				DBECBF1D2089D056004FED83 /* LaunchScreen.storyboard */,
+				DBECBF202089D056004FED83 /* Info.plist */,
+				DBECBF212089D056004FED83 /* main.m */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		DB8C6414208DB1E500012736 /* PrintTest */ = {
+			isa = PBXGroup;
+			children = (
+				DB8C6415208DB20000012736 /* PrintTestVC.h */,
+				DB8C6416208DB20000012736 /* PrintTestVC.m */,
+			);
+			path = PrintTest;
+			sourceTree = "<group>";
+		};
+		DB8C6418208DB2C100012736 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				DB8C6419208DB2C100012736 /* Category */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		DB8C6419208DB2C100012736 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				DB8C641A208DB7FB00012736 /* UIView+Add.h */,
+				DB8C641B208DB7FB00012736 /* UIView+Add.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		DBECBF062089D056004FED83 = {
 			isa = PBXGroup;
 			children = (
@@ -58,15 +111,14 @@
 		DBECBF112089D056004FED83 /* OCDemo_01 */ = {
 			isa = PBXGroup;
 			children = (
+				DB8C6418208DB2C100012736 /* Tool */,
+				DB8C6414208DB1E500012736 /* PrintTest */,
+				DB8C6410208DAE8E00012736 /* Other */,
+				DB8C6409208DAE3300012736 /* Root */,
 				DBECBF122089D056004FED83 /* AppDelegate.h */,
 				DBECBF132089D056004FED83 /* AppDelegate.m */,
-				DBECBF152089D056004FED83 /* ViewController.h */,
-				DBECBF162089D056004FED83 /* ViewController.m */,
-				DBECBF182089D056004FED83 /* Main.storyboard */,
-				DBECBF1B2089D056004FED83 /* Assets.xcassets */,
-				DBECBF1D2089D056004FED83 /* LaunchScreen.storyboard */,
-				DBECBF202089D056004FED83 /* Info.plist */,
-				DBECBF212089D056004FED83 /* main.m */,
+				DB8C6411208DAF0100012736 /* RootTableViewController.h */,
+				DB8C6412208DAF0100012736 /* RootTableViewController.m */,
 			);
 			path = OCDemo_01;
 			sourceTree = "<group>";
@@ -130,7 +182,6 @@
 			files = (
 				DBECBF1F2089D056004FED83 /* LaunchScreen.storyboard in Resources */,
 				DBECBF1C2089D056004FED83 /* Assets.xcassets in Resources */,
-				DBECBF1A2089D056004FED83 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,8 +192,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBECBF172089D056004FED83 /* ViewController.m in Sources */,
+				DB8C6413208DAF0100012736 /* RootTableViewController.m in Sources */,
+				DB8C640F208DAE7A00012736 /* BaseViewController.m in Sources */,
+				DB8C6417208DB20000012736 /* PrintTestVC.m in Sources */,
 				DBECBF222089D056004FED83 /* main.m in Sources */,
+				DB8C641C208DB7FB00012736 /* UIView+Add.m in Sources */,
 				DBECBF142089D056004FED83 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,14 +204,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		DBECBF182089D056004FED83 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DBECBF192089D056004FED83 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		DBECBF1D2089D056004FED83 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -285,7 +331,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69S36A93WW;
-				INFOPLIST_FILE = OCDemo_01/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/OCDemo_01/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,7 +348,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69S36A93WW;
-				INFOPLIST_FILE = OCDemo_01/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/OCDemo_01/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
