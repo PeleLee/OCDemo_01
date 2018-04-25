@@ -26,7 +26,7 @@
     self.methodsNames = [NSMutableArray arrayWithCapacity:0];
     [self addCell:@"定义宏时不加括号的影响" method:@"effectOfParenthesesOnMacros"];
     [self addCell:@"调用方法:SEL、NSInvocation" method:@"severalWaysToCallMethods"];
-    [self addCell:@"test" method:@"test"];
+    [self addCell:@"copy与mutableCopy" method:@"differenceBetweenCopyAndMutableCopy"];
     
     self.myTV = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.width, self.view.height - 64 - 10) style:UITableViewStylePlain];
     _myTV.delegate = self;
@@ -40,16 +40,23 @@
 }
 
 #pragma mark - Methods
-
-- (void)test {
+/**
+ https://www.jianshu.com/p/9cdeb0c78ce0
+ */
+- (void)differenceBetweenCopyAndMutableCopy {
     NSMutableArray *listA = [NSMutableArray arrayWithObjects:@"a", @"b", @"c", @"d",nil];
-    NSMutableArray *listB = [listA mutableCopy];
-    NSLog(@"listB:%@",listB);
+    // __NSArrayI
+    NSMutableArray *listB = [listA copy];
+    // __NSArrayM
+    NSMutableArray *listC = [listA mutableCopy];
+    NSLog(@"listC:%@",listC);
     
     for (NSInteger i = listA.count - 1; i >= 0; i--) {
-        [listB addObject:listA[i]];
+        // 会crash
+        //[listB addObject:listA[i]];
+        [listC addObject:listA[i]];
     }
-    NSLog(@"listB:%@",listB);
+    NSLog(@"listC:%@",listC);
 }
 
 /**
