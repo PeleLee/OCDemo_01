@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		336D324F1F9376401793DEF9 /* libPods-OCDemo_01.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC6E0A4DEB3A28048ABDC9D4 /* libPods-OCDemo_01.a */; };
+		DB3A1E4520906458009EC30A /* RACVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3A1E4320906457009EC30A /* RACVC.m */; };
+		DB3A1E4620906458009EC30A /* RACVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB3A1E4420906457009EC30A /* RACVC.xib */; };
+		DB3A1E4A209078CC009EC30A /* NotificationTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3A1E48209078CC009EC30A /* NotificationTestVC.m */; };
+		DB3A1E4B209078CC009EC30A /* NotificationTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB3A1E49209078CC009EC30A /* NotificationTestVC.xib */; };
 		DB8C640F208DAE7A00012736 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8C640E208DAE7A00012736 /* BaseViewController.m */; };
 		DB8C6413208DAF0100012736 /* RootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8C6412208DAF0100012736 /* RootTableViewController.m */; };
 		DB8C6417208DB20000012736 /* PrintTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8C6416208DB20000012736 /* PrintTestVC.m */; };
@@ -18,6 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D5FD566D65191712AA1279D /* Pods-OCDemo_01.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCDemo_01.release.xcconfig"; path = "Pods/Target Support Files/Pods-OCDemo_01/Pods-OCDemo_01.release.xcconfig"; sourceTree = "<group>"; };
+		B2888098E500DDEEF7E234FF /* Pods-OCDemo_01.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCDemo_01.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OCDemo_01/Pods-OCDemo_01.debug.xcconfig"; sourceTree = "<group>"; };
+		BC6E0A4DEB3A28048ABDC9D4 /* libPods-OCDemo_01.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCDemo_01.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB3A1E4220906457009EC30A /* RACVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACVC.h; sourceTree = "<group>"; };
+		DB3A1E4320906457009EC30A /* RACVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACVC.m; sourceTree = "<group>"; };
+		DB3A1E4420906457009EC30A /* RACVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RACVC.xib; sourceTree = "<group>"; };
+		DB3A1E47209078CC009EC30A /* NotificationTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationTestVC.h; sourceTree = "<group>"; };
+		DB3A1E48209078CC009EC30A /* NotificationTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationTestVC.m; sourceTree = "<group>"; };
+		DB3A1E49209078CC009EC30A /* NotificationTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTestVC.xib; sourceTree = "<group>"; };
 		DB8C640D208DAE7A00012736 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		DB8C640E208DAE7A00012736 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		DB8C6411208DAF0100012736 /* RootTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootTableViewController.h; sourceTree = "<group>"; };
@@ -40,12 +54,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				336D324F1F9376401793DEF9 /* libPods-OCDemo_01.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8334E855E118468882DFF0AD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BC6E0A4DEB3A28048ABDC9D4 /* libPods-OCDemo_01.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB3A1E3E209062EC009EC30A /* RAC */ = {
+			isa = PBXGroup;
+			children = (
+				DB3A1E4220906457009EC30A /* RACVC.h */,
+				DB3A1E4320906457009EC30A /* RACVC.m */,
+				DB3A1E4420906457009EC30A /* RACVC.xib */,
+				DB3A1E47209078CC009EC30A /* NotificationTestVC.h */,
+				DB3A1E48209078CC009EC30A /* NotificationTestVC.m */,
+				DB3A1E49209078CC009EC30A /* NotificationTestVC.xib */,
+			);
+			path = RAC;
+			sourceTree = "<group>";
+		};
 		DB8C6409208DAE3300012736 /* Root */ = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +133,8 @@
 			children = (
 				DBECBF112089D056004FED83 /* OCDemo_01 */,
 				DBECBF102089D056004FED83 /* Products */,
+				F419F1F806FFF427948480B9 /* Pods */,
+				8334E855E118468882DFF0AD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +149,7 @@
 		DBECBF112089D056004FED83 /* OCDemo_01 */ = {
 			isa = PBXGroup;
 			children = (
+				DB3A1E3E209062EC009EC30A /* RAC */,
 				DB8C6418208DB2C100012736 /* Tool */,
 				DB8C6414208DB1E500012736 /* PrintTest */,
 				DB8C6410208DAE8E00012736 /* Other */,
@@ -123,6 +162,15 @@
 			path = OCDemo_01;
 			sourceTree = "<group>";
 		};
+		F419F1F806FFF427948480B9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2888098E500DDEEF7E234FF /* Pods-OCDemo_01.debug.xcconfig */,
+				3D5FD566D65191712AA1279D /* Pods-OCDemo_01.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -130,6 +178,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DBECBF252089D056004FED83 /* Build configuration list for PBXNativeTarget "OCDemo_01" */;
 			buildPhases = (
+				EE981D1334C8267FB672737B /* [CP] Check Pods Manifest.lock */,
 				DBECBF0B2089D056004FED83 /* Sources */,
 				DBECBF0C2089D056004FED83 /* Frameworks */,
 				DBECBF0D2089D056004FED83 /* Resources */,
@@ -180,12 +229,35 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB3A1E4620906458009EC30A /* RACVC.xib in Resources */,
 				DBECBF1F2089D056004FED83 /* LaunchScreen.storyboard in Resources */,
 				DBECBF1C2089D056004FED83 /* Assets.xcassets in Resources */,
+				DB3A1E4B209078CC009EC30A /* NotificationTestVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EE981D1334C8267FB672737B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OCDemo_01-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DBECBF0B2089D056004FED83 /* Sources */ = {
@@ -195,9 +267,11 @@
 				DB8C6413208DAF0100012736 /* RootTableViewController.m in Sources */,
 				DB8C640F208DAE7A00012736 /* BaseViewController.m in Sources */,
 				DB8C6417208DB20000012736 /* PrintTestVC.m in Sources */,
+				DB3A1E4520906458009EC30A /* RACVC.m in Sources */,
 				DBECBF222089D056004FED83 /* main.m in Sources */,
 				DB8C641C208DB7FB00012736 /* UIView+Add.m in Sources */,
 				DBECBF142089D056004FED83 /* AppDelegate.m in Sources */,
+				DB3A1E4A209078CC009EC30A /* NotificationTestVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,11 +401,13 @@
 		};
 		DBECBF262089D056004FED83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2888098E500DDEEF7E234FF /* Pods-OCDemo_01.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69S36A93WW;
 				INFOPLIST_FILE = "$(SRCROOT)/OCDemo_01/Other/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,11 +420,13 @@
 		};
 		DBECBF272089D056004FED83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D5FD566D65191712AA1279D /* Pods-OCDemo_01.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69S36A93WW;
 				INFOPLIST_FILE = "$(SRCROOT)/OCDemo_01/Other/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

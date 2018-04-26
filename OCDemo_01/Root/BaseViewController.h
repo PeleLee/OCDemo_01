@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIView+Add.h"
+#import <ReactiveObjC/ReactiveObjC.h>
 
 @interface BaseViewController : UIViewController
 

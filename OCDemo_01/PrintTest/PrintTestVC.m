@@ -142,6 +142,7 @@
 /**
  敲代码过程中发现定义宏不加括号,然后在另一个宏里调用这个宏的话,获得
  的结果和自己的预期不一样,所以做这个测试。
+ https://www.jianshu.com/p/f715715388b6
  */
 - (void)effectOfParenthesesOnMacros {
 #define macro1 1 > 2 ? 5 : 10    //10

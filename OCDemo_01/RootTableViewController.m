@@ -24,6 +24,7 @@
     self.titles = [NSMutableArray arrayWithCapacity:0];
     self.classNames = [NSMutableArray arrayWithCapacity:0];
     [self addCell:@"控制台打印结果" class:@"PrintTestVC"];
+    [self addCell:@"RAC" class:@"RACVC"];
     [self.tableView reloadData];
 }
 
