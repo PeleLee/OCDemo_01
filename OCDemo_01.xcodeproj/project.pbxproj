@@ -12,6 +12,7 @@
 		DB3A1E4620906458009EC30A /* RACVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB3A1E4420906457009EC30A /* RACVC.xib */; };
 		DB3A1E4A209078CC009EC30A /* NotificationTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3A1E48209078CC009EC30A /* NotificationTestVC.m */; };
 		DB3A1E4B209078CC009EC30A /* NotificationTestVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB3A1E49209078CC009EC30A /* NotificationTestVC.xib */; };
+		DB54AE4D2092CCBD006E83E5 /* RACPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = DB54AE4C2092CCBD006E83E5 /* RACPerson.m */; };
 		DB8C640F208DAE7A00012736 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8C640E208DAE7A00012736 /* BaseViewController.m */; };
 		DB8C6413208DAF0100012736 /* RootTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8C6412208DAF0100012736 /* RootTableViewController.m */; };
 		DB8C6417208DB20000012736 /* PrintTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8C6416208DB20000012736 /* PrintTestVC.m */; };
@@ -32,6 +33,8 @@
 		DB3A1E47209078CC009EC30A /* NotificationTestVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationTestVC.h; sourceTree = "<group>"; };
 		DB3A1E48209078CC009EC30A /* NotificationTestVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationTestVC.m; sourceTree = "<group>"; };
 		DB3A1E49209078CC009EC30A /* NotificationTestVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTestVC.xib; sourceTree = "<group>"; };
+		DB54AE4B2092CCBD006E83E5 /* RACPerson.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACPerson.h; sourceTree = "<group>"; };
+		DB54AE4C2092CCBD006E83E5 /* RACPerson.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RACPerson.m; sourceTree = "<group>"; };
 		DB8C640D208DAE7A00012736 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
 		DB8C640E208DAE7A00012736 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
 		DB8C6411208DAF0100012736 /* RootTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootTableViewController.h; sourceTree = "<group>"; };
@@ -72,6 +75,7 @@
 		DB3A1E3E209062EC009EC30A /* RAC */ = {
 			isa = PBXGroup;
 			children = (
+				DB54AE4A2092CCAA006E83E5 /* Model */,
 				DB3A1E4220906457009EC30A /* RACVC.h */,
 				DB3A1E4320906457009EC30A /* RACVC.m */,
 				DB3A1E4420906457009EC30A /* RACVC.xib */,
@@ -80,6 +84,15 @@
 				DB3A1E49209078CC009EC30A /* NotificationTestVC.xib */,
 			);
 			path = RAC;
+			sourceTree = "<group>";
+		};
+		DB54AE4A2092CCAA006E83E5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DB54AE4B2092CCBD006E83E5 /* RACPerson.h */,
+				DB54AE4C2092CCBD006E83E5 /* RACPerson.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		DB8C6409208DAE3300012736 /* Root */ = {
@@ -265,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB8C6413208DAF0100012736 /* RootTableViewController.m in Sources */,
+				DB54AE4D2092CCBD006E83E5 /* RACPerson.m in Sources */,
 				DB8C640F208DAE7A00012736 /* BaseViewController.m in Sources */,
 				DB8C6417208DB20000012736 /* PrintTestVC.m in Sources */,
 				DB3A1E4520906458009EC30A /* RACVC.m in Sources */,
