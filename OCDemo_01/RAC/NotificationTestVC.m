@@ -38,7 +38,7 @@
 }
 
 - (void)dealloc {
-    
+    [k_NotificationCenter removeObserver:self];
 }
 
 @end

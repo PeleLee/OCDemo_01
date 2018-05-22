@@ -19,12 +19,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // 状态栏文字颜色改变
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     
     self.title = @"OC_Demo";
     self.titles = [NSMutableArray arrayWithCapacity:0];
     self.classNames = [NSMutableArray arrayWithCapacity:0];
     [self addCell:@"控制台打印结果" class:@"PrintTestVC"];
     [self addCell:@"RAC" class:@"RACVC"];
+    [self addCell:@"LDD" class:@"LDDTableViewController"];
+    [self addCell:@"通知" class:@"NotificationLearnTVC"];
     [self.tableView reloadData];
 }
 

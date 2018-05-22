@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "RootTableViewController.h"
+#import <YYKit/YYKit.h>
+#import <IQKeyboardManager.h>
+#import "MyMacro.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +20,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self configuration];
     
     RootTableViewController *myTV = [[RootTableViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:myTV];
@@ -29,6 +33,27 @@
     return YES;
 }
 
+- (void)configuration {
+    // 导航栏字体颜色
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor orangeColor]}];
+    // 导航栏背景色
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:54/255.0 green:57/255.0 blue:61/255.0 alpha:1]];
+    // 返回按钮箭头和文字的颜色
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    // 返回按钮的文字不显示
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-YYScreenSize().width*2, 0) forBarMetrics:UIBarMetricsDefault];
+    // 返回按钮字体颜色 上一行代码设置后该句代码设置不起效
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor yellowColor],NSFontAttributeName:[UIFont systemFontOfSize:15]} forState:UIControlStateNormal];
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
+    
+    [IQKeyboardManager sharedManager].shouldResignOnTouchOutside = true;
+    [IQKeyboardManager sharedManager].enableAutoToolbar = true;
+}
+
+- (void)postNotification {
+    [k_NotificationCenter postNotificationName:@"changeCellText" object:@"Cell text had change."];
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "UIView+Add.h"
 #import <ReactiveObjC/ReactiveObjC.h>
+#import "MyMacro.h"
+#import <YYKit/YYKit.h>
+#import <Masonry/Masonry.h>
 
 @interface BaseViewController : UIViewController
+
+@property (nonatomic, assign) NSInteger index;
 
 @end

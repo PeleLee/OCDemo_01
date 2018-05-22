@@ -35,13 +35,13 @@
     NSLog(@"-----在代码中打开对应方法-----");
     NSLog(@"\n");
 //    [self viewWithRAC];
-//    [self notificationWithRAC];
+    [self notificationWithRAC];
 //    [self basisOfRACSignal];
 //    [self observableOfHot];
 //    [self observableOfCold];
 //    [self coldSignalTurnsIntoHotSignal];
 //    [self multipleSubscriptions];
-    [self resolveMultipleSubscriptions];
+//    [self resolveMultipleSubscriptions];
 }
 
 /**

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2318874A20B2719800D8EF29 /* NotificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318874920B2719800D8EF29 /* NotificationVC.m */; };
+		2318875220B29E0D00D8EF29 /* NotificationLearnTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318875120B29E0D00D8EF29 /* NotificationLearnTVC.m */; };
+		23A9DB1020AF04ED0023D764 /* LDDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A9DB0F20AF04ED0023D764 /* LDDTableViewController.m */; };
+		23C2881B20AFBD3500CF6EC6 /* IQKeyboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C2881920AFBD3500CF6EC6 /* IQKeyboardVC.m */; };
+		23C2881C20AFBD3500CF6EC6 /* IQKeyboardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C2881A20AFBD3500CF6EC6 /* IQKeyboardVC.xib */; };
 		336D324F1F9376401793DEF9 /* libPods-OCDemo_01.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC6E0A4DEB3A28048ABDC9D4 /* libPods-OCDemo_01.a */; };
 		DB3A1E4520906458009EC30A /* RACVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3A1E4320906457009EC30A /* RACVC.m */; };
 		DB3A1E4620906458009EC30A /* RACVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB3A1E4420906457009EC30A /* RACVC.xib */; };
@@ -24,6 +29,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2318874820B2719800D8EF29 /* NotificationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationVC.h; sourceTree = "<group>"; };
+		2318874920B2719800D8EF29 /* NotificationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationVC.m; sourceTree = "<group>"; };
+		2318875020B29E0D00D8EF29 /* NotificationLearnTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationLearnTVC.h; sourceTree = "<group>"; };
+		2318875120B29E0D00D8EF29 /* NotificationLearnTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationLearnTVC.m; sourceTree = "<group>"; };
+		2349C8E520B0368F00F8E933 /* MyMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMacro.h; sourceTree = "<group>"; };
+		23A9DB0E20AF04ED0023D764 /* LDDTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDTableViewController.h; sourceTree = "<group>"; };
+		23A9DB0F20AF04ED0023D764 /* LDDTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDTableViewController.m; sourceTree = "<group>"; };
+		23C2881820AFBD3500CF6EC6 /* IQKeyboardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQKeyboardVC.h; sourceTree = "<group>"; };
+		23C2881920AFBD3500CF6EC6 /* IQKeyboardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IQKeyboardVC.m; sourceTree = "<group>"; };
+		23C2881A20AFBD3500CF6EC6 /* IQKeyboardVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IQKeyboardVC.xib; sourceTree = "<group>"; };
 		3D5FD566D65191712AA1279D /* Pods-OCDemo_01.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCDemo_01.release.xcconfig"; path = "Pods/Target Support Files/Pods-OCDemo_01/Pods-OCDemo_01.release.xcconfig"; sourceTree = "<group>"; };
 		B2888098E500DDEEF7E234FF /* Pods-OCDemo_01.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCDemo_01.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OCDemo_01/Pods-OCDemo_01.debug.xcconfig"; sourceTree = "<group>"; };
 		BC6E0A4DEB3A28048ABDC9D4 /* libPods-OCDemo_01.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCDemo_01.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,6 +79,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2318874B20B29D1100D8EF29 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				2318874C20B29D1F00D8EF29 /* VC */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		2318874C20B29D1F00D8EF29 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				2318875020B29E0D00D8EF29 /* NotificationLearnTVC.h */,
+				2318875120B29E0D00D8EF29 /* NotificationLearnTVC.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		23A9DB0B20AF045E0023D764 /* LDD */ = {
+			isa = PBXGroup;
+			children = (
+				23A9DB0D20AF049C0023D764 /* VC */,
+				23A9DB0C20AF049C0023D764 /* VM */,
+			);
+			path = LDD;
+			sourceTree = "<group>";
+		};
+		23A9DB0C20AF049C0023D764 /* VM */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VM;
+			sourceTree = "<group>";
+		};
+		23A9DB0D20AF049C0023D764 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				23A9DB0E20AF04ED0023D764 /* LDDTableViewController.h */,
+				23A9DB0F20AF04ED0023D764 /* LDDTableViewController.m */,
+				23C2881820AFBD3500CF6EC6 /* IQKeyboardVC.h */,
+				23C2881920AFBD3500CF6EC6 /* IQKeyboardVC.m */,
+				23C2881A20AFBD3500CF6EC6 /* IQKeyboardVC.xib */,
+				2318874820B2719800D8EF29 /* NotificationVC.h */,
+				2318874920B2719800D8EF29 /* NotificationVC.m */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
 		8334E855E118468882DFF0AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +162,7 @@
 			children = (
 				DB8C640D208DAE7A00012736 /* BaseViewController.h */,
 				DB8C640E208DAE7A00012736 /* BaseViewController.m */,
+				2349C8E520B0368F00F8E933 /* MyMacro.h */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -162,6 +225,8 @@
 		DBECBF112089D056004FED83 /* OCDemo_01 */ = {
 			isa = PBXGroup;
 			children = (
+				2318874B20B29D1100D8EF29 /* Notification */,
+				23A9DB0B20AF045E0023D764 /* LDD */,
 				DB3A1E3E209062EC009EC30A /* RAC */,
 				DB8C6418208DB2C100012736 /* Tool */,
 				DB8C6414208DB1E500012736 /* PrintTest */,
@@ -195,6 +260,7 @@
 				DBECBF0B2089D056004FED83 /* Sources */,
 				DBECBF0C2089D056004FED83 /* Frameworks */,
 				DBECBF0D2089D056004FED83 /* Resources */,
+				3F58CBA89E62C3797201C8E8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -244,6 +310,7 @@
 			files = (
 				DB3A1E4620906458009EC30A /* RACVC.xib in Resources */,
 				DBECBF1F2089D056004FED83 /* LaunchScreen.storyboard in Resources */,
+				23C2881C20AFBD3500CF6EC6 /* IQKeyboardVC.xib in Resources */,
 				DBECBF1C2089D056004FED83 /* Assets.xcassets in Resources */,
 				DB3A1E4B209078CC009EC30A /* NotificationTestVC.xib in Resources */,
 			);
@@ -252,6 +319,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3F58CBA89E62C3797201C8E8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-OCDemo_01/Pods-OCDemo_01-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OCDemo_01/Pods-OCDemo_01-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		EE981D1334C8267FB672737B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -279,10 +364,14 @@
 			files = (
 				DB8C6413208DAF0100012736 /* RootTableViewController.m in Sources */,
 				DB54AE4D2092CCBD006E83E5 /* RACPerson.m in Sources */,
+				23C2881B20AFBD3500CF6EC6 /* IQKeyboardVC.m in Sources */,
 				DB8C640F208DAE7A00012736 /* BaseViewController.m in Sources */,
 				DB8C6417208DB20000012736 /* PrintTestVC.m in Sources */,
 				DB3A1E4520906458009EC30A /* RACVC.m in Sources */,
 				DBECBF222089D056004FED83 /* main.m in Sources */,
+				2318874A20B2719800D8EF29 /* NotificationVC.m in Sources */,
+				2318875220B29E0D00D8EF29 /* NotificationLearnTVC.m in Sources */,
+				23A9DB1020AF04ED0023D764 /* LDDTableViewController.m in Sources */,
 				DB8C641C208DB7FB00012736 /* UIView+Add.m in Sources */,
 				DBECBF142089D056004FED83 /* AppDelegate.m in Sources */,
 				DB3A1E4A209078CC009EC30A /* NotificationTestVC.m in Sources */,
@@ -418,6 +507,7 @@
 			baseConfigurationReference = B2888098E500DDEEF7E234FF /* Pods-OCDemo_01.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69S36A93WW;
 				INFOPLIST_FILE = "$(SRCROOT)/OCDemo_01/Other/Info.plist";
@@ -428,6 +518,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keefe.OCDemo-01";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -437,6 +528,7 @@
 			baseConfigurationReference = 3D5FD566D65191712AA1279D /* Pods-OCDemo_01.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69S36A93WW;
 				INFOPLIST_FILE = "$(SRCROOT)/OCDemo_01/Other/Info.plist";
@@ -447,6 +539,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.keefe.OCDemo-01";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
