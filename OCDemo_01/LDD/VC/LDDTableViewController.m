@@ -11,6 +11,7 @@
 #import "MyMacro.h"
 #import "AppDelegate.h"
 #import "NotificationVC.h"
+#import "IQKeyboardVC.h"
 
 @interface LDDTableViewController ()
 
@@ -38,6 +39,11 @@
     [self addCell:@"Masonary:约束条件先后顺序影响" class:@"IQKeyboardVC"];
     [self addCell:@"Masonary:并列的view通过间隔计算宽度" class:@"IQKeyboardVC"];
     [self addCell:@"Masonary:Label的一些自适应" class:@"IQKeyboardVC"];
+    [self addCell:@"RAC:RAC宏" class:@"IQKeyboardVC"];
+    [self addCell:@"RAC:RACSignal对象调subscribeNext方法" class:@"IQKeyboardVC"];
+    [self addCell:@"RAC:RACSubject" class:@"5"];
+    [self addCell:@"RAC:RACCommand" class:@"6"];
+    [self addCell:@"RAC:RACCommand与RACSubject套用" class:@"IQKeyboardVC"];
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     
@@ -82,6 +88,7 @@
     if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID"];
         cell.tag = indexPath.row;
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
     }
     cell.textLabel.text = [NSString stringWithFormat:@"%ld、%@",indexPath.row+1,self.titles[indexPath.row]];
 //    NSLog(@"cell tag:%ld",cell.tag);
@@ -90,6 +97,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    __weak typeof(self) weakSelf = self;
     NSString *className = self.classNames[indexPath.row];
     Class class = NSClassFromString(className);
     if (class) {
@@ -111,6 +119,30 @@
         else if ([className isEqualToString:@"3"]) {
             NotificationVC *vc2 = [[NotificationVC alloc] init];
             [vc2 postNotification];
+        }
+        else if ([className isEqualToString:@"5"]) {
+            IQKeyboardVC *vc = [IQKeyboardVC new];
+            vc.index = indexPath.row;
+            
+            // RACSubject既可以发送信号，也可以订阅信号
+            // 此处为订阅信号
+            [vc.subject subscribeNext:^(id  _Nullable x) {
+                weakSelf.titles[indexPath.row] = [NSString stringWithFormat:@"RACSubject接收到----->%@",x];
+                [weakSelf.tableView reloadData];
+            }];
+            
+            vc.sendMessageBlock = ^(NSString *message) {
+                weakSelf.titles[indexPath.row] = [NSString stringWithFormat:@"Block接收到----->%@",message];
+                [weakSelf.tableView reloadData];
+            };
+            
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else if ([className isEqualToString:@"6"]) {
+            IQKeyboardVC *vc = [IQKeyboardVC new];
+            vc.index = indexPath.row;
+            
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

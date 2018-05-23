@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2318874A20B2719800D8EF29 /* NotificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318874920B2719800D8EF29 /* NotificationVC.m */; };
 		2318875220B29E0D00D8EF29 /* NotificationLearnTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318875120B29E0D00D8EF29 /* NotificationLearnTVC.m */; };
+		23388E9C20B503AA00DAAB4F /* BaseViewModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 23388E9B20B503AA00DAAB4F /* BaseViewModle.m */; };
+		23388E9F20B503CA00DAAB4F /* LDDVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 23388E9E20B503CA00DAAB4F /* LDDVM.m */; };
 		23A9DB1020AF04ED0023D764 /* LDDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A9DB0F20AF04ED0023D764 /* LDDTableViewController.m */; };
 		23C2881B20AFBD3500CF6EC6 /* IQKeyboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C2881920AFBD3500CF6EC6 /* IQKeyboardVC.m */; };
 		23C2881C20AFBD3500CF6EC6 /* IQKeyboardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C2881A20AFBD3500CF6EC6 /* IQKeyboardVC.xib */; };
@@ -33,6 +35,10 @@
 		2318874920B2719800D8EF29 /* NotificationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationVC.m; sourceTree = "<group>"; };
 		2318875020B29E0D00D8EF29 /* NotificationLearnTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationLearnTVC.h; sourceTree = "<group>"; };
 		2318875120B29E0D00D8EF29 /* NotificationLearnTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationLearnTVC.m; sourceTree = "<group>"; };
+		23388E9A20B503AA00DAAB4F /* BaseViewModle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewModle.h; sourceTree = "<group>"; };
+		23388E9B20B503AA00DAAB4F /* BaseViewModle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewModle.m; sourceTree = "<group>"; };
+		23388E9D20B503CA00DAAB4F /* LDDVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDVM.h; sourceTree = "<group>"; };
+		23388E9E20B503CA00DAAB4F /* LDDVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDVM.m; sourceTree = "<group>"; };
 		2349C8E520B0368F00F8E933 /* MyMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMacro.h; sourceTree = "<group>"; };
 		23A9DB0E20AF04ED0023D764 /* LDDTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDTableViewController.h; sourceTree = "<group>"; };
 		23A9DB0F20AF04ED0023D764 /* LDDTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDTableViewController.m; sourceTree = "<group>"; };
@@ -108,6 +114,8 @@
 		23A9DB0C20AF049C0023D764 /* VM */ = {
 			isa = PBXGroup;
 			children = (
+				23388E9D20B503CA00DAAB4F /* LDDVM.h */,
+				23388E9E20B503CA00DAAB4F /* LDDVM.m */,
 			);
 			path = VM;
 			sourceTree = "<group>";
@@ -163,6 +171,8 @@
 				DB8C640D208DAE7A00012736 /* BaseViewController.h */,
 				DB8C640E208DAE7A00012736 /* BaseViewController.m */,
 				2349C8E520B0368F00F8E933 /* MyMacro.h */,
+				23388E9A20B503AA00DAAB4F /* BaseViewModle.h */,
+				23388E9B20B503AA00DAAB4F /* BaseViewModle.m */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -362,7 +372,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23388E9F20B503CA00DAAB4F /* LDDVM.m in Sources */,
 				DB8C6413208DAF0100012736 /* RootTableViewController.m in Sources */,
+				23388E9C20B503AA00DAAB4F /* BaseViewModle.m in Sources */,
 				DB54AE4D2092CCBD006E83E5 /* RACPerson.m in Sources */,
 				23C2881B20AFBD3500CF6EC6 /* IQKeyboardVC.m in Sources */,
 				DB8C640F208DAE7A00012736 /* BaseViewController.m in Sources */,
