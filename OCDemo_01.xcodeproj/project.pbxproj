@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2301E38520B6B4A8004D7DAE /* LDDVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2301E38420B6B4A8004D7DAE /* LDDVC1.m */; };
 		2318874A20B2719800D8EF29 /* NotificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318874920B2719800D8EF29 /* NotificationVC.m */; };
 		2318875220B29E0D00D8EF29 /* NotificationLearnTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318875120B29E0D00D8EF29 /* NotificationLearnTVC.m */; };
 		23388E9C20B503AA00DAAB4F /* BaseViewModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 23388E9B20B503AA00DAAB4F /* BaseViewModle.m */; };
@@ -31,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2301E38320B6B4A8004D7DAE /* LDDVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDVC1.h; sourceTree = "<group>"; };
+		2301E38420B6B4A8004D7DAE /* LDDVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDVC1.m; sourceTree = "<group>"; };
 		2318874820B2719800D8EF29 /* NotificationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationVC.h; sourceTree = "<group>"; };
 		2318874920B2719800D8EF29 /* NotificationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationVC.m; sourceTree = "<group>"; };
 		2318875020B29E0D00D8EF29 /* NotificationLearnTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationLearnTVC.h; sourceTree = "<group>"; };
@@ -130,6 +133,8 @@
 				23C2881A20AFBD3500CF6EC6 /* IQKeyboardVC.xib */,
 				2318874820B2719800D8EF29 /* NotificationVC.h */,
 				2318874920B2719800D8EF29 /* NotificationVC.m */,
+				2301E38320B6B4A8004D7DAE /* LDDVC1.h */,
+				2301E38420B6B4A8004D7DAE /* LDDVC1.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -337,10 +342,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-OCDemo_01/Pods-OCDemo_01-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/PGDatePicker/PGDatePicker/PGDatePicker.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PGDatePicker.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -373,6 +380,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				23388E9F20B503CA00DAAB4F /* LDDVM.m in Sources */,
+				2301E38520B6B4A8004D7DAE /* LDDVC1.m in Sources */,
 				DB8C6413208DAF0100012736 /* RootTableViewController.m in Sources */,
 				23388E9C20B503AA00DAAB4F /* BaseViewModle.m in Sources */,
 				DB54AE4D2092CCBD006E83E5 /* RACPerson.m in Sources */,

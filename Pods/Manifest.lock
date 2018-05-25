@@ -5,6 +5,9 @@ PODS:
   - Masonry (1.0.2)
   - MLeaksFinder (1.0.0):
     - FBRetainCycleDetector
+  - PGDatePicker (2.4.0):
+    - PGPickerView
+  - PGPickerView (1.2.6)
   - ReactiveObjC (3.0.0)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
@@ -15,6 +18,7 @@ DEPENDENCIES:
   - IQKeyboardManager (~> 5.0.3)
   - Masonry (~> 1.0.2)
   - MLeaksFinder
+  - PGDatePicker
   - ReactiveObjC (~> 3.0.0)
   - YYKit
 
@@ -25,6 +29,8 @@ SPEC REPOS:
     - IQKeyboardManager
     - Masonry
     - MLeaksFinder
+    - PGDatePicker
+    - PGPickerView
     - ReactiveObjC
     - YYKit
 
@@ -34,9 +40,11 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
+  PGDatePicker: 2817e0b0b9c4e6237c96cec974617230c82621d1
+  PGPickerView: 8fbbf63d0404065a43a495a0115d339455e0f819
   ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 7d5c9546c6dc226414a8010bf5c696add8d20b46
+PODFILE CHECKSUM: 429377d07b6e5132eecd1da6a44a572dd4393d85
 
 COCOAPODS: 1.5.0

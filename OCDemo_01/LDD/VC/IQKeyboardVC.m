@@ -8,8 +8,9 @@
 
 #import "IQKeyboardVC.h"
 #import "LDDVM.h"
+#import "PGDatePickManager.h"
 
-@interface IQKeyboardVC ()<UITextFieldDelegate>
+@interface IQKeyboardVC ()<UITextFieldDelegate,PGDatePickerDelegate>
 
 @property (nonatomic, strong) LDDVM *viewModel;
 
@@ -19,6 +20,12 @@
 
 @property (nonatomic, strong) RACSubject *subject4_1;
 @property (nonatomic, strong) RACSubject *subject4_2;
+
+@property (nonatomic, strong) UIButton *button1;
+
+@property (nonatomic, strong) UILabel *label1;
+
+@property (nonatomic, strong) UITextField *tf1;
 
 @end
 
@@ -56,6 +63,68 @@
     else if (self.index == 13) {
         [self useOfCommandAndSubjectWithRAC];
     }
+    else if (self.index == 14) {
+        [self useOfUIDatePicker];
+    }
+    else if (self.index == 15) {
+        [self useOfPGDatePicker];
+    }
+}
+
+- (void)datePicker:(PGDatePicker *)datePicker didSelectDate:(NSDateComponents *)dateComponents {
+    NSString *str = [NSString stringWithFormat:@"选择日期%ld-%ld-%ld",dateComponents.year,dateComponents.month,dateComponents.day];
+    ((UILabel *)[self.view viewWithTag:150]).text = str;
+    NSLog(@"%@",dateComponents);
+}
+
+- (void)useOfPGDatePicker {
+    __weak typeof(self) weakSelf = self;
+    [self.button1 setTitle:@"选择日历" forState:UIControlStateNormal];
+    [[self.button1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        PGDatePickManager *datePickManager = [[PGDatePickManager alloc] init];
+        datePickManager.isShadeBackgroud = YES;
+        datePickManager.headerViewBackgroundColor = [UIColor yellowColor];
+        datePickManager.cancelButtonTextColor = [UIColor whiteColor];
+        datePickManager.confirmButtonTextColor = [UIColor whiteColor];
+        PGDatePicker *datePicker = datePickManager.datePicker;
+        datePicker.delegate = self;
+        datePicker.datePickerType = PGPickerViewType1;
+        datePicker.isHiddenMiddleText = NO;
+        datePicker.datePickerMode = PGDatePickerModeDate;
+        datePicker.minimumDate = [[NSDate date] dateByAddingYears:-100];
+        datePicker.maximumDate = [NSDate date];
+        datePicker.lineBackgroundColor = [UIColor yellowColor];
+        datePicker.textColorOfSelectedRow = [UIColor yellowColor];
+        datePicker.textColorOfOtherRow = [UIColor lightGrayColor];
+        [weakSelf presentViewController:datePickManager animated:NO completion:nil];
+    }];
+    [self.view addSubview:self.button1];
+    
+    [self.button1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@40);
+        make.top.equalTo(@100);
+    }];
+    
+    [self.view addSubview:self.label1];
+    self.label1.tag = 150;
+    
+    [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@40);
+        make.top.equalTo(weakSelf.button1.mas_bottom).offset(20);
+    }];
+}
+
+- (void)useOfUIDatePicker {
+    UIDatePicker *picker = [UIDatePicker new];
+    picker.backgroundColor = [UIColor whiteColor];
+    picker.datePickerMode = 1;
+    [self.view addSubview:picker];
+    
+    [picker mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(@0);
+        make.bottom.equalTo(@0);
+        make.height.equalTo(@200);
+    }];
 }
 
 - (LDDVM *)viewModel {
@@ -667,4 +736,23 @@
     }
     return YES;
 }
+
+- (UIButton *)button1 {
+    if (!_button1) {
+        _button1 = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_button1 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [_button1.titleLabel setFont:[UIFont systemFontOfSize:14]];
+    }
+    return _button1;
+}
+
+- (UILabel *)label1 {
+    if (!_label1) {
+        _label1 = [UILabel new];
+        _label1.textColor = [UIColor blackColor];
+        _label1.font = [UIFont systemFontOfSize:14];
+    }
+    return _label1;
+}
+
 @end

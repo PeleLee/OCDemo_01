@@ -14,5 +14,6 @@
 #define k_ImageNamed(imageName) [UIImage imageNamed:imageName]
 
 #define k_StatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define k_NavBarMaxY (k_StatusBarHeight+44)
 
 #endif /* MyMacro_h */
