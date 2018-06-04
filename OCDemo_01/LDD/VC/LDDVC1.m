@@ -7,6 +7,7 @@
 //
 
 #import "LDDVC1.h"
+#import "LDDCustomDatePickerView.h"
 
 @implementation MyCollectionViewCell
 
@@ -28,9 +29,36 @@
 
 @end
 
-@interface LDDVC1 ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface LDDVC1 ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate>
 
 @property (nonatomic, strong) UICollectionView *mainCollectionView;
+
+@property (nonatomic, strong) UITextField *tf1;
+@property (nonatomic, strong) UITextField *tf2;
+@property (nonatomic, strong) UITextField *tf3;
+@property (nonatomic, strong) UITextField *tf4;
+@property (nonatomic, strong) UITextField *tf5;
+@property (nonatomic, strong) UITextField *tf6;
+@property (nonatomic, strong) UITextField *tf7;
+@property (nonatomic, strong) UITextField *tf8;
+@property (nonatomic, strong) UITextField *tf9;
+
+@property (nonatomic, strong) UILabel *label1;
+@property (nonatomic, strong) UILabel *label2;
+@property (nonatomic, strong) UILabel *label3;
+@property (nonatomic, strong) UILabel *label4;
+@property (nonatomic, strong) UILabel *label5;
+@property (nonatomic, strong) UILabel *label6;
+@property (nonatomic, strong) UILabel *label7;
+@property (nonatomic, strong) UILabel *label8;
+@property (nonatomic, strong) UILabel *label9;
+@property (nonatomic, strong) UILabel *label10;
+@property (nonatomic, strong) UILabel *label11;
+
+@property (nonatomic, strong) UIButton *button1;
+@property (nonatomic, strong) UIButton *button2;
+@property (nonatomic, strong) UIButton *button3;
+@property (nonatomic, strong) UIButton *button4;
 
 @end
 
@@ -44,6 +72,360 @@
     if (self.index == 16) {
         [self useOfUICollectionView];
     }
+    else if (self.index == 17) {
+        [self customDatePickerView];
+    }
+    else if (self.index == 18) {
+        [self strongReferenceOfBlock];
+    }
+}
+
+- (void)strongReferenceOfBlock {
+    
+    [self.view addSubview:self.label1];
+    self.label1.text = @"YES代表会强引用，NO代表不会强引用，现在的代码全都是正确的代码，不会造成内存泄漏，可打开对应代码看效果。";
+    self.label1.numberOfLines = 0;
+    
+    [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@84);
+        make.left.equalTo(@40);
+        make.right.equalTo(@-40);
+    }];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [self.view addSubview:self.button1];
+    [self.button1 setTitle:@"成员变量使用RAC Block --> YES" forState:UIControlStateNormal];
+    
+    [self.button1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.label1.mas_bottom);
+        make.left.equalTo(@40);
+    }];
+    
+    [[self.button1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        // 会强引用 运行回报内存泄漏，
+        // 需要看其他代码的运行效果需要重新编译，要不其他不会引起内存泄漏的代码也会报错
+//        [self.navigationController popViewControllerAnimated:YES];
+        // 要使用weakSelf
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+    }];
+    
+    [self.view addSubview:self.button2];
+    [self.button2 setTitle:@"Masonry Block --> NO" forState:UIControlStateNormal];
+    
+    [self.button2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.button1.mas_bottom);
+        make.left.equalTo(self.button1);
+    }];
+    
+    [self.view addSubview:self.label2];
+    self.label2.text = @"test";
+    [self.label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        // 这两行不会强引用 不需要使用weakSelf
+        make.left.equalTo(self.button2);
+        make.top.equalTo(self.button2.mas_bottom);
+    }];
+    
+    [[self.button2 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [weakSelf.navigationController popViewControllerAnimated:YES];
+    }];
+    
+    [self.view addSubview:self.button3];
+    [self.button3 setTitle:@"UIView动画 Block 涉及Masonry --> NO" forState:UIControlStateNormal];
+    
+    [self.button3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.button2);
+        make.top.equalTo(self.label2.mas_bottom);
+    }];
+    
+    [self.button3 addTarget:self action:@selector(animationBlock) forControlEvents:UIControlEventTouchUpInside];
+    
+    [self.view addSubview:self.label3];
+    self.label3.text = @"例子中写到的动画是用Masonry的remake方法来改变位置,起初是用的update方法来改变位置,发现达不到想要的效果,并且还会报内存泄漏。";
+    self.label3.numberOfLines = 0;
+    
+    [self.label3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@40);
+        make.right.equalTo(@-40);
+        make.top.equalTo(self.button3.mas_bottom);
+    }];
+    
+    [self.view addSubview:self.button4];
+    [self.button4 setTitle:@"RAC中执行动画 Block --> YES" forState:UIControlStateNormal];
+
+    [self.button4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.button3);
+        make.top.equalTo(self.label3.mas_bottom);
+    }];
+    [[self.button4 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        //会报错 需要使用weakSelf
+         /*
+        [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:10 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [self.button4 mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(self.label3);
+                make.top.equalTo(self.view.mas_bottom).offset(-50);
+            }];
+            [self.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }];*/
+        [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.4 initialSpringVelocity:10 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [weakSelf.button4 mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.left.equalTo(weakSelf.label3);
+                make.top.equalTo(weakSelf.view.mas_bottom).offset(-50);
+            }];
+            [weakSelf.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        }];
+    }];
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button setTitle:@"非成员变量使用RAC --> YES" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont systemFontOfSize:13]];
+    [self.view addSubview:button];
+    
+    [button mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.button4);
+        make.top.equalTo(self.button4.mas_bottom);
+    }];
+    
+    [[button rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        // 会产生强引用，需要使用weakSelf
+        /*
+        [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.7f initialSpringVelocity:10 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [self.button4 mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(self.view.mas_bottom).offset(-100);
+                make.left.equalTo(@40);
+            }];
+            [self.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            [self.navigationController popViewControllerAnimated:YES];
+        }];*/
+        [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.7f initialSpringVelocity:10 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+            [weakSelf.button4 mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(weakSelf.view.mas_bottom).offset(-100);
+                make.left.equalTo(@40);
+            }];
+            [weakSelf.view layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        }];
+    }];
+}
+
+- (void)animationBlock {
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:1 delay:0 usingSpringWithDamping:0.3f initialSpringVelocity:3.0f options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        // 涉及masonry的动画要使用remake 而不能使用update
+        /*
+        [self.button3 mas_updateConstraints:^(MASConstraintMaker *make) {
+            // 这里使用self会报错,需要使用weakSelf
+            make.top.equalTo(weakSelf.view.mas_bottom).offset(-50);
+        }];
+        */
+        [self.button3 mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.view.mas_bottom).offset(-50);
+            make.left.equalTo(@40);
+        }];
+        // 需要self.view 调用layoutIfNeeded方法才会有动画效果
+        [self.view layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+}
+
+- (void)customDatePickerView {
+    [self.view addSubview:self.label7];
+    [self.view addSubview:self.label1];
+    [self.view addSubview:self.label2];
+    [self.view addSubview:self.label3];
+    [self.view addSubview:self.label4];
+    [self.view addSubview:self.label5];
+    [self.view addSubview:self.label6];
+    [self.view addSubview:self.label8];
+    [self.view addSubview:self.label9];
+    [self.view addSubview:self.label10];
+    
+    [self.view addSubview:self.tf1];
+    [self.view addSubview:self.tf2];
+    [self.view addSubview:self.tf3];
+    [self.view addSubview:self.tf4];
+    [self.view addSubview:self.tf5];
+    [self.view addSubview:self.tf6];
+    [self.view addSubview:self.tf7];
+    [self.view addSubview:self.tf8];
+    [self.view addSubview:self.tf9];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    _label7.numberOfLines = 0;
+    _label7.text = @"输入日期必须合法，否则不能正常计算。\n默认日期需介于开始日期和结束日期之间。\n不输入则显示当前日期往前100年的日期。";
+    [_label7 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.right.equalTo(@-20);
+        make.top.equalTo(@100);
+    }];
+    
+    [_label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.top.equalTo(self.label7.mas_bottom).offset(35);
+    }];
+    _label1.text = @"开始   年:";
+    
+    [_tf1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.label1.mas_right).offset(10);
+        make.centerY.equalTo(weakSelf.label1);
+        make.width.equalTo(@70);
+    }];
+    _tf1.keyboardType = UIKeyboardTypeNumberPad;
+    _tf1.tag = 171;
+    
+    [_label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.tf1.mas_right).offset(20);
+        make.centerY.equalTo(weakSelf.tf1);
+    }];
+    _label2.text = @"月:";
+    
+    [_tf2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.label2.mas_right).offset(10);
+        make.centerY.equalTo(weakSelf.label2);
+        make.width.equalTo(@35);
+    }];
+    _tf2.keyboardType = UIKeyboardTypeNumberPad;
+    _tf2.tag = 172;
+    
+    [_label3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.tf2.mas_right).offset(20);
+        make.centerY.equalTo(weakSelf.tf2);
+    }];
+    _label3.text = @"日";
+    
+    [_tf3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.label3.mas_right).offset(10);
+        make.centerY.equalTo(weakSelf.label3);
+        make.width.equalTo(@35);
+    }];
+    _tf3.keyboardType = UIKeyboardTypeNumberPad;
+    _tf3.tag = 173;
+    
+    [_label4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.top.equalTo(weakSelf.label1.mas_bottom).offset(35);
+    }];
+    _label4.text = @"结束   年:";
+    
+    [_tf4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.label4.mas_right).offset(10);
+        make.centerY.equalTo(weakSelf.label4);
+        make.width.equalTo(@70);
+    }];
+    _tf4.keyboardType = UIKeyboardTypeNumberPad;
+    _tf4.tag = 174;
+    
+    [_label5 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.tf4.mas_right).offset(20);
+        make.centerY.equalTo(weakSelf.tf4);
+    }];
+    _label5.text = @"月:";
+    
+    [_tf5 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.label5.mas_right).offset(10);
+        make.centerY.equalTo(weakSelf.label5);
+        make.width.equalTo(@35);
+    }];
+    _tf5.keyboardType = UIKeyboardTypeNumberPad;
+    _tf5.tag = 175;
+    
+    [_label6 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.tf5.mas_right).offset(20);
+        make.centerY.equalTo(weakSelf.tf5);
+    }];
+    _label6.text = @"日";
+    
+    [_tf6 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.label6.mas_right).offset(10);
+        make.centerY.equalTo(weakSelf.label6);
+        make.width.equalTo(@35);
+    }];
+    _tf6.keyboardType = UIKeyboardTypeNumberPad;
+    _tf6.tag = 176;
+    
+    [_label8 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.label4);
+        make.top.equalTo(self.label4.mas_bottom).offset(35);
+    }];
+    _label8.text = @"默认   年:";
+    
+    [_tf7 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.label8.mas_right).offset(10);
+        make.centerY.equalTo(self.label8);
+        make.width.equalTo(@70);
+    }];
+    _tf7.keyboardType = UIKeyboardTypeNumberPad;
+    _tf7.tag = 177;
+    
+    [_label9 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.label5);
+        make.top.equalTo(self.label5.mas_bottom).offset(35);
+    }];
+    _label9.text = @"月:";
+    
+    [_tf8 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.label9.mas_right).offset(10);
+        make.centerY.equalTo(self.label9);
+        make.width.equalTo(@35);
+    }];
+    _tf8.keyboardType = UIKeyboardTypeNumberPad;
+    _tf8.tag = 178;
+    
+    [_label10 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.tf8.mas_right).offset(20);
+        make.top.equalTo(self.label6.mas_bottom).offset(35);
+    }];
+    _label10.text = @"日";
+    
+    [_tf9 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.label10.mas_right).offset(10);
+        make.centerY.equalTo(self.label10);
+        make.width.equalTo(@35);
+    }];
+    _tf9.keyboardType = UIKeyboardTypeNumberPad;
+    _tf9.tag = 179;
+    
+    [self.view addSubview:self.button1];
+    
+    [_button1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(weakSelf.tf7.mas_bottom).offset(20);
+        make.centerX.equalTo(weakSelf.view);
+    }];
+    [_button1 setTitle:@"确定" forState:UIControlStateNormal];
+    [[_button1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [weakSelf.view resignFirstResponder];
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"yyyyMMdd"];
+        
+        NSString *beginDateStr = [NSString stringWithFormat:@"%04ld%02ld%02ld",weakSelf.tf1.text.integerValue,weakSelf.tf2.text.integerValue,weakSelf.tf3.text.integerValue];
+        NSDate *beginDate =  [formatter dateFromString:beginDateStr];
+        NSString *endDateStr = [NSString stringWithFormat:@"%04ld%02ld%02ld",weakSelf.tf4.text.integerValue,weakSelf.tf5.text.integerValue,weakSelf.tf6.text.integerValue];
+        NSDate *endDate = [formatter dateFromString:endDateStr];
+        NSString *defaultDateStr = [NSString stringWithFormat:@"%04ld%02ld%02ld",weakSelf.tf7.text.integerValue,weakSelf.tf8.text.integerValue,weakSelf.tf9.text.integerValue];
+        NSDate *defaultDate = [formatter dateFromString:defaultDateStr];
+        
+        LDDCustomDatePickerView *datePicker = [[LDDCustomDatePickerView alloc] initWithBeginDate:beginDate endDate:endDate defaultDate:defaultDate];
+        datePicker.selectedDateBlock = ^(NSInteger year, NSInteger month, NSInteger day) {
+            weakSelf.label11.text = [NSString stringWithFormat:@"选择的日期:%ld年%ld月%ld日",year,month,day];
+        };
+        [datePicker showView];
+    }];
+    
+    [self.view addSubview:self.label11];
+    self.label11.textColor = [UIColor redColor];
+    [self.label11 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.label1);
+        make.top.equalTo(self.button1.mas_bottom).offset(35);
+    }];
 }
 
 - (void)useOfUICollectionView {
@@ -98,15 +480,271 @@
     UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"reusableView" forIndexPath:indexPath];
     headerView.backgroundColor = [UIColor lightGrayColor];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:headerView.bounds];
-    label.text = @"头部";
-    label.font = [UIFont systemFontOfSize:15];
-    [headerView addSubview:label];
+    UILabel *label = (UILabel *)[headerView viewWithTag:1600];
+    if (!label) {
+        label = [[UILabel alloc] initWithFrame:headerView.bounds];
+        label.text = @"头部";
+        label.font = [UIFont systemFontOfSize:15];
+        label.tag = 1600;
+        [headerView addSubview:label];
+    }
     return headerView;
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"点击");
+}
+
+#pragma mark - UITextField Delegate
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSString *tobeString = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    if (tobeString.length == 0) {
+        return YES;
+    }
+    
+    if (textField.tag == 171 || textField.tag == 174 || textField.tag == 177) {
+        if (tobeString.integerValue < 1 || tobeString.integerValue > 3000) {
+            return NO;
+        }
+    }
+    if (textField.tag == 172 || textField.tag == 175 || textField.tag == 178) {
+        if (tobeString.integerValue < 1 || tobeString.integerValue > 12) {
+            return NO;
+        }
+    }
+    if (textField.tag == 173 || textField.tag == 176 || textField.tag == 179) {
+        if (tobeString.integerValue < 1 || tobeString.integerValue > 31) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+#pragma mark - lazy
+- (UITextField *)tf1 {
+    if (!_tf1) {
+        _tf1 = [UITextField new];
+        _tf1.borderStyle = UITextBorderStyleRoundedRect;
+        _tf1.font = [UIFont systemFontOfSize:13];
+        _tf1.delegate = self;
+    }
+    return _tf1;
+}
+
+- (UITextField *)tf2 {
+    if (!_tf2) {
+        _tf2 = [UITextField new];
+        _tf2.borderStyle = UITextBorderStyleRoundedRect;
+        _tf2.font = [UIFont systemFontOfSize:13];
+        _tf2.delegate = self;
+    }
+    return _tf2;
+}
+
+- (UITextField *)tf3 {
+    if (!_tf3) {
+        _tf3 = [UITextField new];
+        _tf3.borderStyle = UITextBorderStyleRoundedRect;
+        _tf3.font = [UIFont systemFontOfSize:13];
+        _tf3.delegate = self;
+    }
+    return _tf3;
+}
+
+- (UITextField *)tf4 {
+    if (!_tf4) {
+        _tf4 = [UITextField new];
+        _tf4.borderStyle = UITextBorderStyleRoundedRect;
+        _tf4.font = [UIFont systemFontOfSize:13];
+        _tf4.delegate = self;
+    }
+    return _tf4;
+}
+
+- (UITextField *)tf5 {
+    if (!_tf5) {
+        _tf5 = [UITextField new];
+        _tf5.borderStyle = UITextBorderStyleRoundedRect;
+        _tf5.font = [UIFont systemFontOfSize:13];
+        _tf5.delegate = self;
+    }
+    return _tf5;
+}
+
+- (UITextField *)tf6 {
+    if (!_tf6) {
+        _tf6 = [UITextField new];
+        _tf6.borderStyle = UITextBorderStyleRoundedRect;
+        _tf6.font = [UIFont systemFontOfSize:13];
+        _tf6.delegate = self;
+    }
+    return _tf6;
+}
+
+- (UITextField *)tf7 {
+    if (!_tf7) {
+        _tf7 = [UITextField new];
+        _tf7.borderStyle = UITextBorderStyleRoundedRect;
+        _tf7.font = [UIFont systemFontOfSize:13];
+        _tf7.delegate = self;
+    }
+    return _tf7;
+}
+
+- (UITextField *)tf8 {
+    if (!_tf8) {
+        _tf8 = [UITextField new];
+        _tf8.borderStyle = UITextBorderStyleRoundedRect;
+        _tf8.font = [UIFont systemFontOfSize:13];
+        _tf8.delegate = self;
+    }
+    return _tf8;
+}
+
+- (UITextField *)tf9 {
+    if (!_tf9) {
+        _tf9 = [UITextField new];
+        _tf9.borderStyle = UITextBorderStyleRoundedRect;
+        _tf9.font = [UIFont systemFontOfSize:13];
+        _tf9.delegate = self;
+    }
+    return _tf9;
+}
+
+- (UILabel *)label1 {
+    if (!_label1) {
+        _label1 = [UILabel new];
+        _label1.font = [UIFont systemFontOfSize:13];
+        _label1.textColor = [UIColor blackColor];
+    }
+    return _label1;
+}
+
+- (UILabel *)label2 {
+    if (!_label2) {
+        _label2 = [UILabel new];
+        _label2.font = [UIFont systemFontOfSize:13];
+        _label2.textColor = [UIColor blackColor];
+    }
+    return _label2;
+}
+
+- (UILabel *)label3 {
+    if (!_label3) {
+        _label3 = [UILabel new];
+        _label3.font = [UIFont systemFontOfSize:13];
+        _label3.textColor = [UIColor blackColor];
+    }
+    return _label3;
+}
+
+- (UILabel *)label4 {
+    if (!_label4) {
+        _label4 = [UILabel new];
+        _label4.font = [UIFont systemFontOfSize:13];
+        _label4.textColor = [UIColor blackColor];
+    }
+    return _label4;
+}
+
+- (UILabel *)label5 {
+    if (!_label5) {
+        _label5 = [UILabel new];
+        _label5.font = [UIFont systemFontOfSize:13];
+        _label5.textColor = [UIColor blackColor];
+    }
+    return _label5;
+}
+
+- (UILabel *)label6 {
+    if (!_label6) {
+        _label6 = [UILabel new];
+        _label6.font = [UIFont systemFontOfSize:13];
+        _label6.textColor = [UIColor blackColor];
+    }
+    return _label6;
+}
+
+- (UILabel *)label7 {
+    if (!_label7) {
+        _label7 = [UILabel new];
+        _label7.font = [UIFont systemFontOfSize:13];
+        _label7.textColor = [UIColor blackColor];
+    }
+    return _label7;
+}
+
+- (UILabel *)label8 {
+    if (!_label8) {
+        _label8 = [UILabel new];
+        _label8.font = [UIFont systemFontOfSize:13];
+        _label8.textColor = [UIColor blackColor];
+    }
+    return _label8;
+}
+
+- (UILabel *)label9 {
+    if (!_label9) {
+        _label9 = [UILabel new];
+        _label9.font = [UIFont systemFontOfSize:13];
+        _label9.textColor = [UIColor blackColor];
+    }
+    return _label9;
+}
+
+- (UILabel *)label10 {
+    if (!_label10) {
+        _label10 = [UILabel new];
+        _label10.font = [UIFont systemFontOfSize:13];
+        _label10.textColor = [UIColor blackColor];
+    }
+    return _label10;
+}
+
+- (UILabel *)label11 {
+    if (!_label11) {
+        _label11 = [UILabel new];
+        _label11.font = [UIFont systemFontOfSize:13];
+        _label11.textColor = [UIColor blackColor];
+    }
+    return _label11;
+}
+
+- (UIButton *)button1 {
+    if (!_button1) {
+        _button1 = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_button1 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [_button1.titleLabel setFont:[UIFont systemFontOfSize:13]];
+    }
+    return _button1;
+}
+
+- (UIButton *)button2 {
+    if (!_button2) {
+        _button2 = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_button2 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [_button2.titleLabel setFont:[UIFont systemFontOfSize:13]];
+    }
+    return _button2;
+}
+
+- (UIButton *)button3 {
+    if (!_button3) {
+        _button3 = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_button3 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [_button3.titleLabel setFont:[UIFont systemFontOfSize:13]];
+    }
+    return _button3;
+}
+
+- (UIButton *)button4 {
+    if (!_button4) {
+        _button4 = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_button4 setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+        [_button4.titleLabel setFont:[UIFont systemFontOfSize:13]];
+    }
+    return _button4;
 }
 
 @end

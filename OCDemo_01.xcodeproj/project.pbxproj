@@ -12,6 +12,8 @@
 		2318875220B29E0D00D8EF29 /* NotificationLearnTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318875120B29E0D00D8EF29 /* NotificationLearnTVC.m */; };
 		23388E9C20B503AA00DAAB4F /* BaseViewModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 23388E9B20B503AA00DAAB4F /* BaseViewModle.m */; };
 		23388E9F20B503CA00DAAB4F /* LDDVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 23388E9E20B503CA00DAAB4F /* LDDVM.m */; };
+		23949D1220BC1B65005B1562 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23949D1120BC1B65005B1562 /* BaseView.m */; };
+		23949D1520BC1B89005B1562 /* LDDCustomDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23949D1420BC1B89005B1562 /* LDDCustomDatePickerView.m */; };
 		23A9DB1020AF04ED0023D764 /* LDDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A9DB0F20AF04ED0023D764 /* LDDTableViewController.m */; };
 		23C2881B20AFBD3500CF6EC6 /* IQKeyboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C2881920AFBD3500CF6EC6 /* IQKeyboardVC.m */; };
 		23C2881C20AFBD3500CF6EC6 /* IQKeyboardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C2881A20AFBD3500CF6EC6 /* IQKeyboardVC.xib */; };
@@ -43,6 +45,10 @@
 		23388E9D20B503CA00DAAB4F /* LDDVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDVM.h; sourceTree = "<group>"; };
 		23388E9E20B503CA00DAAB4F /* LDDVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDVM.m; sourceTree = "<group>"; };
 		2349C8E520B0368F00F8E933 /* MyMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMacro.h; sourceTree = "<group>"; };
+		23949D1020BC1B65005B1562 /* BaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
+		23949D1120BC1B65005B1562 /* BaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseView.m; sourceTree = "<group>"; };
+		23949D1320BC1B89005B1562 /* LDDCustomDatePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDCustomDatePickerView.h; sourceTree = "<group>"; };
+		23949D1420BC1B89005B1562 /* LDDCustomDatePickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDCustomDatePickerView.m; sourceTree = "<group>"; };
 		23A9DB0E20AF04ED0023D764 /* LDDTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDTableViewController.h; sourceTree = "<group>"; };
 		23A9DB0F20AF04ED0023D764 /* LDDTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDTableViewController.m; sourceTree = "<group>"; };
 		23C2881820AFBD3500CF6EC6 /* IQKeyboardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQKeyboardVC.h; sourceTree = "<group>"; };
@@ -105,11 +111,22 @@
 			path = VC;
 			sourceTree = "<group>";
 		};
+		23949D0920BC06A0005B1562 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				23949D1320BC1B89005B1562 /* LDDCustomDatePickerView.h */,
+				23949D1420BC1B89005B1562 /* LDDCustomDatePickerView.m */,
+			);
+			name = View;
+			path = OCDemo_01/LDD/View;
+			sourceTree = SOURCE_ROOT;
+		};
 		23A9DB0B20AF045E0023D764 /* LDD */ = {
 			isa = PBXGroup;
 			children = (
 				23A9DB0D20AF049C0023D764 /* VC */,
 				23A9DB0C20AF049C0023D764 /* VM */,
+				23949D0920BC06A0005B1562 /* View */,
 			);
 			path = LDD;
 			sourceTree = "<group>";
@@ -178,6 +195,8 @@
 				2349C8E520B0368F00F8E933 /* MyMacro.h */,
 				23388E9A20B503AA00DAAB4F /* BaseViewModle.h */,
 				23388E9B20B503AA00DAAB4F /* BaseViewModle.m */,
+				23949D1020BC1B65005B1562 /* BaseView.h */,
+				23949D1120BC1B65005B1562 /* BaseView.m */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -381,6 +400,7 @@
 			files = (
 				23388E9F20B503CA00DAAB4F /* LDDVM.m in Sources */,
 				2301E38520B6B4A8004D7DAE /* LDDVC1.m in Sources */,
+				23949D1520BC1B89005B1562 /* LDDCustomDatePickerView.m in Sources */,
 				DB8C6413208DAF0100012736 /* RootTableViewController.m in Sources */,
 				23388E9C20B503AA00DAAB4F /* BaseViewModle.m in Sources */,
 				DB54AE4D2092CCBD006E83E5 /* RACPerson.m in Sources */,
@@ -390,6 +410,7 @@
 				DB3A1E4520906458009EC30A /* RACVC.m in Sources */,
 				DBECBF222089D056004FED83 /* main.m in Sources */,
 				2318874A20B2719800D8EF29 /* NotificationVC.m in Sources */,
+				23949D1220BC1B65005B1562 /* BaseView.m in Sources */,
 				2318875220B29E0D00D8EF29 /* NotificationLearnTVC.m in Sources */,
 				23A9DB1020AF04ED0023D764 /* LDDTableViewController.m in Sources */,
 				DB8C641C208DB7FB00012736 /* UIView+Add.m in Sources */,

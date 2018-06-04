@@ -24,6 +24,7 @@
 @property (nonatomic, strong) UIButton *button1;
 
 @property (nonatomic, strong) UILabel *label1;
+@property (nonatomic, strong) UILabel *label2;
 
 @property (nonatomic, strong) UITextField *tf1;
 
@@ -79,23 +80,25 @@
 
 - (void)useOfPGDatePicker {
     __weak typeof(self) weakSelf = self;
-    [self.button1 setTitle:@"选择日历" forState:UIControlStateNormal];
+    [self.button1 setTitle:@"☞☞☞选择日历" forState:UIControlStateNormal];
+//    self.button1.backgroundColor = [UIColor yellowColor];
+    [self.button1.titleLabel setTextAlignment:NSTextAlignmentLeft];
     [[self.button1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         PGDatePickManager *datePickManager = [[PGDatePickManager alloc] init];
         datePickManager.isShadeBackgroud = YES;
-        datePickManager.headerViewBackgroundColor = [UIColor yellowColor];
+        datePickManager.headerViewBackgroundColor = [UIColor colorWithHexString:@"#FFAB00"];
         datePickManager.cancelButtonTextColor = [UIColor whiteColor];
         datePickManager.confirmButtonTextColor = [UIColor whiteColor];
         PGDatePicker *datePicker = datePickManager.datePicker;
-        datePicker.delegate = self;
+        datePicker.delegate = weakSelf;
         datePicker.datePickerType = PGPickerViewType1;
         datePicker.isHiddenMiddleText = NO;
         datePicker.datePickerMode = PGDatePickerModeDate;
         datePicker.minimumDate = [[NSDate date] dateByAddingYears:-100];
         datePicker.maximumDate = [NSDate date];
-        datePicker.lineBackgroundColor = [UIColor yellowColor];
-        datePicker.textColorOfSelectedRow = [UIColor yellowColor];
-        datePicker.textColorOfOtherRow = [UIColor lightGrayColor];
+        datePicker.lineBackgroundColor = [UIColor colorWithHexString:@"#FFAB00"];
+        datePicker.textColorOfSelectedRow = [UIColor colorWithHexString:@"#FFAB00"];
+        datePicker.textColorOfOtherRow = [UIColor colorWithHexString:@"#FFAB00"];
         [weakSelf presentViewController:datePickManager animated:NO completion:nil];
     }];
     [self.view addSubview:self.button1];
@@ -106,11 +109,21 @@
     }];
     
     [self.view addSubview:self.label1];
-    self.label1.tag = 150;
+    self.label1.text = @"使用的是第三方的，可以达到只显示指定范围内的日期，超过范围的日期不显示，但是不能指定默认的选择日期，并且这个第三方太重了，有很多用不到的日期选择格式，索性自己写了一个。见18-自定义日期选择器";
+    self.label1.numberOfLines = 0;
     
     [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(@40);
-        make.top.equalTo(weakSelf.button1.mas_bottom).offset(20);
+        make.right.equalTo(@-40);
+        make.top.equalTo(self.button1.mas_bottom).offset(20);
+    }];
+    
+    [self.view addSubview:self.label2];
+    self.label2.tag = 150;
+    
+    [self.label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@40);
+        make.top.equalTo(self.label1.mas_bottom).offset(20);
     }];
 }
 
@@ -118,12 +131,25 @@
     UIDatePicker *picker = [UIDatePicker new];
     picker.backgroundColor = [UIColor whiteColor];
     picker.datePickerMode = 1;
+    picker.minimumDate = [[NSDate date] dateByAddingYears:-100];
+    picker.maximumDate = [NSDate date];
+    picker.date = [NSDate dateWithTimeIntervalSince1970:631123200];
     [self.view addSubview:picker];
     
     [picker mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(@0);
         make.bottom.equalTo(@0);
         make.height.equalTo(@200);
+    }];
+    
+    [self.view addSubview:self.label1];
+    self.label1.text = @"使用系统的UIDatePicker控件，可以指定日期范围和默认选择的日期，但是范围之外的日期还是会显示出来，只不过不可选，滑动到超范围的日期后会自动跳到最近的范围内日期。";
+    self.label1.numberOfLines = 0;
+    
+    [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(20);
+        make.top.mas_equalTo(85);
+        make.right.mas_equalTo(-20);
     }];
 }
 
@@ -753,6 +779,15 @@
         _label1.font = [UIFont systemFontOfSize:14];
     }
     return _label1;
+}
+
+- (UILabel *)label2 {
+    if (!_label2) {
+        _label2 = [UILabel new];
+        _label2.textColor = [UIColor blackColor];
+        _label2.font = [UIFont systemFontOfSize:14];
+    }
+    return _label2;
 }
 
 @end

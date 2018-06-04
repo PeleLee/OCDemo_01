@@ -31,40 +31,44 @@
     self.title = @"LDD";
     self.titles = [NSMutableArray arrayWithCapacity:0];
     self.classNames = [NSMutableArray arrayWithCapacity:0];
-    //1
+    //0
     [self addCell:@"IQKeyboardManager" class:@"IQKeyboardVC"];
-    //2
+    //1
     [self addCell:@"通知:点击使Appdelegate发通知" class:@"1"];
-    //3
+    //2
     [self addCell:@"通知:模拟通知造成的内存泄漏" class:@"2"];
-    //4
+    //3
     [self addCell:@"通知:再次发送通知" class:@"3"];
-    //5
+    //4
     [self addCell:@"全屏侧滑返回" class:@"4"];
-    //6
+    //5
     [self addCell:@"几种按钮" class:@"IQKeyboardVC"];
-    //7
+    //6
     [self addCell:@"Masonary:约束条件先后顺序影响" class:@"IQKeyboardVC"];
-    //8
+    //7
     [self addCell:@"Masonary:并列的view通过间隔计算宽度" class:@"IQKeyboardVC"];
-    //9
+    //8
     [self addCell:@"Masonary:Label的一些自适应" class:@"IQKeyboardVC"];
-    //10
+    //9
     [self addCell:@"RAC:RAC宏" class:@"IQKeyboardVC"];
-    //11
+    //10
     [self addCell:@"RAC:RACSignal对象调subscribeNext方法" class:@"IQKeyboardVC"];
-    //12
+    //11
     [self addCell:@"RAC:RACSubject" class:@"5"];
-    //13
+    //12
     [self addCell:@"RAC:RACCommand" class:@"6"];
-    //14
+    //13
     [self addCell:@"RAC:RACCommand与RACSubject套用" class:@"IQKeyboardVC"];
-    //15
+    //14
     [self addCell:@"UIDatePicker" class:@"IQKeyboardVC"];
-    //16
+    //15
     [self addCell:@"PGDatePicker" class:@"IQKeyboardVC"];
-    //17
+    //16
     [self addCell:@"UICollectionView" class:@"LDDVC1"];
+    //17
+    [self addCell:@"自定义日期选择器" class:@"LDDVC1"];
+    //18
+    [self addCell:@"Block强引用(使用MLeaksFinder判断)" class:@"LDDVC1"];
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     
