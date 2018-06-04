@@ -54,9 +54,9 @@
     //10
     [self addCell:@"RAC:RACSignal对象调subscribeNext方法" class:@"IQKeyboardVC"];
     //11
-    [self addCell:@"RAC:RACSubject" class:@"5"];
+    [self addCell:@"RAC:RACSubject" class:@"11"];
     //12
-    [self addCell:@"RAC:RACCommand" class:@"6"];
+    [self addCell:@"RAC:RACCommand" class:@"12"];
     //13
     [self addCell:@"RAC:RACCommand与RACSubject套用" class:@"IQKeyboardVC"];
     //14
@@ -69,6 +69,8 @@
     [self addCell:@"自定义日期选择器" class:@"LDDVC1"];
     //18
     [self addCell:@"Block强引用(使用MLeaksFinder判断)" class:@"LDDVC1"];
+    //19
+    [self addCell:@"定时器相关Timer" class:@"LDDVC1"];
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     
@@ -115,7 +117,7 @@
         cell.tag = indexPath.row;
         cell.textLabel.adjustsFontSizeToFitWidth = YES;
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"%ld、%@",indexPath.row+1,self.titles[indexPath.row]];
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld> %@",indexPath.row,self.titles[indexPath.row]];
 //    NSLog(@"cell tag:%ld",cell.tag);
     
     return cell;
@@ -145,7 +147,7 @@
             NotificationVC *vc2 = [[NotificationVC alloc] init];
             [vc2 postNotification];
         }
-        else if ([className isEqualToString:@"5"]) {
+        else if ([className isEqualToString:@"11"]) {
             IQKeyboardVC *vc = [IQKeyboardVC new];
             vc.index = indexPath.row;
             
@@ -163,7 +165,7 @@
             
             [self.navigationController pushViewController:vc animated:YES];
         }
-        else if ([className isEqualToString:@"6"]) {
+        else if ([className isEqualToString:@"12"]) {
             IQKeyboardVC *vc = [IQKeyboardVC new];
             vc.index = indexPath.row;
             

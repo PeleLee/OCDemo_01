@@ -60,9 +60,18 @@
 @property (nonatomic, strong) UIButton *button3;
 @property (nonatomic, strong) UIButton *button4;
 
+@property (nonatomic, strong) NSTimer *YYKitTimer;
+@property (nonatomic, strong) NSTimer *traditionTimer;
+@property (nonatomic, strong) dispatch_source_t GCDTimer;
+
 @end
 
 @implementation LDDVC1
+
+- (void)dealloc {
+    [_YYKitTimer invalidate];
+    [_traditionTimer invalidate];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -78,6 +87,104 @@
     else if (self.index == 18) {
         [self strongReferenceOfBlock];
     }
+    else if (self.index == 19) {
+        [self aboutTimer];
+    }
+}
+
+/**
+ 定时器相关
+ */
+- (void)aboutTimer {
+    __weak typeof(self) weakSelf = self;
+    
+    // YYKit
+    [self.view addSubview:self.button1];
+    [self.button1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(20);
+        make.top.mas_equalTo(85);
+    }];
+    [self.button1 setTitle:@"☞☞☞YYKit分类 NSTimer" forState:UIControlStateNormal];
+    [[self.button1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [weakSelf.button1 setTitle:@"2.5s(执行两次)后返回上个界面" forState:UIControlStateNormal];
+        [weakSelf.button1 setEnabled:NO];
+        weakSelf.YYKitTimer = [NSTimer scheduledTimerWithTimeInterval:1 block:^(NSTimer * _Nonnull timer) {
+            NSLog(@"YYKit Timer执行");
+        } repeats:YES];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        });
+    }];
+    
+    [self.view addSubview:self.label1];
+    self.label1.text = @"在dealloc中调用invalidate方法就不会产生内存泄漏";
+    self.label1.numberOfLines = 0;
+    [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(20);
+        make.right.mas_equalTo(-20);
+        make.top.equalTo(self.button1.mas_bottom).offset(5);
+    }];
+    
+    //Tradition
+    [self.view addSubview:self.button2];
+    [self.button2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(20);
+        make.top.equalTo(self.label1.mas_bottom).offset(10);
+    }];
+    [self.button2 setTitle:@"☞☞☞传统Timer" forState:UIControlStateNormal];
+    [[self.button2 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        /*
+        weakSelf.traditionTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:weakSelf selector:@selector(traditionTimerSelector) userInfo:nil repeats:YES];
+        [weakSelf.navigationController popViewControllerAnimated:YES];*/
+    }];
+    
+    [self.view addSubview:self.label2];
+    self.label2.text = @"即使target使用weakSelf，也会产生内存泄漏，不会调用dealloc方法。错误代码已注释，查看可打开注释。";
+    self.label2.numberOfLines = 0;
+    self.label2.textColor = [UIColor redColor];
+    [self.label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(20);
+        make.right.mas_equalTo(-20);
+        make.top.equalTo(self.button2.mas_bottom).offset(5);
+    }];
+    
+    // GCD
+    [self.view addSubview:self.button3];
+    [self.button3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(20);
+        make.top.equalTo(self.label2.mas_bottom).offset(10);
+    }];
+    [self.button3 setTitle:@"☞☞☞GCD Timer" forState:UIControlStateNormal];
+    [[self.button3 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [weakSelf.button3 setTitle:@"2.5s(执行几次)后返回上一界面" forState:UIControlStateNormal];
+        [weakSelf.button3 setEnabled:NO];
+        //几秒后退出页面
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [weakSelf.navigationController popViewControllerAnimated:YES];
+        });
+        
+        // 创建Timer
+        NSTimeInterval period = 1.0;
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        weakSelf.GCDTimer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+        dispatch_source_set_timer(weakSelf.GCDTimer, dispatch_walltime(NULL, 0), period * NSEC_PER_SEC, 0);
+        dispatch_source_set_event_handler(weakSelf.GCDTimer, ^{
+            NSLog(@"GCD Timer 执行");
+        });
+        dispatch_resume(weakSelf.GCDTimer);
+    }];
+    
+    [self.view addSubview:self.label3];
+    self.label3.text = @"精度更高且不存在内存泄漏的问题";
+    [self.label3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(20);
+        make.right.mas_equalTo(-20);
+        make.top.equalTo(self.button3.mas_bottom).offset(5);
+    }];
+}
+
+- (void)traditionTimerSelector {
+    NSLog(@"传统Timer执行");
 }
 
 - (void)strongReferenceOfBlock {
@@ -617,6 +724,7 @@
         _label1 = [UILabel new];
         _label1.font = [UIFont systemFontOfSize:13];
         _label1.textColor = [UIColor blackColor];
+        _label1.numberOfLines = 0;
     }
     return _label1;
 }
@@ -626,6 +734,7 @@
         _label2 = [UILabel new];
         _label2.font = [UIFont systemFontOfSize:13];
         _label2.textColor = [UIColor blackColor];
+        _label2.numberOfLines = 0;
     }
     return _label2;
 }
@@ -635,6 +744,7 @@
         _label3 = [UILabel new];
         _label3.font = [UIFont systemFontOfSize:13];
         _label3.textColor = [UIColor blackColor];
+        _label3.numberOfLines = 0;
     }
     return _label3;
 }
@@ -644,6 +754,7 @@
         _label4 = [UILabel new];
         _label4.font = [UIFont systemFontOfSize:13];
         _label4.textColor = [UIColor blackColor];
+        _label4.numberOfLines = 0;
     }
     return _label4;
 }
@@ -653,6 +764,7 @@
         _label5 = [UILabel new];
         _label5.font = [UIFont systemFontOfSize:13];
         _label5.textColor = [UIColor blackColor];
+        _label5.numberOfLines = 0;
     }
     return _label5;
 }
@@ -662,6 +774,7 @@
         _label6 = [UILabel new];
         _label6.font = [UIFont systemFontOfSize:13];
         _label6.textColor = [UIColor blackColor];
+        _label6.numberOfLines = 0;
     }
     return _label6;
 }
@@ -671,6 +784,7 @@
         _label7 = [UILabel new];
         _label7.font = [UIFont systemFontOfSize:13];
         _label7.textColor = [UIColor blackColor];
+        _label7.numberOfLines = 0;
     }
     return _label7;
 }
@@ -680,6 +794,7 @@
         _label8 = [UILabel new];
         _label8.font = [UIFont systemFontOfSize:13];
         _label8.textColor = [UIColor blackColor];
+        _label8.numberOfLines = 0;
     }
     return _label8;
 }
@@ -689,6 +804,7 @@
         _label9 = [UILabel new];
         _label9.font = [UIFont systemFontOfSize:13];
         _label9.textColor = [UIColor blackColor];
+        _label9.numberOfLines = 0;
     }
     return _label9;
 }
@@ -698,6 +814,7 @@
         _label10 = [UILabel new];
         _label10.font = [UIFont systemFontOfSize:13];
         _label10.textColor = [UIColor blackColor];
+        _label10.numberOfLines = 0;
     }
     return _label10;
 }
@@ -707,6 +824,7 @@
         _label11 = [UILabel new];
         _label11.font = [UIFont systemFontOfSize:13];
         _label11.textColor = [UIColor blackColor];
+        _label11.numberOfLines = 0;
     }
     return _label11;
 }

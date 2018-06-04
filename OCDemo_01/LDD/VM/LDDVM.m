@@ -26,6 +26,7 @@
         __weak typeof(self) weakSelf = self;
         _m1805231008Command = [[RACCommand alloc] initWithSignalBlock:^RACSignal * _Nonnull(id  _Nullable input) {
             return [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
+                // 使用switchToLatest的时候必须在初始化时绑定command和signal
                 [subscriber sendNext:[NSString stringWithFormat:@"%ld",(weakSelf.number1.integerValue + weakSelf.number2.integerValue + weakSelf.number3.integerValue)]];
                 [subscriber sendCompleted];
                 return nil;

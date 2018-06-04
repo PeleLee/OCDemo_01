@@ -82,7 +82,6 @@
     __weak typeof(self) weakSelf = self;
     [self.button1 setTitle:@"☞☞☞选择日历" forState:UIControlStateNormal];
 //    self.button1.backgroundColor = [UIColor yellowColor];
-    [self.button1.titleLabel setTextAlignment:NSTextAlignmentLeft];
     [[self.button1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         PGDatePickManager *datePickManager = [[PGDatePickManager alloc] init];
         datePickManager.isShadeBackgroud = YES;
@@ -711,7 +710,7 @@
     // 默认button
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     [btn setImage:k_ImageNamed(@"group_activity_location") forState:UIControlStateNormal];
-    [btn setTitle:@"定位中" forState:UIControlStateNormal];
+    [btn setTitle:@"默认自适应" forState:UIControlStateNormal];
     [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
     [btn setBackgroundColor:[UIColor lightGrayColor]];
     [self.view addSubview:btn];
@@ -719,7 +718,6 @@
     [btn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.offset(10);
         make.top.offset(k_StatusBarHeight+64);
-        make.height.equalTo(@15);
     }];
     
 }

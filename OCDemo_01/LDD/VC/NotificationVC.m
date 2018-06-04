@@ -20,7 +20,7 @@
 }
 
 - (void)dealloc {
-    NSLog(@"%s, %@表明该对象释放了",__FUNCTION__,self);
+    NSLog(@"%s, %@调用了dealloc方法，表明该对象释放了",__FUNCTION__,self);
     if (_isRemoveNotification) {
         // Apple默认已经在iPhone中添加了
         [k_NotificationCenter removeObserver:self];
@@ -37,7 +37,7 @@
 //    __weak typeof(self) weakSelf = self;
     [k_NotificationCenter addObserverForName:@"noticycle" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         NSLog(@"注意观察 接收通知的 对象是否释放");
-        NSLog(@"%s, %@",__FUNCTION__,self);
+        NSLog(@"%s, %@一直都没有调用delloc方法，因为看不到打印日志",__FUNCTION__,self);
     }];
 }
 
