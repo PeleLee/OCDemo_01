@@ -17,6 +17,4 @@
 
 @interface LDDVC1 : BaseViewController
 
-@property (nonatomic, assign) NSInteger index;
-
 @end

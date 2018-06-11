@@ -34,6 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     if (self.index == 0) {
         [self createBottomTF];
     }

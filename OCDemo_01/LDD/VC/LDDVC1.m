@@ -8,6 +8,8 @@
 
 #import "LDDVC1.h"
 #import "LDDCustomDatePickerView.h"
+#import "BaseViewController+UNLegal.h"
+#import "BaseViewController+Legal.h"
 
 @implementation MyCollectionViewCell
 
@@ -90,6 +92,46 @@
     else if (self.index == 19) {
         [self aboutTimer];
     }
+    else if (self.index == 20) {
+        [self addPropertyInCategory];
+    }
+}
+
+- (void)addPropertyInCategory {
+    // 参考文章 https://www.jianshu.com/p/9e827a1708c6
+    
+    [self.view addSubview:self.label1];
+    [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.top.equalTo(@85);
+        make.right.equalTo(@-20);
+    }];
+    
+    self.label1.text = @"在分类中添加的成员变量只能在导入分类的头文件的情况下使用。所以如果不导入BaseViewController+UNLegal头文件，BaseViewController对象是读取不到BaseViewController+UNLegal分类中定义的成员变量的。";
+    
+    [self.view addSubview:self.label2];
+    [self.label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.label1);
+        make.top.equalTo(self.label1.mas_bottom).offset(10);
+    }];
+    
+    self.label2.text = @"BaseViewController+UNLegal分类中只声名了成员变量，直接使用的话是会Crash掉的，代码已注释，可以打开注释试一下。";
+    /*
+    BaseViewController *vc0 = [BaseViewController new];
+    vc0.unLegalPropertyStr = @"不能直接使用";
+    */
+    
+    [self.view addSubview:self.label3];
+    [self.label3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(self.label2);
+        make.top.equalTo(self.label2.mas_bottom).offset(10);
+    }];
+    
+    self.label3.text = @"使用runtime给分类的成员属性添加get和set方法后就可以正常使用了。";
+    
+    BaseViewController *vc1 = [BaseViewController new];
+    vc1.legalPropertyStr = @"可以使用。";
+    NSLog(@"get方法:%@",vc1.legalPropertyStr);
 }
 
 /**

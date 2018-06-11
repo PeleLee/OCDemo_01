@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2301E38520B6B4A8004D7DAE /* LDDVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2301E38420B6B4A8004D7DAE /* LDDVC1.m */; };
+		2318434720CE23900075C7A3 /* BaseViewController+UNLegal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318434620CE23900075C7A3 /* BaseViewController+UNLegal.m */; };
+		2318434A20CE290B0075C7A3 /* BaseViewController+Legal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318434920CE290B0075C7A3 /* BaseViewController+Legal.m */; };
 		2318874A20B2719800D8EF29 /* NotificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318874920B2719800D8EF29 /* NotificationVC.m */; };
 		2318875220B29E0D00D8EF29 /* NotificationLearnTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318875120B29E0D00D8EF29 /* NotificationLearnTVC.m */; };
 		23388E9C20B503AA00DAAB4F /* BaseViewModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 23388E9B20B503AA00DAAB4F /* BaseViewModle.m */; };
@@ -36,6 +38,10 @@
 /* Begin PBXFileReference section */
 		2301E38320B6B4A8004D7DAE /* LDDVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDVC1.h; sourceTree = "<group>"; };
 		2301E38420B6B4A8004D7DAE /* LDDVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDVC1.m; sourceTree = "<group>"; };
+		2318434520CE23900075C7A3 /* BaseViewController+UNLegal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaseViewController+UNLegal.h"; sourceTree = "<group>"; };
+		2318434620CE23900075C7A3 /* BaseViewController+UNLegal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BaseViewController+UNLegal.m"; sourceTree = "<group>"; };
+		2318434820CE290B0075C7A3 /* BaseViewController+Legal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaseViewController+Legal.h"; sourceTree = "<group>"; };
+		2318434920CE290B0075C7A3 /* BaseViewController+Legal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BaseViewController+Legal.m"; sourceTree = "<group>"; };
 		2318874820B2719800D8EF29 /* NotificationVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationVC.h; sourceTree = "<group>"; };
 		2318874920B2719800D8EF29 /* NotificationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationVC.m; sourceTree = "<group>"; };
 		2318875020B29E0D00D8EF29 /* NotificationLearnTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationLearnTVC.h; sourceTree = "<group>"; };
@@ -192,6 +198,10 @@
 			children = (
 				DB8C640D208DAE7A00012736 /* BaseViewController.h */,
 				DB8C640E208DAE7A00012736 /* BaseViewController.m */,
+				2318434520CE23900075C7A3 /* BaseViewController+UNLegal.h */,
+				2318434620CE23900075C7A3 /* BaseViewController+UNLegal.m */,
+				2318434820CE290B0075C7A3 /* BaseViewController+Legal.h */,
+				2318434920CE290B0075C7A3 /* BaseViewController+Legal.m */,
 				2349C8E520B0368F00F8E933 /* MyMacro.h */,
 				23388E9A20B503AA00DAAB4F /* BaseViewModle.h */,
 				23388E9B20B503AA00DAAB4F /* BaseViewModle.m */,
@@ -401,6 +411,7 @@
 				23388E9F20B503CA00DAAB4F /* LDDVM.m in Sources */,
 				2301E38520B6B4A8004D7DAE /* LDDVC1.m in Sources */,
 				23949D1520BC1B89005B1562 /* LDDCustomDatePickerView.m in Sources */,
+				2318434720CE23900075C7A3 /* BaseViewController+UNLegal.m in Sources */,
 				DB8C6413208DAF0100012736 /* RootTableViewController.m in Sources */,
 				23388E9C20B503AA00DAAB4F /* BaseViewModle.m in Sources */,
 				DB54AE4D2092CCBD006E83E5 /* RACPerson.m in Sources */,
@@ -416,6 +427,7 @@
 				DB8C641C208DB7FB00012736 /* UIView+Add.m in Sources */,
 				DBECBF142089D056004FED83 /* AppDelegate.m in Sources */,
 				DB3A1E4A209078CC009EC30A /* NotificationTestVC.m in Sources */,
+				2318434A20CE290B0075C7A3 /* BaseViewController+Legal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -71,6 +71,8 @@
     [self addCell:@"Block强引用(使用MLeaksFinder判断)" class:@"LDDVC1"];
     //19
     [self addCell:@"定时器相关Timer" class:@"LDDVC1"];
+    //20
+    [self addCell:@"分类(Category):添加成员变量" class:@"LDDVC1"];
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     
