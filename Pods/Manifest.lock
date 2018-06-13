@@ -1,6 +1,7 @@
 PODS:
   - FBRetainCycleDetector (0.1.4)
   - FDFullscreenPopGesture (1.1)
+  - HJTabViewController (1.0.6)
   - IQKeyboardManager (5.0.8)
   - Masonry (1.0.2)
   - MLeaksFinder (1.0.0):
@@ -15,10 +16,11 @@ PODS:
 
 DEPENDENCIES:
   - FDFullscreenPopGesture (= 1.1)
+  - HJTabViewController
   - IQKeyboardManager (~> 5.0.3)
   - Masonry (~> 1.0.2)
   - MLeaksFinder
-  - PGDatePicker
+  - PGDatePicker (~> 2.4.0)
   - ReactiveObjC (~> 3.0.0)
   - YYKit
 
@@ -26,6 +28,7 @@ SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - FBRetainCycleDetector
     - FDFullscreenPopGesture
+    - HJTabViewController
     - IQKeyboardManager
     - Masonry
     - MLeaksFinder
@@ -37,6 +40,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  HJTabViewController: 578a5bbab471587e7cc49a2f0f49fc8601c833bf
   IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
@@ -45,6 +49,6 @@ SPEC CHECKSUMS:
   ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 429377d07b6e5132eecd1da6a44a572dd4393d85
+PODFILE CHECKSUM: 3be66f2a40520e0188427ab450a08f13ab473345
 
 COCOAPODS: 1.5.0

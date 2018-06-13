@@ -31,7 +31,7 @@
 
 @end
 
-@interface LDDVC1 ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate>
+@interface LDDVC1 ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic, strong) UICollectionView *mainCollectionView;
 
@@ -95,8 +95,86 @@
     else if (self.index == 20) {
         [self addPropertyInCategory];
     }
+    else if (self.index == 23) {
+        [self tableFootView];
+    }
 }
 
+- (void)tableFootView {
+    [self.view addSubview:self.label1];
+    self.label1.text = @"UITableView的HeaderView(FooterView)在滑动的时候会固定在上方(下方)";
+    [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@70);
+        make.left.equalTo(@20);
+        make.right.equalTo(@-20);
+    }];
+    
+    UITableView *tableView = [UITableView new];
+    tableView.delegate = self;
+    tableView.dataSource = self;
+    [self.view addSubview:tableView];
+    [tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.label1.mas_bottom);
+        make.right.left.bottom.equalTo(@0);
+    }];
+}
+
+#pragma mark - UITableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 4;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"cellID"];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"cellID"];
+        cell.textLabel.font = [UIFont systemFontOfSize:13];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld-->%ld",indexPath.section,indexPath.row];
+    return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UITableViewHeaderFooterView *footerOrHeader = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"footerOrHeaderID"];
+    if (!footerOrHeader) {
+        footerOrHeader = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"footerOrHeaderID"];
+        UILabel *label = [UILabel new];
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont systemFontOfSize:13];
+        label.tag = 101;
+        [footerOrHeader addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.centerY.equalTo(footerOrHeader);
+        }];
+    }
+    UILabel *label = (UILabel *)[footerOrHeader viewWithTag:101];
+    label.text = [NSString stringWithFormat:@"header %ld",section];
+    return footerOrHeader;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    UITableViewHeaderFooterView *footerOrHeader = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"footerOrHeaderID"];
+    if (!footerOrHeader) {
+        footerOrHeader = [[UITableViewHeaderFooterView alloc] initWithReuseIdentifier:@"footerOrHeaderID"];
+        UILabel *label = [UILabel new];
+        label.textColor = [UIColor blackColor];
+        label.font = [UIFont systemFontOfSize:13];
+        label.tag = 101;
+        [footerOrHeader addSubview:label];
+        [label mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.centerX.centerY.equalTo(footerOrHeader);
+        }];
+    }
+    UILabel *label = (UILabel *)[footerOrHeader viewWithTag:101];
+    label.text = [NSString stringWithFormat:@"footer %ld",section];
+    return footerOrHeader;
+}
+
+#pragma mark -
 - (void)addPropertyInCategory {
     // 参考文章 https://www.jianshu.com/p/9e827a1708c6
     
@@ -592,7 +670,7 @@
     _mainCollectionView.backgroundColor = [UIColor whiteColor];
 }
 
-#pragma mark collectionView代理方法
+#pragma mark - collectionView代理方法
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 3;

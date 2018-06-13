@@ -7,4 +7,5 @@ pod 'IQKeyboardManager', '~> 5.0.3’
 pod 'FDFullscreenPopGesture', '1.1'
 pod 'Masonry', '~> 1.0.2'
 pod 'PGDatePicker', '~> 2.4.0'
+pod 'HJTabViewController', '~> 1.0.6'
 end

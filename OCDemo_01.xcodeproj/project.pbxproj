@@ -12,8 +12,11 @@
 		2318434A20CE290B0075C7A3 /* BaseViewController+Legal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318434920CE290B0075C7A3 /* BaseViewController+Legal.m */; };
 		2318874A20B2719800D8EF29 /* NotificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318874920B2719800D8EF29 /* NotificationVC.m */; };
 		2318875220B29E0D00D8EF29 /* NotificationLearnTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318875120B29E0D00D8EF29 /* NotificationLearnTVC.m */; };
+		232C0EF920CFC4F00035A143 /* LDDHJTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 232C0EF820CFC4F00035A143 /* LDDHJTableViewController.m */; };
+		232C0EFC20CFCB590035A143 /* HJDefaultTabViewBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 232C0EFA20CFCB590035A143 /* HJDefaultTabViewBar.m */; };
 		23388E9C20B503AA00DAAB4F /* BaseViewModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 23388E9B20B503AA00DAAB4F /* BaseViewModle.m */; };
 		23388E9F20B503CA00DAAB4F /* LDDVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 23388E9E20B503CA00DAAB4F /* LDDVM.m */; };
+		234266EE20D0BBBE000B1F3A /* LDDTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 234266ED20D0BBBE000B1F3A /* LDDTabBarViewController.m */; };
 		23949D1220BC1B65005B1562 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23949D1120BC1B65005B1562 /* BaseView.m */; };
 		23949D1520BC1B89005B1562 /* LDDCustomDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23949D1420BC1B89005B1562 /* LDDCustomDatePickerView.m */; };
 		23A9DB1020AF04ED0023D764 /* LDDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A9DB0F20AF04ED0023D764 /* LDDTableViewController.m */; };
@@ -46,10 +49,16 @@
 		2318874920B2719800D8EF29 /* NotificationVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationVC.m; sourceTree = "<group>"; };
 		2318875020B29E0D00D8EF29 /* NotificationLearnTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationLearnTVC.h; sourceTree = "<group>"; };
 		2318875120B29E0D00D8EF29 /* NotificationLearnTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationLearnTVC.m; sourceTree = "<group>"; };
+		232C0EF720CFC4F00035A143 /* LDDHJTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDHJTableViewController.h; sourceTree = "<group>"; };
+		232C0EF820CFC4F00035A143 /* LDDHJTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDHJTableViewController.m; sourceTree = "<group>"; };
+		232C0EFA20CFCB590035A143 /* HJDefaultTabViewBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HJDefaultTabViewBar.m; sourceTree = "<group>"; };
+		232C0EFB20CFCB590035A143 /* HJDefaultTabViewBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HJDefaultTabViewBar.h; sourceTree = "<group>"; };
 		23388E9A20B503AA00DAAB4F /* BaseViewModle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewModle.h; sourceTree = "<group>"; };
 		23388E9B20B503AA00DAAB4F /* BaseViewModle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewModle.m; sourceTree = "<group>"; };
 		23388E9D20B503CA00DAAB4F /* LDDVM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDVM.h; sourceTree = "<group>"; };
 		23388E9E20B503CA00DAAB4F /* LDDVM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDVM.m; sourceTree = "<group>"; };
+		234266EC20D0BBBE000B1F3A /* LDDTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDTabBarViewController.h; sourceTree = "<group>"; };
+		234266ED20D0BBBE000B1F3A /* LDDTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDTabBarViewController.m; sourceTree = "<group>"; };
 		2349C8E520B0368F00F8E933 /* MyMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMacro.h; sourceTree = "<group>"; };
 		23949D1020BC1B65005B1562 /* BaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
 		23949D1120BC1B65005B1562 /* BaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseView.m; sourceTree = "<group>"; };
@@ -122,6 +131,8 @@
 			children = (
 				23949D1320BC1B89005B1562 /* LDDCustomDatePickerView.h */,
 				23949D1420BC1B89005B1562 /* LDDCustomDatePickerView.m */,
+				232C0EFB20CFCB590035A143 /* HJDefaultTabViewBar.h */,
+				232C0EFA20CFCB590035A143 /* HJDefaultTabViewBar.m */,
 			);
 			name = View;
 			path = OCDemo_01/LDD/View;
@@ -158,6 +169,10 @@
 				2318874920B2719800D8EF29 /* NotificationVC.m */,
 				2301E38320B6B4A8004D7DAE /* LDDVC1.h */,
 				2301E38420B6B4A8004D7DAE /* LDDVC1.m */,
+				232C0EF720CFC4F00035A143 /* LDDHJTableViewController.h */,
+				232C0EF820CFC4F00035A143 /* LDDHJTableViewController.m */,
+				234266EC20D0BBBE000B1F3A /* LDDTabBarViewController.h */,
+				234266ED20D0BBBE000B1F3A /* LDDTabBarViewController.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -409,8 +424,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				23388E9F20B503CA00DAAB4F /* LDDVM.m in Sources */,
+				232C0EF920CFC4F00035A143 /* LDDHJTableViewController.m in Sources */,
 				2301E38520B6B4A8004D7DAE /* LDDVC1.m in Sources */,
 				23949D1520BC1B89005B1562 /* LDDCustomDatePickerView.m in Sources */,
+				232C0EFC20CFCB590035A143 /* HJDefaultTabViewBar.m in Sources */,
 				2318434720CE23900075C7A3 /* BaseViewController+UNLegal.m in Sources */,
 				DB8C6413208DAF0100012736 /* RootTableViewController.m in Sources */,
 				23388E9C20B503AA00DAAB4F /* BaseViewModle.m in Sources */,
@@ -421,6 +438,7 @@
 				DB3A1E4520906458009EC30A /* RACVC.m in Sources */,
 				DBECBF222089D056004FED83 /* main.m in Sources */,
 				2318874A20B2719800D8EF29 /* NotificationVC.m in Sources */,
+				234266EE20D0BBBE000B1F3A /* LDDTabBarViewController.m in Sources */,
 				23949D1220BC1B65005B1562 /* BaseView.m in Sources */,
 				2318875220B29E0D00D8EF29 /* NotificationLearnTVC.m in Sources */,
 				23A9DB1020AF04ED0023D764 /* LDDTableViewController.m in Sources */,
@@ -561,17 +579,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69S36A93WW;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 2TUS8V5SW7;
 				INFOPLIST_FILE = "$(SRCROOT)/OCDemo_01/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.keefe.OCDemo-01";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ldd.shikuDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "f70b3a28-825a-4ee6-9948-66132c7948c4";
+				PROVISIONING_PROFILE_SPECIFIER = ldd_shiku_dev;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -582,15 +601,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 69S36A93WW;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/OCDemo_01/Other/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.keefe.OCDemo-01";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ldd.shikuDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -13,6 +13,8 @@
 #import "NotificationVC.h"
 #import "IQKeyboardVC.h"
 #import "LDDVC1.h"
+#import "LDDHJTableViewController.h"
+#import "LDDTabBarViewController.h"
 
 @interface LDDTableViewController ()
 
@@ -73,6 +75,14 @@
     [self addCell:@"定时器相关Timer" class:@"LDDVC1"];
     //20
     [self addCell:@"分类(Category):添加成员变量" class:@"LDDVC1"];
+    //21
+    [self addCell:@"HJTabViewController:基本使用" class:@"21"];
+    //22
+    [self addCell:@"HJTabViewController:配合TabBarController" class:@"22"];
+    //23
+    [self addCell:@"UITableView: tableFooterView" class:@"LDDVC1"];
+    //24
+    [self addCell:@"TabBarController对TableView的影响" class:@"24"];
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     
@@ -171,6 +181,18 @@
             IQKeyboardVC *vc = [IQKeyboardVC new];
             vc.index = indexPath.row;
             
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else if ([className isEqualToString:@"21"]) {
+            LDDHJTableViewController *vc = [LDDHJTableViewController new];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else if ([className isEqualToString:@"22"]) {
+            LDDTabBarViewController *vc = [LDDTabBarViewController new];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else if ([className isEqualToString:@"24"]) {
+            LDDTabBarViewController *vc = [LDDTabBarViewController new];
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
