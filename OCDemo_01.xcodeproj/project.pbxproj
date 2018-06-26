@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2301E38520B6B4A8004D7DAE /* LDDVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2301E38420B6B4A8004D7DAE /* LDDVC1.m */; };
+		230BCF3620E0E9E1001A90B6 /* neighbour_shot_rule.html in Resources */ = {isa = PBXBuildFile; fileRef = 230BCF3520E0E9E1001A90B6 /* neighbour_shot_rule.html */; };
 		2318434720CE23900075C7A3 /* BaseViewController+UNLegal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318434620CE23900075C7A3 /* BaseViewController+UNLegal.m */; };
 		2318434A20CE290B0075C7A3 /* BaseViewController+Legal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318434920CE290B0075C7A3 /* BaseViewController+Legal.m */; };
 		2318874A20B2719800D8EF29 /* NotificationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318874920B2719800D8EF29 /* NotificationVC.m */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		2301E38320B6B4A8004D7DAE /* LDDVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDVC1.h; sourceTree = "<group>"; };
 		2301E38420B6B4A8004D7DAE /* LDDVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDVC1.m; sourceTree = "<group>"; };
+		230BCF3520E0E9E1001A90B6 /* neighbour_shot_rule.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = neighbour_shot_rule.html; sourceTree = "<group>"; };
 		2318434520CE23900075C7A3 /* BaseViewController+UNLegal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaseViewController+UNLegal.h"; sourceTree = "<group>"; };
 		2318434620CE23900075C7A3 /* BaseViewController+UNLegal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BaseViewController+UNLegal.m"; sourceTree = "<group>"; };
 		2318434820CE290B0075C7A3 /* BaseViewController+Legal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaseViewController+Legal.h"; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				DBECBF1D2089D056004FED83 /* LaunchScreen.storyboard */,
 				DBECBF202089D056004FED83 /* Info.plist */,
 				DBECBF212089D056004FED83 /* main.m */,
+				230BCF3520E0E9E1001A90B6 /* neighbour_shot_rule.html */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				230BCF3620E0E9E1001A90B6 /* neighbour_shot_rule.html in Resources */,
 				DB3A1E4620906458009EC30A /* RACVC.xib in Resources */,
 				DBECBF1F2089D056004FED83 /* LaunchScreen.storyboard in Resources */,
 				23C2881C20AFBD3500CF6EC6 /* IQKeyboardVC.xib in Resources */,

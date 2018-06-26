@@ -83,6 +83,10 @@
     [self addCell:@"UITableView: tableFooterView" class:@"LDDVC1"];
     //24
     [self addCell:@"TabBarController对TableView的影响" class:@"24"];
+    //25
+    [self addCell:@"UIWebView:调用相册内存泄漏" class:@"LDDVC1"];
+    //26
+    [self addCell:@"WKWebView" class:@"LDDVC1"];
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     

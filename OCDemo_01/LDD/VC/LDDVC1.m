@@ -10,6 +10,8 @@
 #import "LDDCustomDatePickerView.h"
 #import "BaseViewController+UNLegal.h"
 #import "BaseViewController+Legal.h"
+#import <WebKit/WKWebView.h>
+#import <WebKit/WKWebViewConfiguration.h>
 
 @implementation MyCollectionViewCell
 
@@ -31,7 +33,7 @@
 
 @end
 
-@interface LDDVC1 ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource>
+@interface LDDVC1 ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate>
 
 @property (nonatomic, strong) UICollectionView *mainCollectionView;
 
@@ -75,6 +77,11 @@
     [_traditionTimer invalidate];
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"WebKitCacheModelPreferenceKey"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -98,6 +105,66 @@
     else if (self.index == 23) {
         [self tableFootView];
     }
+    else if (self.index == 25) {
+        [self webViewUse];
+    }
+    else if (self.index == 26) {
+        [self wkWebViewUse];
+    }
+}
+
+- (void)wkWebViewUse {
+    [self.view addSubview:self.label1];
+    self.label1.text = @"将UIWebView替换为WKWebView后,调用系统相册的时候还是会被MKLeaksFinder监测到内存泄漏...但是内存十分平缓,不会有内存飙升的情况。";
+    [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@70);
+        make.left.equalTo(@20);
+        make.right.equalTo(@-20);
+    }];
+    
+    /*
+    WKWebViewConfiguration *config = [[WKWebViewConfiguration alloc] init];
+    config.selectionGranularity = WKSelectionGranularityCharacter;
+    WKWebView *webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:config];*/
+    WKWebView *webView = [WKWebView new];
+    [self.view addSubview:webView];
+    [webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.label1.mas_bottom).offset(5);
+        make.left.right.bottom.equalTo(@0);
+    }];
+    NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://m.baidu.com"]];
+    [webView loadRequest:req];
+}
+
+- (void)webViewUse {
+    [self.view addSubview:self.label1];
+    /*https://blog.csdn.net/yeshennet/article/details/52541421*/
+    self.label1.text = @"发现的问题是使用UIWebView控件的页面调用系统相册时都会被检测到内存泄漏。同时也能看到内存飙升。查阅了相关方法,在打理方法中设置了相关方法,基本没什么效果...";
+    [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@70);
+        make.left.equalTo(@20);
+        make.right.equalTo(@-20);
+    }];
+    
+    UIWebView *webView = [UIWebView new];
+    webView.delegate = self;
+    webView.backgroundColor = [UIColor yellowColor];
+    [self.view addSubview:webView];
+    [webView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.label1.mas_bottom).offset(5);
+        make.left.right.bottom.equalTo(@0);
+    }];
+    /*https://m.baidu.com*/
+    //NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:[[NSBundle mainBundle] pathForResource:@"neighbour_shot_rule" ofType:@"html"]]];
+    NSURLRequest *req = [[NSURLRequest alloc] initWithURL:[NSURL URLWithString:@"https://m.baidu.com"]];
+    [webView loadRequest:req];
+}
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"WebKitCacheModelPreferenceKey"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"WebKitDiskImageCacheEnabled"];
+    [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"WebKitOfflineWebApplicationCacheEnabled"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)tableFootView {

@@ -724,6 +724,14 @@
 }
 
 - (void)createBottomTF {
+    [self.view addSubview:self.label1];
+    [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(@85);
+        make.left.equalTo(@20);
+        make.right.equalTo(@-20);
+    }];
+    self.label1.text = @"已知在iOS11以上系统会出现导航栏上移的bug，需要使用该方法修改下IQKeyboardManamge的源码。 https://www.jianshu.com/p/1dada9593f81";
+    
     UITextField *tf1 = [UITextField new];
     UITextField *tf2 = [UITextField new];
     
@@ -776,6 +784,7 @@
         _label1 = [UILabel new];
         _label1.textColor = [UIColor blackColor];
         _label1.font = [UIFont systemFontOfSize:14];
+        _label1.numberOfLines = 0;
     }
     return _label1;
 }
