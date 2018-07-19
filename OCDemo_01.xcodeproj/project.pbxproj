@@ -21,6 +21,8 @@
 		23949D1220BC1B65005B1562 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23949D1120BC1B65005B1562 /* BaseView.m */; };
 		23949D1520BC1B89005B1562 /* LDDCustomDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23949D1420BC1B89005B1562 /* LDDCustomDatePickerView.m */; };
 		23A9DB1020AF04ED0023D764 /* LDDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A9DB0F20AF04ED0023D764 /* LDDTableViewController.m */; };
+		23BCB61720FF3F7600BEE498 /* ScrollViewInXibVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23BCB61520FF3F7600BEE498 /* ScrollViewInXibVC.m */; };
+		23BCB61820FF3F7600BEE498 /* ScrollViewInXibVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23BCB61620FF3F7600BEE498 /* ScrollViewInXibVC.xib */; };
 		23C2881B20AFBD3500CF6EC6 /* IQKeyboardVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23C2881920AFBD3500CF6EC6 /* IQKeyboardVC.m */; };
 		23C2881C20AFBD3500CF6EC6 /* IQKeyboardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C2881A20AFBD3500CF6EC6 /* IQKeyboardVC.xib */; };
 		336D324F1F9376401793DEF9 /* libPods-OCDemo_01.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC6E0A4DEB3A28048ABDC9D4 /* libPods-OCDemo_01.a */; };
@@ -68,6 +70,9 @@
 		23949D1420BC1B89005B1562 /* LDDCustomDatePickerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDCustomDatePickerView.m; sourceTree = "<group>"; };
 		23A9DB0E20AF04ED0023D764 /* LDDTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDTableViewController.h; sourceTree = "<group>"; };
 		23A9DB0F20AF04ED0023D764 /* LDDTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDTableViewController.m; sourceTree = "<group>"; };
+		23BCB61420FF3F7600BEE498 /* ScrollViewInXibVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollViewInXibVC.h; sourceTree = "<group>"; };
+		23BCB61520FF3F7600BEE498 /* ScrollViewInXibVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollViewInXibVC.m; sourceTree = "<group>"; };
+		23BCB61620FF3F7600BEE498 /* ScrollViewInXibVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScrollViewInXibVC.xib; sourceTree = "<group>"; };
 		23C2881820AFBD3500CF6EC6 /* IQKeyboardVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IQKeyboardVC.h; sourceTree = "<group>"; };
 		23C2881920AFBD3500CF6EC6 /* IQKeyboardVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IQKeyboardVC.m; sourceTree = "<group>"; };
 		23C2881A20AFBD3500CF6EC6 /* IQKeyboardVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IQKeyboardVC.xib; sourceTree = "<group>"; };
@@ -175,6 +180,9 @@
 				232C0EF820CFC4F00035A143 /* LDDHJTableViewController.m */,
 				234266EC20D0BBBE000B1F3A /* LDDTabBarViewController.h */,
 				234266ED20D0BBBE000B1F3A /* LDDTabBarViewController.m */,
+				23BCB61420FF3F7600BEE498 /* ScrollViewInXibVC.h */,
+				23BCB61520FF3F7600BEE498 /* ScrollViewInXibVC.m */,
+				23BCB61620FF3F7600BEE498 /* ScrollViewInXibVC.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -376,6 +384,7 @@
 				23C2881C20AFBD3500CF6EC6 /* IQKeyboardVC.xib in Resources */,
 				DBECBF1C2089D056004FED83 /* Assets.xcassets in Resources */,
 				DB3A1E4B209078CC009EC30A /* NotificationTestVC.xib in Resources */,
+				23BCB61820FF3F7600BEE498 /* ScrollViewInXibVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +455,7 @@
 				23949D1220BC1B65005B1562 /* BaseView.m in Sources */,
 				2318875220B29E0D00D8EF29 /* NotificationLearnTVC.m in Sources */,
 				23A9DB1020AF04ED0023D764 /* LDDTableViewController.m in Sources */,
+				23BCB61720FF3F7600BEE498 /* ScrollViewInXibVC.m in Sources */,
 				DB8C641C208DB7FB00012736 /* UIView+Add.m in Sources */,
 				DBECBF142089D056004FED83 /* AppDelegate.m in Sources */,
 				DB3A1E4A209078CC009EC30A /* NotificationTestVC.m in Sources */,

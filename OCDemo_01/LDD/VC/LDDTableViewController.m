@@ -15,6 +15,7 @@
 #import "LDDVC1.h"
 #import "LDDHJTableViewController.h"
 #import "LDDTabBarViewController.h"
+#import "ScrollViewInXibVC.h"
 
 @interface LDDTableViewController ()
 
@@ -87,6 +88,8 @@
     [self addCell:@"UIWebView:调用相册内存泄漏" class:@"LDDVC1"];
     //26
     [self addCell:@"WKWebView" class:@"LDDVC1"];
+    //27
+    [self addCell:@"Xib-UIScrollView" class:@"27"];
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     
@@ -197,6 +200,10 @@
         }
         else if ([className isEqualToString:@"24"]) {
             LDDTabBarViewController *vc = [LDDTabBarViewController new];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else if ([className isEqualToString:@"27"]) {
+            ScrollViewInXibVC *vc = [[ScrollViewInXibVC alloc] initWithNibName:@"ScrollViewInXibVC" bundle:nil];
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
