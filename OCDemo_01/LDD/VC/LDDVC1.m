@@ -12,6 +12,7 @@
 #import "BaseViewController+Legal.h"
 #import <WebKit/WKWebView.h>
 #import <WebKit/WKWebViewConfiguration.h>
+#import "ContentViewController.h"
 
 @implementation MyCollectionViewCell
 
@@ -33,7 +34,7 @@
 
 @end
 
-@interface LDDVC1 ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate>
+@interface LDDVC1 ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITextFieldDelegate,UITableViewDelegate,UITableViewDataSource,UIWebViewDelegate,UIPageViewControllerDelegate,UIPageViewControllerDataSource>
 
 @property (nonatomic, strong) UICollectionView *mainCollectionView;
 
@@ -67,6 +68,9 @@
 @property (nonatomic, strong) NSTimer *YYKitTimer;
 @property (nonatomic, strong) NSTimer *traditionTimer;
 @property (nonatomic, strong) dispatch_source_t GCDTimer;
+
+@property (nonatomic, strong) UIPageViewController *pageVC;
+@property (nonatomic, strong) NSMutableArray *pageContentArray;
 
 @end
 
@@ -111,12 +115,79 @@
     else if (self.index == 26) {
         [self wkWebViewUse];
     }
-    else if (self.index == 27) {
-        
+    else if (self.index == 28) {
+        [self pageViewController];
     }
 }
 
-- (void)scrollViewInXib {}
+- (void)pageViewController {
+    [self addChildViewController:self.pageVC];
+    [self.view addSubview:self.pageVC.view];
+}
+
+- (UIPageViewController *)pageVC {
+    if (!_pageVC) {
+        NSDictionary *options = @{UIPageViewControllerOptionSpineLocationKey:@(UIPageViewControllerSpineLocationMid),
+                                  UIPageViewControllerOptionInterPageSpacingKey:@50};
+        _pageVC = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStylePageCurl navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:options];
+        _pageVC.doubleSided = YES;
+        _pageVC.delegate = self;
+        _pageVC.dataSource = self;
+        
+        ContentViewController *initialViewController = [self viewControllerAtIndex:0];
+        ContentViewController *initialViewController2 = [self viewControllerAtIndex:1];
+        NSArray *viewControllers = [NSArray arrayWithObjects:initialViewController,initialViewController2, nil];
+        [_pageVC setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionReverse animated:NO completion:nil];
+        _pageVC.view.frame = CGRectMake(0, 64, YYScreenSize().width, YYScreenSize().height - 64);
+    }
+    return _pageVC;
+}
+
+- (ContentViewController *)viewControllerAtIndex:(NSUInteger)index {
+    if (self.pageContentArray.count == 0 || index >= self.pageContentArray.count) {
+        return nil;
+    }
+    ContentViewController *vc = [[ContentViewController alloc] initWithNibName:@"ContentViewController" bundle:nil];
+    vc.content = self.pageContentArray[index];
+    return vc;
+}
+
+- (NSUInteger)indexOfViewController:(ContentViewController *)viewController {
+    return [self.pageContentArray indexOfObject:viewController.content];
+}
+
+- (NSMutableArray *)pageContentArray {
+    if (!_pageContentArray) {
+        _pageContentArray = [NSMutableArray arrayWithCapacity:0];
+        for (NSInteger i = 0; i < 10; i++) {
+            NSString *contentStr = [[NSString alloc] initWithFormat:@"This is the page %ld of content displayed using UIPageViewController",i];
+            [_pageContentArray addObject:contentStr];
+        }
+    }
+    return _pageContentArray;
+}
+
+#pragma mark - UIPageViewController Delegate And Datasource
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController {
+    NSUInteger index = [self indexOfViewController:(ContentViewController *)viewController];
+    if (index == NSNotFound || index == 0) {
+        return nil;
+    }
+    index--;
+    return [self viewControllerAtIndex:index];
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController {
+    NSUInteger index = [self indexOfViewController:(ContentViewController *)viewController];
+    if (index == NSNotFound) {
+        return nil;
+    }
+    index++;
+    if (index == self.pageContentArray.count) {
+        return nil;
+    }
+    return [self viewControllerAtIndex:index];
+}
 
 - (void)wkWebViewUse {
     [self.view addSubview:self.label1];

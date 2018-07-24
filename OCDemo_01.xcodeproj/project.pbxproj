@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2301E38520B6B4A8004D7DAE /* LDDVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2301E38420B6B4A8004D7DAE /* LDDVC1.m */; };
+		2302563C2101CDAA006292D9 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2302563A2101CDAA006292D9 /* ContentViewController.m */; };
+		2302563D2101CDAA006292D9 /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2302563B2101CDAA006292D9 /* ContentViewController.xib */; };
 		230BCF3620E0E9E1001A90B6 /* neighbour_shot_rule.html in Resources */ = {isa = PBXBuildFile; fileRef = 230BCF3520E0E9E1001A90B6 /* neighbour_shot_rule.html */; };
 		2318434720CE23900075C7A3 /* BaseViewController+UNLegal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318434620CE23900075C7A3 /* BaseViewController+UNLegal.m */; };
 		2318434A20CE290B0075C7A3 /* BaseViewController+Legal.m in Sources */ = {isa = PBXBuildFile; fileRef = 2318434920CE290B0075C7A3 /* BaseViewController+Legal.m */; };
@@ -44,6 +46,9 @@
 /* Begin PBXFileReference section */
 		2301E38320B6B4A8004D7DAE /* LDDVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDVC1.h; sourceTree = "<group>"; };
 		2301E38420B6B4A8004D7DAE /* LDDVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDVC1.m; sourceTree = "<group>"; };
+		230256392101CDAA006292D9 /* ContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		2302563A2101CDAA006292D9 /* ContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		2302563B2101CDAA006292D9 /* ContentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContentViewController.xib; sourceTree = "<group>"; };
 		230BCF3520E0E9E1001A90B6 /* neighbour_shot_rule.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = neighbour_shot_rule.html; sourceTree = "<group>"; };
 		2318434520CE23900075C7A3 /* BaseViewController+UNLegal.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BaseViewController+UNLegal.h"; sourceTree = "<group>"; };
 		2318434620CE23900075C7A3 /* BaseViewController+UNLegal.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "BaseViewController+UNLegal.m"; sourceTree = "<group>"; };
@@ -183,6 +188,9 @@
 				23BCB61420FF3F7600BEE498 /* ScrollViewInXibVC.h */,
 				23BCB61520FF3F7600BEE498 /* ScrollViewInXibVC.m */,
 				23BCB61620FF3F7600BEE498 /* ScrollViewInXibVC.xib */,
+				230256392101CDAA006292D9 /* ContentViewController.h */,
+				2302563A2101CDAA006292D9 /* ContentViewController.m */,
+				2302563B2101CDAA006292D9 /* ContentViewController.xib */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -382,6 +390,7 @@
 				DB3A1E4620906458009EC30A /* RACVC.xib in Resources */,
 				DBECBF1F2089D056004FED83 /* LaunchScreen.storyboard in Resources */,
 				23C2881C20AFBD3500CF6EC6 /* IQKeyboardVC.xib in Resources */,
+				2302563D2101CDAA006292D9 /* ContentViewController.xib in Resources */,
 				DBECBF1C2089D056004FED83 /* Assets.xcassets in Resources */,
 				DB3A1E4B209078CC009EC30A /* NotificationTestVC.xib in Resources */,
 				23BCB61820FF3F7600BEE498 /* ScrollViewInXibVC.xib in Resources */,
@@ -457,6 +466,7 @@
 				23A9DB1020AF04ED0023D764 /* LDDTableViewController.m in Sources */,
 				23BCB61720FF3F7600BEE498 /* ScrollViewInXibVC.m in Sources */,
 				DB8C641C208DB7FB00012736 /* UIView+Add.m in Sources */,
+				2302563C2101CDAA006292D9 /* ContentViewController.m in Sources */,
 				DBECBF142089D056004FED83 /* AppDelegate.m in Sources */,
 				DB3A1E4A209078CC009EC30A /* NotificationTestVC.m in Sources */,
 				2318434A20CE290B0075C7A3 /* BaseViewController+Legal.m in Sources */,

@@ -90,6 +90,8 @@
     [self addCell:@"WKWebView" class:@"LDDVC1"];
     //27
     [self addCell:@"Xib-UIScrollView" class:@"27"];
+    //28
+    [self addCell:@"UIPageViewController" class:@"LDDVC1"];
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     
