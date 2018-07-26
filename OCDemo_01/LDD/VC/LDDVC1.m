@@ -13,6 +13,7 @@
 #import <WebKit/WKWebView.h>
 #import <WebKit/WKWebViewConfiguration.h>
 #import "ContentViewController.h"
+#import "BezierPathView.h"
 
 @implementation MyCollectionViewCell
 
@@ -118,6 +119,21 @@
     else if (self.index == 28) {
         [self pageViewController];
     }
+    else if (self.index == 30) {
+        [self bezierPathView];
+    }
+}
+
+- (void)bezierPathView {
+    CGRect statusRect = [[UIApplication sharedApplication] statusBarFrame];
+    CGRect navRect = self.navigationController.navigationBar.frame;
+//    CGRect tabRect = self.tabBarController.tabBar.frame.size.height;
+    BezierPathView *view = [BezierPathView new];
+    view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:view];
+    [view mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(UIEdgeInsetsMake(statusRect.size.height + navRect.size.height, 0, 0, 0));
+    }];
 }
 
 - (void)pageViewController {

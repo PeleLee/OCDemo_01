@@ -16,6 +16,7 @@
 #import "LDDHJTableViewController.h"
 #import "LDDTabBarViewController.h"
 #import "ScrollViewInXibVC.h"
+#import "LDDPageViewController.h"
 
 @interface LDDTableViewController ()
 
@@ -92,6 +93,10 @@
     [self addCell:@"Xib-UIScrollView" class:@"27"];
     //28
     [self addCell:@"UIPageViewController" class:@"LDDVC1"];
+    //29
+    [self addCell:@"WKPageController" class:@"29"];
+    //30
+    [self addCell:@"UIBezierPath" class:@"LDDVC1"];
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     
@@ -206,6 +211,12 @@
         }
         else if ([className isEqualToString:@"27"]) {
             ScrollViewInXibVC *vc = [[ScrollViewInXibVC alloc] initWithNibName:@"ScrollViewInXibVC" bundle:nil];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else if ([className isEqualToString:@"29"]) {
+            LDDPageViewController *vc = [[LDDPageViewController alloc] init];
+            vc.menuViewStyle = WMMenuViewStyleLine;
+//            vc.showOnNavigationBar = YES;
             [self.navigationController pushViewController:vc animated:YES];
         }
     }

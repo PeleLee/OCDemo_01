@@ -20,6 +20,8 @@
 		23388E9C20B503AA00DAAB4F /* BaseViewModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 23388E9B20B503AA00DAAB4F /* BaseViewModle.m */; };
 		23388E9F20B503CA00DAAB4F /* LDDVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 23388E9E20B503CA00DAAB4F /* LDDVM.m */; };
 		234266EE20D0BBBE000B1F3A /* LDDTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 234266ED20D0BBBE000B1F3A /* LDDTabBarViewController.m */; };
+		235AF53921070717009AE388 /* LDDPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235AF53821070717009AE388 /* LDDPageViewController.m */; };
+		23648EBB2109BEE9004AB0F5 /* BezierPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23648EBA2109BEE9004AB0F5 /* BezierPathView.m */; };
 		23949D1220BC1B65005B1562 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23949D1120BC1B65005B1562 /* BaseView.m */; };
 		23949D1520BC1B89005B1562 /* LDDCustomDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23949D1420BC1B89005B1562 /* LDDCustomDatePickerView.m */; };
 		23A9DB1020AF04ED0023D764 /* LDDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A9DB0F20AF04ED0023D764 /* LDDTableViewController.m */; };
@@ -69,6 +71,10 @@
 		234266EC20D0BBBE000B1F3A /* LDDTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDTabBarViewController.h; sourceTree = "<group>"; };
 		234266ED20D0BBBE000B1F3A /* LDDTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDTabBarViewController.m; sourceTree = "<group>"; };
 		2349C8E520B0368F00F8E933 /* MyMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMacro.h; sourceTree = "<group>"; };
+		235AF53721070717009AE388 /* LDDPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDPageViewController.h; sourceTree = "<group>"; };
+		235AF53821070717009AE388 /* LDDPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDPageViewController.m; sourceTree = "<group>"; };
+		23648EB92109BEE9004AB0F5 /* BezierPathView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BezierPathView.h; sourceTree = "<group>"; };
+		23648EBA2109BEE9004AB0F5 /* BezierPathView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierPathView.m; sourceTree = "<group>"; };
 		23949D1020BC1B65005B1562 /* BaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
 		23949D1120BC1B65005B1562 /* BaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseView.m; sourceTree = "<group>"; };
 		23949D1320BC1B89005B1562 /* LDDCustomDatePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDCustomDatePickerView.h; sourceTree = "<group>"; };
@@ -191,6 +197,10 @@
 				230256392101CDAA006292D9 /* ContentViewController.h */,
 				2302563A2101CDAA006292D9 /* ContentViewController.m */,
 				2302563B2101CDAA006292D9 /* ContentViewController.xib */,
+				235AF53721070717009AE388 /* LDDPageViewController.h */,
+				235AF53821070717009AE388 /* LDDPageViewController.m */,
+				23648EB92109BEE9004AB0F5 /* BezierPathView.h */,
+				23648EBA2109BEE9004AB0F5 /* BezierPathView.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -447,6 +457,7 @@
 			files = (
 				23388E9F20B503CA00DAAB4F /* LDDVM.m in Sources */,
 				232C0EF920CFC4F00035A143 /* LDDHJTableViewController.m in Sources */,
+				235AF53921070717009AE388 /* LDDPageViewController.m in Sources */,
 				2301E38520B6B4A8004D7DAE /* LDDVC1.m in Sources */,
 				23949D1520BC1B89005B1562 /* LDDCustomDatePickerView.m in Sources */,
 				232C0EFC20CFCB590035A143 /* HJDefaultTabViewBar.m in Sources */,
@@ -469,6 +480,7 @@
 				2302563C2101CDAA006292D9 /* ContentViewController.m in Sources */,
 				DBECBF142089D056004FED83 /* AppDelegate.m in Sources */,
 				DB3A1E4A209078CC009EC30A /* NotificationTestVC.m in Sources */,
+				23648EBB2109BEE9004AB0F5 /* BezierPathView.m in Sources */,
 				2318434A20CE290B0075C7A3 /* BaseViewController+Legal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
