@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="constraintsViewHeight" destination="JP3-cA-KOi" id="Ca1-96-KJ3"/>
                 <outlet property="label" destination="SiI-uK-YsY" id="X64-lp-vLs"/>
+                <outlet property="scrollTopConstraint" destination="2eq-Fl-cZR" id="b56-aH-hgw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="viewHeight1" destination="2rV-61-X7M" id="p88-E4-SdB"/>
                 <outlet property="viewHeight2" destination="lQE-Yc-d2e" id="4cq-rg-ndZ"/>

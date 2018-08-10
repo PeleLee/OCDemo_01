@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BaseViewController.h"
 
-@interface ScrollViewInXibVC : UIViewController
+@interface ScrollViewInXibVC : BaseViewController
 
 @end
