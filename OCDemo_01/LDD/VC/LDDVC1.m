@@ -122,8 +122,33 @@
     else if (self.index == 30) {
         [self bezierPathView];
     }
+    else if (self.index == 31) {
+        [self iOSIDFVAndKeychain];
+    }
 }
 
+#pragma mark - 31.iOS 设备唯一标识符,LDFV配合Keychain实现
+- (void)iOSIDFVAndKeychain {
+    [self.view addSubview:self.label1];
+    NSString *str1 = @"查了资料,都说UUID在卸载应用重新安装后会发生改变,自己在真机上(iOS 11.3系统)试了7次,发现UUID都是一样的...";
+    NSString *str2 = @"然后使用模拟器试了5次,UUID也没有发生改变...";
+    NSString *str3 = @"但是为了保险起见,还是配合keychain来使用";
+    self.label1.text = [NSString stringWithFormat:@"使用系统api可以获取以下两项(其实是一样的)\nidentifierForVendor: %@\nUUID: %@\n\n%@\n\n%@\n\n%@",
+                        [[UIDevice currentDevice] identifierForVendor],
+                        [[[UIDevice currentDevice] identifierForVendor] UUIDString],
+                        str1,str2,str3];
+    NSLog(@"%@",[[UIDevice currentDevice] identifierForVendor]);
+    
+    [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(20);
+        make.right.mas_equalTo(-20);
+        make.top.mas_equalTo(k_NavBarMaxY+20);
+    }];
+    
+    
+}
+
+#pragma mark - 30.贝塞尔曲线画不规则形状:三条直线边加一个曲线边
 - (void)bezierPathView {
     CGRect statusRect = [[UIApplication sharedApplication] statusBarFrame];
     CGRect navRect = self.navigationController.navigationBar.frame;

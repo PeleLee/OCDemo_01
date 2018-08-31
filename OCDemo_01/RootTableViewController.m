@@ -29,6 +29,7 @@
     [self addCell:@"RAC" class:@"RACVC"];
     [self addCell:@"LDD" class:@"LDDTableViewController"];
     [self addCell:@"通知" class:@"NotificationLearnTVC"];
+    [self addCell:@"CustomPageControll" class:@""];
     [self.tableView reloadData];
 }
 

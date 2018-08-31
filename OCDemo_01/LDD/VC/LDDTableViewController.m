@@ -17,6 +17,7 @@
 #import "LDDTabBarViewController.h"
 #import "ScrollViewInXibVC.h"
 #import "LDDPageViewController.h"
+#import "LDDVC2.h"
 
 @interface LDDTableViewController ()
 
@@ -97,6 +98,14 @@
     [self addCell:@"WKPageController" class:@"29"];
     //30
     [self addCell:@"UIBezierPath" class:@"LDDVC1"];
+    //31
+    [self addCell:@"IDFV+keychain" class:@"LDDVC1"];
+    //32
+    [self addCell:@"自定义AlertController" class:@"LDDVC2"];
+    //33
+    [self addCell:@"UIAlertControll是否重叠" class:@"LDDVC2"];
+    //34
+    [self addCell:@"Masonry:先布局子视图后布局父视图" class:@"LDDVC2"];
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     
@@ -164,6 +173,7 @@
         }
         else if ([className isEqualToString:@"2"]) {
             NotificationVC *vc1 = [[NotificationVC alloc] init];
+            vc1.isRemoveNotification = YES;
             [vc1 addLeakObserver];
             
             NotificationVC *vc2 = [[NotificationVC alloc] init];
