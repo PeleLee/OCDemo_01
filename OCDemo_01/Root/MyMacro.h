@@ -15,5 +15,6 @@
 
 #define k_StatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
 #define k_NavBarMaxY (k_StatusBarHeight+44)
+#define k_SafeAreaHeight (k_StatusBarHeight>20?34:0)
 
 #endif /* MyMacro_h */

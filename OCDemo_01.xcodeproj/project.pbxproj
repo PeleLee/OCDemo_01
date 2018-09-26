@@ -25,6 +25,8 @@
 		23388E9F20B503CA00DAAB4F /* LDDVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 23388E9E20B503CA00DAAB4F /* LDDVM.m */; };
 		234266EE20D0BBBE000B1F3A /* LDDTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 234266ED20D0BBBE000B1F3A /* LDDTabBarViewController.m */; };
 		235AF53921070717009AE388 /* LDDPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235AF53821070717009AE388 /* LDDPageViewController.m */; };
+		23625A612142547000ADE495 /* LDDTableViewCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 23625A602142547000ADE495 /* LDDTableViewCell1.m */; };
+		23625A632142649400ADE495 /* CellContentText.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23625A622142649400ADE495 /* CellContentText.plist */; };
 		23648EBB2109BEE9004AB0F5 /* BezierPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23648EBA2109BEE9004AB0F5 /* BezierPathView.m */; };
 		23666C3521338B94005536D0 /* LQFAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23666C3421338B94005536D0 /* LQFAlertController.m */; };
 		23949D1220BC1B65005B1562 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23949D1120BC1B65005B1562 /* BaseView.m */; };
@@ -86,6 +88,9 @@
 		2349C8E520B0368F00F8E933 /* MyMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMacro.h; sourceTree = "<group>"; };
 		235AF53721070717009AE388 /* LDDPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDPageViewController.h; sourceTree = "<group>"; };
 		235AF53821070717009AE388 /* LDDPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDPageViewController.m; sourceTree = "<group>"; };
+		23625A5F2142547000ADE495 /* LDDTableViewCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDTableViewCell1.h; sourceTree = "<group>"; };
+		23625A602142547000ADE495 /* LDDTableViewCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDTableViewCell1.m; sourceTree = "<group>"; };
+		23625A622142649400ADE495 /* CellContentText.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = CellContentText.plist; sourceTree = "<group>"; };
 		23648EB92109BEE9004AB0F5 /* BezierPathView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BezierPathView.h; sourceTree = "<group>"; };
 		23648EBA2109BEE9004AB0F5 /* BezierPathView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierPathView.m; sourceTree = "<group>"; };
 		23666C3321338B94005536D0 /* LQFAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQFAlertController.h; sourceTree = "<group>"; };
@@ -202,6 +207,9 @@
 				23949D1420BC1B89005B1562 /* LDDCustomDatePickerView.m */,
 				232C0EFB20CFCB590035A143 /* HJDefaultTabViewBar.h */,
 				232C0EFA20CFCB590035A143 /* HJDefaultTabViewBar.m */,
+				23625A5F2142547000ADE495 /* LDDTableViewCell1.h */,
+				23625A602142547000ADE495 /* LDDTableViewCell1.m */,
+				23625A622142649400ADE495 /* CellContentText.plist */,
 			);
 			name = View;
 			path = OCDemo_01/LDD/View;
@@ -454,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				230BCF3620E0E9E1001A90B6 /* neighbour_shot_rule.html in Resources */,
+				23625A632142649400ADE495 /* CellContentText.plist in Resources */,
 				DB3A1E4620906458009EC30A /* RACVC.xib in Resources */,
 				DBECBF1F2089D056004FED83 /* LaunchScreen.storyboard in Resources */,
 				23C2881C20AFBD3500CF6EC6 /* IQKeyboardVC.xib in Resources */,
@@ -537,6 +546,7 @@
 				23A9DB1020AF04ED0023D764 /* LDDTableViewController.m in Sources */,
 				23145A4B211D3B1B002EEDDF /* NLPageController.m in Sources */,
 				23BCB61720FF3F7600BEE498 /* ScrollViewInXibVC.m in Sources */,
+				23625A612142547000ADE495 /* LDDTableViewCell1.m in Sources */,
 				DB8C641C208DB7FB00012736 /* UIView+Add.m in Sources */,
 				2302563C2101CDAA006292D9 /* ContentViewController.m in Sources */,
 				DBECBF142089D056004FED83 /* AppDelegate.m in Sources */,

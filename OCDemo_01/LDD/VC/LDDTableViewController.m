@@ -106,6 +106,12 @@
     [self addCell:@"UIAlertControll是否重叠" class:@"LDDVC2"];
     //34
     [self addCell:@"Masonry:先布局子视图后布局父视图" class:@"LDDVC2"];
+    //35
+    [self addCell:@"UITableView Cell高度自适应" class:@"LDDVC2"];
+    //36
+    [self addCell:@"UIPageControll" class:@"LDDVC2"];
+    //37
+    [self addCell:@"Xib-根据内容视图确定背景图大小" class:@"LDDVC2"];
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     
