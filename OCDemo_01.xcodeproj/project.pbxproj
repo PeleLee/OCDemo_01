@@ -24,11 +24,15 @@
 		23388E9C20B503AA00DAAB4F /* BaseViewModle.m in Sources */ = {isa = PBXBuildFile; fileRef = 23388E9B20B503AA00DAAB4F /* BaseViewModle.m */; };
 		23388E9F20B503CA00DAAB4F /* LDDVM.m in Sources */ = {isa = PBXBuildFile; fileRef = 23388E9E20B503CA00DAAB4F /* LDDVM.m */; };
 		234266EE20D0BBBE000B1F3A /* LDDTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 234266ED20D0BBBE000B1F3A /* LDDTabBarViewController.m */; };
+		23551E7D21C78E92001C6C01 /* AdaptiveHeightCellVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 23551E7C21C78E92001C6C01 /* AdaptiveHeightCellVC.m */; };
+		23551E8021C79A47001C6C01 /* AdaptiveTableViewCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 23551E7F21C79A47001C6C01 /* AdaptiveTableViewCell1.m */; };
+		23551E8221C79D07001C6C01 /* community_home.png in Resources */ = {isa = PBXBuildFile; fileRef = 23551E8121C79D06001C6C01 /* community_home.png */; };
 		235AF53921070717009AE388 /* LDDPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 235AF53821070717009AE388 /* LDDPageViewController.m */; };
 		23625A612142547000ADE495 /* LDDTableViewCell1.m in Sources */ = {isa = PBXBuildFile; fileRef = 23625A602142547000ADE495 /* LDDTableViewCell1.m */; };
 		23625A632142649400ADE495 /* CellContentText.plist in Resources */ = {isa = PBXBuildFile; fileRef = 23625A622142649400ADE495 /* CellContentText.plist */; };
 		23648EBB2109BEE9004AB0F5 /* BezierPathView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23648EBA2109BEE9004AB0F5 /* BezierPathView.m */; };
 		23666C3521338B94005536D0 /* LQFAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23666C3421338B94005536D0 /* LQFAlertController.m */; };
+		236E04ED21A4F8E700181319 /* LDDCustomCameraVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 236E04EC21A4F8E700181319 /* LDDCustomCameraVC.m */; };
 		23949D1220BC1B65005B1562 /* BaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23949D1120BC1B65005B1562 /* BaseView.m */; };
 		23949D1520BC1B89005B1562 /* LDDCustomDatePickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 23949D1420BC1B89005B1562 /* LDDCustomDatePickerView.m */; };
 		23A9DB1020AF04ED0023D764 /* LDDTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A9DB0F20AF04ED0023D764 /* LDDTableViewController.m */; };
@@ -86,6 +90,11 @@
 		234266EC20D0BBBE000B1F3A /* LDDTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDTabBarViewController.h; sourceTree = "<group>"; };
 		234266ED20D0BBBE000B1F3A /* LDDTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDTabBarViewController.m; sourceTree = "<group>"; };
 		2349C8E520B0368F00F8E933 /* MyMacro.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMacro.h; sourceTree = "<group>"; };
+		23551E7B21C78E92001C6C01 /* AdaptiveHeightCellVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdaptiveHeightCellVC.h; sourceTree = "<group>"; };
+		23551E7C21C78E92001C6C01 /* AdaptiveHeightCellVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdaptiveHeightCellVC.m; sourceTree = "<group>"; };
+		23551E7E21C79A47001C6C01 /* AdaptiveTableViewCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdaptiveTableViewCell1.h; sourceTree = "<group>"; };
+		23551E7F21C79A47001C6C01 /* AdaptiveTableViewCell1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdaptiveTableViewCell1.m; sourceTree = "<group>"; };
+		23551E8121C79D06001C6C01 /* community_home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = community_home.png; sourceTree = "<group>"; };
 		235AF53721070717009AE388 /* LDDPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDPageViewController.h; sourceTree = "<group>"; };
 		235AF53821070717009AE388 /* LDDPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDPageViewController.m; sourceTree = "<group>"; };
 		23625A5F2142547000ADE495 /* LDDTableViewCell1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDTableViewCell1.h; sourceTree = "<group>"; };
@@ -95,6 +104,8 @@
 		23648EBA2109BEE9004AB0F5 /* BezierPathView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BezierPathView.m; sourceTree = "<group>"; };
 		23666C3321338B94005536D0 /* LQFAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LQFAlertController.h; sourceTree = "<group>"; };
 		23666C3421338B94005536D0 /* LQFAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LQFAlertController.m; sourceTree = "<group>"; };
+		236E04EB21A4F8E700181319 /* LDDCustomCameraVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDCustomCameraVC.h; sourceTree = "<group>"; };
+		236E04EC21A4F8E700181319 /* LDDCustomCameraVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDCustomCameraVC.m; sourceTree = "<group>"; };
 		23949D1020BC1B65005B1562 /* BaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
 		23949D1120BC1B65005B1562 /* BaseView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseView.m; sourceTree = "<group>"; };
 		23949D1320BC1B89005B1562 /* LDDCustomDatePickerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDCustomDatePickerView.h; sourceTree = "<group>"; };
@@ -262,6 +273,13 @@
 				235AF53821070717009AE388 /* LDDPageViewController.m */,
 				23648EB92109BEE9004AB0F5 /* BezierPathView.h */,
 				23648EBA2109BEE9004AB0F5 /* BezierPathView.m */,
+				236E04EB21A4F8E700181319 /* LDDCustomCameraVC.h */,
+				236E04EC21A4F8E700181319 /* LDDCustomCameraVC.m */,
+				23551E7B21C78E92001C6C01 /* AdaptiveHeightCellVC.h */,
+				23551E7C21C78E92001C6C01 /* AdaptiveHeightCellVC.m */,
+				23551E7E21C79A47001C6C01 /* AdaptiveTableViewCell1.h */,
+				23551E7F21C79A47001C6C01 /* AdaptiveTableViewCell1.m */,
+				23551E8121C79D06001C6C01 /* community_home.png */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -466,6 +484,7 @@
 				DB3A1E4620906458009EC30A /* RACVC.xib in Resources */,
 				DBECBF1F2089D056004FED83 /* LaunchScreen.storyboard in Resources */,
 				23C2881C20AFBD3500CF6EC6 /* IQKeyboardVC.xib in Resources */,
+				23551E8221C79D07001C6C01 /* community_home.png in Resources */,
 				2302563D2101CDAA006292D9 /* ContentViewController.xib in Resources */,
 				DBECBF1C2089D056004FED83 /* Assets.xcassets in Resources */,
 				DB3A1E4B209078CC009EC30A /* NotificationTestVC.xib in Resources */,
@@ -485,11 +504,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-OCDemo_01/Pods-OCDemo_01-resources.sh",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/PGDatePicker/PGDatePicker/PGDatePicker.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/PGDatePicker.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -524,6 +545,7 @@
 				23388E9F20B503CA00DAAB4F /* LDDVM.m in Sources */,
 				232C0EF920CFC4F00035A143 /* LDDHJTableViewController.m in Sources */,
 				231B88F9212A66D100D5DAE5 /* NLKeychainManager.m in Sources */,
+				236E04ED21A4F8E700181319 /* LDDCustomCameraVC.m in Sources */,
 				235AF53921070717009AE388 /* LDDPageViewController.m in Sources */,
 				2301E38520B6B4A8004D7DAE /* LDDVC1.m in Sources */,
 				23949D1520BC1B89005B1562 /* LDDCustomDatePickerView.m in Sources */,
@@ -537,10 +559,12 @@
 				DB8C6417208DB20000012736 /* PrintTestVC.m in Sources */,
 				23666C3521338B94005536D0 /* LQFAlertController.m in Sources */,
 				DB3A1E4520906458009EC30A /* RACVC.m in Sources */,
+				23551E8021C79A47001C6C01 /* AdaptiveTableViewCell1.m in Sources */,
 				DBECBF222089D056004FED83 /* main.m in Sources */,
 				2318874A20B2719800D8EF29 /* NotificationVC.m in Sources */,
 				2314F183212FFC080080DF8F /* CCStarRateView.m in Sources */,
 				234266EE20D0BBBE000B1F3A /* LDDTabBarViewController.m in Sources */,
+				23551E7D21C78E92001C6C01 /* AdaptiveHeightCellVC.m in Sources */,
 				23949D1220BC1B65005B1562 /* BaseView.m in Sources */,
 				2318875220B29E0D00D8EF29 /* NotificationLearnTVC.m in Sources */,
 				23A9DB1020AF04ED0023D764 /* LDDTableViewController.m in Sources */,

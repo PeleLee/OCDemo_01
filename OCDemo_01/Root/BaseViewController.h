@@ -12,6 +12,7 @@
 #import "MyMacro.h"
 #import <YYKit/YYKit.h>
 #import <Masonry/Masonry.h>
+#import <SVProgressHUD.h>
 
 @interface BaseViewController : UIViewController
 

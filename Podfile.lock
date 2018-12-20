@@ -10,6 +10,7 @@ PODS:
     - PGPickerView
   - PGPickerView (1.2.6)
   - ReactiveObjC (3.0.0)
+  - SVProgressHUD (2.2.5)
   - WMPageController (2.3.0)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - MLeaksFinder
   - PGDatePicker (~> 2.4.0)
   - ReactiveObjC (~> 3.0.0)
+  - SVProgressHUD (~> 2.2.2)
   - WMPageController (~> 2.3.0)
   - YYKit
 
@@ -37,6 +39,7 @@ SPEC REPOS:
     - PGDatePicker
     - PGPickerView
     - ReactiveObjC
+    - SVProgressHUD
     - WMPageController
     - YYKit
 
@@ -50,9 +53,10 @@ SPEC CHECKSUMS:
   PGDatePicker: 2817e0b0b9c4e6237c96cec974617230c82621d1
   PGPickerView: 8fbbf63d0404065a43a495a0115d339455e0f819
   ReactiveObjC: ce79989e8684b9086b5f8d0c74bc7b81a8729c9e
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   WMPageController: 9f219bb8912a1a1f51af11fde61e2682a7b7e7f2
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 26a5b531e1a47352ddc028dfd36336feb8e9f9e5
+PODFILE CHECKSUM: 27bf2367b0f30034709d622ae56e7819dfa986fd
 
 COCOAPODS: 1.5.0

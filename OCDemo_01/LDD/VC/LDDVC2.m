@@ -9,8 +9,10 @@
 #import "LDDVC2.h"
 #import "LQFAlertController.h"
 #import "LDDTableViewCell1.h"
+#import <IQKeyboardManager.h>
+#import "LDDCustomCameraVC.h"
 
-@interface LDDVC2 () <UITableViewDelegate,UITableViewDataSource>
+@interface LDDVC2 () <UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UIButton *button1;
 @property (nonatomic, strong) UIButton *button2;
@@ -22,9 +24,15 @@
 
 @property (nonatomic, strong) UIScrollView *contentScrollView;
 
+@property (nonatomic, strong) UIImageView *imageView1;
+
 @end
 
 @implementation LDDVC2
+
+static NSString *const cellId = @"cellId";
+static NSString *const headerId = @"headerId";
+static NSString *const footerId = @"footerId";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -48,10 +56,202 @@
     else if (self.index == 37) {
         [self backgroundSizeWithContentSize];
     }
+    else if (self.index == 38) {
+        [self useOfUICollection];
+    }
+    else if (self.index == 41) {
+        [self changeKeyboardType];
+    }
+    else if (self.index == 42) {
+        [self customCamera];
+    }
+    else if (self.index == 43) {
+        [self testOfSystemControl];
+    }
+    else if (self.index == 45) {
+        [self conflictOfMasonryConstraint];
+    }
     
     else if (self.index == 1001) {
         [self adaptiveTableCellWithMasonry];
     }
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [[IQKeyboardManager sharedManager] setEnable:false];
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:false];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[IQKeyboardManager sharedManager] setEnable:true];
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:true];
+}
+
+#pragma mark - 45.Masonry约束冲突
+
+- (void)conflictOfMasonryConstraint {
+    UIView *centerView = [UIView new];
+    centerView.backgroundColor = [UIColor yellowColor];
+    
+    [self.view addSubview:centerView];
+    
+    [centerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.width.height.equalTo(@200);
+    }];
+    
+    UIView *subView = [UIView new];
+    subView.backgroundColor = [UIColor orangeColor];
+    
+    [centerView addSubview:subView];
+    
+    [subView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.top.equalTo(@30);
+        make.right.equalTo(@-30);
+        make.height.equalTo(@30);
+        make.bottom.equalTo(@-30);
+    }];
+}
+
+#pragma mark - 43.系统控件内边距测试
+
+- (void)testOfSystemControl {
+    UILabel *label1 = [UILabel new];
+    label1.text = @"label有文字,下面是没文字的";
+    label1.backgroundColor = [UIColor yellowColor];
+    label1.textColor = [UIColor blackColor];
+    [self.view addSubview:label1];
+    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.top.equalTo(@100);
+    }];
+    
+    UILabel *label2 = [UILabel new];
+    label2.text = @"";
+    label2.backgroundColor = [UIColor yellowColor];
+    label2.textColor = [UIColor blackColor];
+    [self.view addSubview:label2];
+    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.top.equalTo(label1.mas_bottom).offset(20);
+    }];
+    
+    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button1 setBackgroundColor:[UIColor orangeColor]];
+    [button1 setTitle:@"button有标题,下面是没标题的button" forState:UIControlStateNormal];
+    [button1.titleLabel setTextColor:[UIColor blackColor]];
+    [self.view addSubview:button1];
+    [button1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.top.equalTo(label2.mas_bottom).offset(20);
+    }];
+    
+    UIButton *button2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button2 setBackgroundColor:[UIColor orangeColor]];
+    [button2 setTitle:@"" forState:UIControlStateNormal];
+    [button2.titleLabel setTextColor:[UIColor blackColor]];
+//    button2.hidden = YES;
+    [self.view addSubview:button2];
+    [button2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.top.equalTo(button1.mas_bottom).offset(20);
+    }];
+    
+    UIButton *button3 = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button3 setBackgroundColor:[UIColor blueColor]];
+    [button3 setTitle:@"上面有一个没标题的按钮,被隐藏了" forState:UIControlStateNormal];
+    [button3.titleLabel setTextColor:[UIColor blackColor]];
+    [self.view addSubview:button3];
+    [button3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.top.equalTo(button2.mas_bottom);
+    }];
+}
+
+#pragma mark - 42.自定义相机
+- (void)customCamera {
+    __weak typeof(self) weakSelf = self;
+    [self.view addSubview:self.button1];
+    [self.button1 setTitle:@"点击拍照" forState:UIControlStateNormal];
+    [self.button1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.top.mas_equalTo(k_NavBarMaxY + 20);
+    }];
+    
+    [self.view addSubview:self.imageView1];
+    [self.imageView1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+        make.width.equalTo(@200);
+        make.height.equalTo(@(200*YYScreenSize().height/YYScreenSize().width));
+    }];
+    
+    [[self.button1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        LDDCustomCameraVC *vc = [LDDCustomCameraVC new];
+        vc.photoBlock = ^(UIImage * _Nonnull photo) {
+            [weakSelf.imageView1 setImage:photo];
+        };
+        [weakSelf presentViewController:vc animated:YES completion:nil];
+    }];
+}
+
+#pragma mark - 41.键盘类型切换
+- (void)changeKeyboardType {
+    UITextField *tf = [UITextField new];
+    [tf setPlaceholder:@"点击输入框弹出键盘,然后点击切换按钮"];
+    tf.keyboardType = UIKeyboardTypeNumberPad;
+    tf.borderStyle = UITextBorderStyleRoundedRect;
+    tf.font = [UIFont systemFontOfSize:13];
+    
+    [self.view addSubview:tf];
+    
+    [tf mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.right.equalTo(@-20);
+        make.top.mas_equalTo(k_NavBarMaxY+20);
+    }];
+    
+    [self.view addSubview:self.button1];
+    [self.button1 setTitle:@"切换" forState:UIControlStateNormal];
+    self.button1.selected = NO;
+    
+    [self.button1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(tf);
+        make.top.equalTo(tf.mas_bottom).offset(20);
+    }];
+    
+    __weak typeof(self) weakSelf = self;
+    [[self.button1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        weakSelf.button1.selected = !weakSelf.button1.selected;
+        UIKeyboardType type = weakSelf.button1.selected ? UIKeyboardTypeDefault : UIKeyboardTypeNumberPad;
+        [tf setKeyboardType:type];
+        weakSelf.label1.hidden = NO;
+    }];
+    
+    [self.view addSubview:self.label1];
+    self.label1.text = @"这种操作键盘类型是不会变的，除非将键盘先收起再弹出才会变换键盘类型。";
+    [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.equalTo(tf);
+        make.top.equalTo(self.button1.mas_bottom).offset(20);
+    }];
+}
+
+#pragma mark - 38.UICollection
+- (void)useOfUICollection {
+    UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
+//    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, k_NavBarMaxY + 5, YYScreenSize().width, YYScreenSize().height - k_NavBarMaxY - k_SafeAreaHeight) collectionViewLayout:layout];
+    
+    collectionView.backgroundColor = [UIColor whiteColor];
+    collectionView.dataSource = self;
+    collectionView.delegate = self;
+    [self.view addSubview:collectionView];
+    
+    [collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:cellId];
+    [collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:headerId];
+    [collectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:footerId];
+    
 }
 
 #pragma mark - 37.Xib-根据内容尺寸确定背景大小
@@ -132,6 +332,14 @@
     NSLog(@"TableView frame.origin :%f",tableView.frame.origin.y);
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return [UIView new];
+}
+
 #pragma mark - 1001.使用Masonry来自适应cell高度
 - (void)adaptiveTableCellWithMasonry {
     UITableView *table = [UITableView new];
@@ -160,14 +368,14 @@
     
     self.label1.text = @"参考地址:https://www.aliyun.com/jiaocheng/352213.html";
     
-    [self.button1 setTitle:@"1.通过Maaonry获取cell的自适应高度" forState:UIControlStateNormal];
+    [self.button1 setTitle:@"1.通过Masonry获取cell的自适应高度" forState:UIControlStateNormal];
     [[self.button1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
         LDDVC2 *vc = [LDDVC2 new];
         vc.index = 1001;
         [weakSelf.navigationController pushViewController:vc animated:YES];
     }];
     
-    self.label2.text = @"table.estimatedRowHeight = 44;必须设置该属性,否则在低版本iOS版本上会不起效(目前已知的有iOS9.0)\n这样是真的便捷...";
+    self.label2.text = @"table.estimatedRowHeight = 44;必须设置该属性,否则在低版本iOS版本上会不起效(目前已知的有iOS9.0)\n最重要的是，必须要设置最下面一个控件和contentView的bottom之间的约束，要不然不会起效\n这样是真的便捷...";
     
     [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(k_NavBarMaxY + 20);
@@ -362,4 +570,116 @@
     }
     return _contentScrollView;
 }
+
+- (UIImageView *)imageView1 {
+    if (!_imageView1) {
+        _imageView1 = [UIImageView new];
+    }
+    return _imageView1;
+}
+
+#pragma mark - UICollectionViewDataSource
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 2;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return 2;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor yellowColor];
+    return cell;
+}
+
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        UICollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:headerId forIndexPath:indexPath];
+        if (headerView == nil) {
+            headerView = [[UICollectionReusableView alloc] init];
+        }
+        [headerView removeAllSubviews];
+        if (indexPath.section == 0) {
+            headerView.backgroundColor = [UIColor blueColor];
+            
+            UILabel *label0 = [UILabel new];
+            label0.textColor = [UIColor whiteColor];
+            label0.font = [UIFont systemFontOfSize:13];
+            label0.text = @"子视图1";
+            [headerView addSubview:label0];
+            [label0 mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.mas_equalTo(10);
+                make.left.mas_equalTo(20);
+            }];
+            
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+            [button.titleLabel setFont:[UIFont systemFontOfSize:13]];
+            [button setTitle:@"子视图2" forState:UIControlStateNormal];
+            [headerView addSubview:button];
+            [button mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(label0.mas_bottom).offset(10);
+                make.left.equalTo(label0);
+            }];
+            
+            UILabel *label1 = [UILabel new];
+            label1.textColor = [UIColor whiteColor];
+            label1.font = [UIFont systemFontOfSize:13];
+            label1.text = @"子视图3";
+            [headerView addSubview:label1];
+            [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+                make.top.equalTo(button.mas_bottom).offset(10);
+                make.left.equalTo(label0);
+            }];
+        }
+        else {
+            headerView.backgroundColor = [UIColor grayColor];
+        }
+        
+        return headerView;
+    }
+    else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+        UICollectionReusableView *footView = [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:footerId forIndexPath:indexPath];
+        if (footView == nil) {
+            footView = [UICollectionReusableView new];
+        }
+        footView.backgroundColor = [UIColor yellowColor];
+        return footView;
+    }
+    return nil;
+}
+
+#pragma mark -- UICollectionViewDelegateFlowLayout
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(50, 50);
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(5, 5, 5, 5);
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 5.f;
+}
+
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 5.f;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return CGSizeMake(YYScreenSize().width, 100);
+    }
+    else {
+        return CGSizeMake(YYScreenSize().width, 44);
+    }
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section {
+    return CGSizeMake(YYScreenSize().width, 22);
+}
+
 @end

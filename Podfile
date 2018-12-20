@@ -9,4 +9,5 @@ pod 'Masonry', '~> 1.0.2'
 pod 'PGDatePicker', '~> 2.4.0'
 pod 'HJTabViewController', '~> 1.0.6'
 pod 'WMPageController', '~> 2.3.0'
+pod 'SVProgressHUD', '~> 2.2.2'
 end

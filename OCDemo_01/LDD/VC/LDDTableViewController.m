@@ -18,8 +18,9 @@
 #import "ScrollViewInXibVC.h"
 #import "LDDPageViewController.h"
 #import "LDDVC2.h"
+#import "AdaptiveHeightCellVC.h"
 
-@interface LDDTableViewController ()
+@interface LDDTableViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray *titles;
 @property (nonatomic, strong) NSMutableArray *classNames;
@@ -112,6 +113,22 @@
     [self addCell:@"UIPageControll" class:@"LDDVC2"];
     //37
     [self addCell:@"Xib-根据内容视图确定背景图大小" class:@"LDDVC2"];
+    //38
+    [self addCell:@"UICollectionView" class:@"LDDVC2"];
+    //39
+    [self addCell:@"相机:UIImagePickerController" class:@"39"];
+    //40
+    [self addCell:@"相册:UIImagePickerController" class:@"40"];
+    //41
+    [self addCell:@"键盘类型切换" class:@"LDDVC2"];
+    //42
+    [self addCell:@"自定义相机" class:@"LDDVC2"];
+    //43
+    [self addCell:@"系统控件内边距测试" class:@"LDDVC2"];
+    //44
+    [self addCell:@"cell自适应高度" class:@"AdaptiveHeightCellVC"];
+    //45
+    [self addCell:@"Masonry约束冲突" class:@"LDDVC2"];
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     
@@ -234,6 +251,20 @@
             vc.menuViewStyle = WMMenuViewStyleLine;
 //            vc.showOnNavigationBar = YES;
             [self.navigationController pushViewController:vc animated:YES];
+        }
+        else if ([className isEqualToString:@"39"]) {
+            UIImagePickerController *imgPicker = [[UIImagePickerController alloc] init];
+            [imgPicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+            [imgPicker setDelegate:self];
+            [imgPicker setAllowsEditing:NO];
+            [self.navigationController presentViewController:imgPicker animated:YES completion:nil];
+        }
+        else if ([className isEqualToString:@"40"]) {
+            UIImagePickerController *imgPicker = [[UIImagePickerController alloc] init];
+            [imgPicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+            [imgPicker setDelegate:self];
+            [imgPicker setAllowsEditing:NO];
+            [self.navigationController presentViewController:imgPicker animated:YES completion:nil];
         }
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
