@@ -132,7 +132,9 @@
     //46
     [self addCell:@"IGListKitDemo" class:@"IGListDemoVC"];
     //47
-    [self addCell:@"加载动画" class:@"LDDVC2"];
+    [self addCell:@"加载动画_向辉" class:@"LDDVC2"];
+    //48
+    [self addCell:@"NSDate" class:@"LDDVC2"];
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     

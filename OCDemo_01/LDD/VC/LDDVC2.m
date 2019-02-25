@@ -75,6 +75,9 @@ static NSString *const footerId = @"footerId";
     else if (self.index == 47) {
         [self loadAnimation];
     }
+    else if (self.index == 48) {
+        [self aboutNSDate];
+    }
     
     else if (self.index == 1001) {
         [self adaptiveTableCellWithMasonry];
@@ -91,6 +94,116 @@ static NSString *const footerId = @"footerId";
     [super viewWillDisappear:animated];
     [[IQKeyboardManager sharedManager] setEnable:true];
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:true];
+}
+
+#pragma mark - 48.NSDate
+
+- (void)aboutNSDate {
+    // https://mp.weixin.qq.com/s/EHdV7XkUafF465YpfGL6Uw
+    
+    // create
+    UIButton *btn3 = [self createButton];
+    UIButton *btn4 = [self createButton];
+    UIButton *btn5 = [self createButton];
+    
+    // add
+    [self.view addSubview:self.button1];
+    [self.view addSubview:self.button2];
+    [self.view addSubview:btn3];
+    [self.view addSubview:btn4];
+    [self.view addSubview:btn5];
+    
+    // backgroundColor
+    self.button1.backgroundColor = self.button2.backgroundColor = [UIColor orangeColor];
+    btn3.backgroundColor = [UIColor yellowColor];
+    btn4.backgroundColor = [UIColor yellowColor];
+    btn5.backgroundColor = [UIColor orangeColor];
+    
+    // title
+    [self.button1 setTitle:@"[NSDate date] -> 不一定是零时区的时间，与语言有关" forState:UIControlStateNormal];
+    [self.button2 setTitle:@"NSDateFormatter默认是当前时区" forState:UIControlStateNormal];
+    [btn3 setTitle:@"设置NSDateFormatter的时区" forState:UIControlStateNormal];
+    [btn4 setTitle:@"字符串转NSDate" forState:UIControlStateNormal];
+    [btn5 setTitle:@"当前时间转时间戳" forState:UIControlStateNormal];
+    
+    // masonry
+    [self.button1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.top.mas_equalTo(k_NavBarMaxY + 10);
+    }];
+    [self.button2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.button1);
+        make.top.equalTo(self.button1.mas_bottom).offset(10);
+    }];
+    [btn3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.button1);
+        make.top.equalTo(self.button2.mas_bottom).offset(10);
+    }];
+    [btn4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.button1);
+        make.top.equalTo(btn3.mas_bottom).offset(10);
+    }];
+    [btn5 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.button1);
+        make.top.equalTo(btn4.mas_bottom).offset(10);
+    }];
+    
+    // other
+    NSDate *date = [NSDate date];
+    
+    // ControlEvents
+    [[self.button1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        // 通过[NSDate date]返回的不一定是零时区的时间
+        // 如果打印时有非英文的字符，就打印零时区的时间
+        NSLog(@"零时区 date = %@",date);
+        // 如果打印时全都是英文字符，就打印当前时区的时间
+        NSLog(@"Zero time zone date = %@",date);
+    }];
+    [[self.button2 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        // 如果没有规定formatter的时区，那么formatter默认的就是当前时区
+        NSDateFormatter *fm = [NSDateFormatter new];
+        // 最结尾的Z表示的是时区，零时区表示+0000，东八区表示+0800
+        [fm setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+        // 当前时区
+        NSString *dateStr = [fm stringFromDate:date];
+        NSLog(@"当前时区 date时间 = %@",dateStr);
+    }];
+    [[btn3 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSDateFormatter *fm2 = [NSDateFormatter new];
+        [fm2 setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+        fm2.timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+        NSString *dateStr2 = [fm2 stringFromDate:date];
+        NSLog(@"东八区 date时间 = %@",dateStr2);
+        
+        NSDateFormatter *fm3 = [NSDateFormatter new];
+        [fm3 setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+        fm3.timeZone = [NSTimeZone timeZoneWithName:@"Asia/Tokyo"];
+        NSString *dateStr3 = [fm3 stringFromDate:date];
+        NSLog(@"东九区 date时间 = %@",dateStr3);
+    }];
+    [[btn4 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSDateFormatter *fm = [[NSDateFormatter alloc] init];
+        [fm setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+        NSDate *date = [fm dateFromString:@"2016-12-07 14:06:24 +0800"];
+        NSLog(@"date = %@",date);
+        
+        [fm setDateFormat:@"yyyy年MM-dd HH:mm:ss Z"];
+        NSDate *date2 = [fm dateFromString:@"2016年12-07 14:06:24 +0800"];
+        NSLog(@"date2 = %@",date2);
+    }];
+    [[btn5 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSTimeInterval timeIn = [date timeIntervalSince1970];
+        NSLog(@"当前时间戳 = %.0f",timeIn);
+        
+        NSDateFormatter *fm = [[NSDateFormatter alloc] init];
+        [fm setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
+        NSString *dateStr = @"2016-12-07 14:06:24 +0800";
+//        NSLog(@"date2 string = %@",dateStr);
+        NSDate *date2 = [fm dateFromString:dateStr];
+//        NSLog(@"date2 = %@",date2);
+        NSTimeInterval timeIn2 = [date2 timeIntervalSince1970];
+        NSLog(@"过去某个时间戳 = %.0f",timeIn2);
+    }];
 }
 
 #pragma mark - 47.加载动画
@@ -557,6 +670,14 @@ static NSString *const footerId = @"footerId";
 #pragma mark - Lazy load
 
 #pragma mark Button
+
+- (UIButton *)createButton {
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [btn.titleLabel setFont:[UIFont systemFontOfSize:13]];
+    return btn;
+}
+
 - (UIButton *)button1 {
     if (!_button1) {
         _button1 = [UIButton buttonWithType:UIButtonTypeCustom];
