@@ -19,6 +19,7 @@
 #import "LDDPageViewController.h"
 #import "LDDVC2.h"
 #import "AdaptiveHeightCellVC.h"
+#import "IGListDemoVC.h"
 
 @interface LDDTableViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -33,7 +34,6 @@
     [super viewDidLoad];
     
 //    [self.navigationItem.leftBarButtonItem setTitle:@"返回"];
-    
     self.title = @"LDD";
     self.titles = [NSMutableArray arrayWithCapacity:0];
     self.classNames = [NSMutableArray arrayWithCapacity:0];
@@ -129,6 +129,10 @@
     [self addCell:@"cell自适应高度" class:@"AdaptiveHeightCellVC"];
     //45
     [self addCell:@"Masonry约束冲突" class:@"LDDVC2"];
+    //46
+    [self addCell:@"IGListKitDemo" class:@"IGListDemoVC"];
+    //47
+    [self addCell:@"加载动画" class:@"LDDVC2"];
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     

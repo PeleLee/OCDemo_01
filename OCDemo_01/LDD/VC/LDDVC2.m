@@ -11,6 +11,7 @@
 #import "LDDTableViewCell1.h"
 #import <IQKeyboardManager.h>
 #import "LDDCustomCameraVC.h"
+#import "UIView+CLoadingIndicatorView.h"
 
 @interface LDDVC2 () <UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
@@ -71,6 +72,9 @@ static NSString *const footerId = @"footerId";
     else if (self.index == 45) {
         [self conflictOfMasonryConstraint];
     }
+    else if (self.index == 47) {
+        [self loadAnimation];
+    }
     
     else if (self.index == 1001) {
         [self adaptiveTableCellWithMasonry];
@@ -87,6 +91,44 @@ static NSString *const footerId = @"footerId";
     [super viewWillDisappear:animated];
     [[IQKeyboardManager sharedManager] setEnable:true];
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:true];
+}
+
+#pragma mark - 47.加载动画
+
+- (void)loadAnimation {
+    
+    UITableView *testTV = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    testTV.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:testTV];
+    
+    [self.button1 setTitle:@"开始动画" forState:UIControlStateNormal];
+    __weak typeof(self) weakSelf = self;
+    [[self.button1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [testTV showLoadingIndicatorlView];
+//        [weakSelf.view showLoadingIndicatorlView];
+    }];
+    [self.button2 setTitle:@"结束动画" forState:UIControlStateNormal];
+    [[self.button2 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [testTV completeIndicatorLoading];
+//        [weakSelf.view completeIndicatorLoading];
+    }];
+    [self.view addSubview:self.button1];
+    [self.view addSubview:self.button2];
+    
+    [self.button1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(k_NavBarMaxY + 50);
+        make.left.equalTo(@50);
+    }];
+    [self.button2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.button1.mas_bottom).offset(50);
+        make.left.equalTo(self.button1);
+    }];
+    [testTV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.button2);
+        make.right.equalTo(@-50);
+        make.top.equalTo(self.button2.mas_bottom).offset(50);
+        make.bottom.equalTo(@-50);
+    }];
 }
 
 #pragma mark - 45.Masonry约束冲突

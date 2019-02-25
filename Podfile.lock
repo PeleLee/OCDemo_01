@@ -2,6 +2,11 @@ PODS:
   - FBRetainCycleDetector (0.1.4)
   - FDFullscreenPopGesture (1.1)
   - HJTabViewController (1.0.6)
+  - IGListKit (3.2.0):
+    - IGListKit/Default (= 3.2.0)
+  - IGListKit/Default (3.2.0):
+    - IGListKit/Diffing
+  - IGListKit/Diffing (3.2.0)
   - IQKeyboardManager (5.0.8)
   - Masonry (1.0.2)
   - MLeaksFinder (1.0.0):
@@ -19,6 +24,7 @@ PODS:
 DEPENDENCIES:
   - FDFullscreenPopGesture (= 1.1)
   - HJTabViewController (~> 1.0.6)
+  - IGListKit (~> 3.0)
   - IQKeyboardManager (~> 5.0.3)
   - Masonry (~> 1.0.2)
   - MLeaksFinder
@@ -33,6 +39,7 @@ SPEC REPOS:
     - FBRetainCycleDetector
     - FDFullscreenPopGesture
     - HJTabViewController
+    - IGListKit
     - IQKeyboardManager
     - Masonry
     - MLeaksFinder
@@ -47,6 +54,7 @@ SPEC CHECKSUMS:
   FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
   HJTabViewController: 578a5bbab471587e7cc49a2f0f49fc8601c833bf
+  IGListKit: ffe6f98a728ab0250aceea22e7957aa5477c5048
   IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MLeaksFinder: 8c435bd2f6d070af18cff082b503b21adc130fc0
@@ -57,6 +65,6 @@ SPEC CHECKSUMS:
   WMPageController: 9f219bb8912a1a1f51af11fde61e2682a7b7e7f2
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 27bf2367b0f30034709d622ae56e7819dfa986fd
+PODFILE CHECKSUM: 35095a62dee0fcd6ae4e503aa8d904966e7a91fd
 
 COCOAPODS: 1.5.0
