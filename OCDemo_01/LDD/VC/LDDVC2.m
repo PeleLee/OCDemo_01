@@ -78,9 +78,21 @@ static NSString *const footerId = @"footerId";
     else if (self.index == 48) {
         [self aboutNSDate];
     }
+    else if (self.index == 49) {
+        [self presentedorting];
+    }
+    else if (self.index == 50) {
+        [self showProgressWithSVProgressHUD];
+    }
+    else if (self.index == 51) {
+        [self huggingPriorityAndCompressionResistance];
+    }
     
     else if (self.index == 1001) {
         [self adaptiveTableCellWithMasonry];
+    }
+    else if (self.index == 1002) {
+        [self presentedVC];
     }
 }
 
@@ -94,6 +106,203 @@ static NSString *const footerId = @"footerId";
     [super viewWillDisappear:animated];
     [[IQKeyboardManager sharedManager] setEnable:true];
     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:true];
+}
+
+#pragma mark - 51.HuggingPriority和CompressionResistance
+
+- (void)huggingPriorityAndCompressionResistance {
+    [self.view addSubview:self.label1];
+    [self.view addSubview:self.label2];
+    
+    self.label1.backgroundColor = [UIColor yellowColor];
+    self.label2.backgroundColor = [UIColor orangeColor];
+    self.label1.text = @"label";
+    self.label2.text = @"label2";
+    
+    [self.label1 setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [self.label2 setContentHuggingPriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    
+    [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@10);
+        make.top.mas_equalTo(k_NavBarMaxY+10);
+        make.right.equalTo(self.label2.mas_left).offset(-20);
+    }];
+    [self.label2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.label1.mas_right).offset(20);
+        make.top.equalTo(self.label1);
+        make.right.equalTo(@-10);
+    }];
+    
+    UILabel *tmpLabel = [self createLabel];
+    [self.view addSubview:tmpLabel];
+    [self.view addSubview:self.label3];
+    
+    tmpLabel.backgroundColor = [UIColor yellowColor];
+    self.label3.backgroundColor = [UIColor orangeColor];
+    tmpLabel.text = @"hello，我是第一个label，请多多！";
+    self.label3.text = @"hello，我是第二个label，谢谢";
+    
+    [tmpLabel setContentCompressionResistancePriority:UILayoutPriorityDefaultLow forAxis:UILayoutConstraintAxisHorizontal];
+    [self.label3 setContentCompressionResistancePriority:UILayoutPriorityDefaultHigh forAxis:UILayoutConstraintAxisHorizontal];
+    
+    [tmpLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@10);
+        make.top.equalTo(self.label1.mas_bottom).offset(10);
+        make.right.equalTo(self.label3.mas_left).offset(-20);
+    }];
+    [self.label3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(tmpLabel.mas_right).offset(20);
+        make.top.equalTo(tmpLabel);
+        make.right.equalTo(@-10);
+    }];
+}
+
+#pragma mark - 50.SVProgressHUD 显示数值进度
+
+- (void)showProgressWithSVProgressHUD {
+    [self.view addSubview:self.button1];
+    [self.button1 setTitle:@"点击显示进度" forState:UIControlStateNormal];
+    [self.button1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.offset(20);
+        make.top.offset(k_NavBarMaxY);
+    }];
+    
+    [[self.button1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        __block float progress = 0.1;
+        [NSTimer scheduledTimerWithTimeInterval:0.5 block:^(NSTimer * _Nonnull timer) {
+            if (progress > 1) {
+                [timer invalidate];
+                [SVProgressHUD dismiss];
+            }
+            else {
+                [SVProgressHUD showProgress:progress status:@"加载中..."];
+                progress += 0.1;
+            }
+        } repeats:YES];
+    }];
+}
+
+#pragma mark - 1002.Present VC
+- (void)presentedVC {
+    __weak typeof(self) weakSelf = self;
+    
+    UIButton *backBtn = [self createButton];
+    [self.view addSubview:backBtn];
+    [backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.top.mas_equalTo(k_NavBarMaxY);
+    }];
+    [backBtn setTitle:@"返回" forState:UIControlStateNormal];
+    [[backBtn rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+    }];
+    
+    UIButton *button1 = [self createButton];
+    [self.view addSubview:button1];
+    [button1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.top.equalTo(backBtn.mas_bottom).offset(20);
+    }];
+    [button1 setTitle:@"查看presentingViewController" forState:UIControlStateNormal];
+    [[button1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSLog(@"presentingViewController:%@",weakSelf.presentingViewController);
+        weakSelf.label1.text = @"适用于present跳转的情况，push跳转的话该属性为空";
+    }];
+    
+    UIButton *button2 = [self createButton];
+    [self.view addSubview:button2];
+    [button2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(button1);
+        make.top.equalTo(button1.mas_bottom).offset(20);
+    }];
+    [button2 setTitle:@"查看parentViewController" forState:UIControlStateNormal];
+    [[button2 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSLog(@"parentViewController:%@",weakSelf.parentViewController);
+        weakSelf.label1.text = @"当前页面的父试图控制器";
+    }];
+    
+    [self.view addSubview:self.label1];
+    self.label1.backgroundColor = [UIColor yellowColor];
+    [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.right.equalTo(@-20);
+        make.top.equalTo(button2.mas_bottom).offset(20);
+    }];
+}
+
+#pragma mark - 49.UIViewController presentedVC or persentingVC
+- (void)presentedorting {
+    __weak typeof(self)weakSelf = self;
+    
+    [self.view addSubview:self.button1];
+    [self.button1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.top.mas_equalTo(k_NavBarMaxY + 20);
+    }];
+    [self.button1 setTitle:@"present跳转" forState:UIControlStateNormal];
+    [[self.button1 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        LDDVC2 *vc2 = [LDDVC2 new];
+        vc2.index = 1002;
+        [weakSelf presentViewController:vc2 animated:YES completion:^{
+            NSLog(@"presentedViewController:%@",weakSelf.presentedViewController);
+        }];
+    }];
+    
+    UIButton *button3 = [self createButton];
+    [self.view addSubview:button3];
+    [button3 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.button1);
+        make.top.equalTo(self.button1.mas_bottom).offset(20);
+    }];
+    [button3 setTitle:@"查看presentedViewController" forState:UIControlStateNormal];
+    [[button3 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSLog(@"presentedViewController:%@",weakSelf.presentedViewController);
+        weakSelf.label1.text = @"适用于present跳转的情况，push跳转的话该属性为空";
+    }];
+    
+    UIButton *button4 = [self createButton];
+    [self.view addSubview:button4];
+    [button4 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.button1);
+        make.top.equalTo(button3.mas_bottom).offset(20);
+    }];
+    [button4 setTitle:@"查看presentationController" forState:UIControlStateNormal];
+    [[button4 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSLog(@"presentationController:%@",weakSelf.presentationController);
+        weakSelf.label1.text = @"还未理解";
+    }];
+    
+    UIButton *button5 = [self createButton];
+    [self.view addSubview:button5];
+    [button5 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.button1);
+        make.top.equalTo(button4.mas_bottom).offset(20);
+    }];
+    [button5 setTitle:@"查看presentingViewController" forState:UIControlStateNormal];
+    [[button5 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSLog(@"presentingViewController:%@",weakSelf.presentingViewController);
+        weakSelf.label1.text = @"适用于present跳转的情况，push跳转的话该属性为空";
+    }];
+    
+    UIButton *button6 = [self createButton];
+    [self.view addSubview:button6];
+    [button6 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self.button1);
+        make.top.equalTo(button5.mas_bottom).offset(20);
+    }];
+    [button6 setTitle:@"查看parentViewController" forState:UIControlStateNormal];
+    [[button6 rac_signalForControlEvents:UIControlEventTouchUpInside] subscribeNext:^(__kindof UIControl * _Nullable x) {
+        NSLog(@"parentViewController:%@",weakSelf.parentViewController);
+        weakSelf.label1.text = @"当前页面的父试图控制器";
+    }];
+    
+    [self.view addSubview:self.label1];
+    self.label1.backgroundColor = [UIColor yellowColor];
+    [self.label1 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(@20);
+        make.right.equalTo(@-20);
+        make.top.equalTo(button6.mas_bottom).offset(20);
+    }];
 }
 
 #pragma mark - 48.NSDate
@@ -724,6 +933,14 @@ static NSString *const footerId = @"footerId";
         _label3.numberOfLines = 0;
     }
     return _label3;
+}
+
+- (UILabel *)createLabel {
+    UILabel *label = [UILabel new];
+    label.font = [UIFont systemFontOfSize:13];
+    label.textColor = [UIColor blackColor];
+    label.numberOfLines = 0;
+    return label;
 }
 
 - (UIScrollView *)contentScrollView {

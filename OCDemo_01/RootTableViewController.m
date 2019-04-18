@@ -30,6 +30,7 @@
     [self addCell:@"LDD" class:@"LDDTableViewController"];
     [self addCell:@"通知" class:@"NotificationLearnTVC"];
     [self addCell:@"CustomPageControll" class:@""];
+    [self addCell:@"Masonry相关" class:@"MasonryTableVC"];
     [self.tableView reloadData];
 }
 

@@ -49,6 +49,14 @@
 		23C2881C20AFBD3500CF6EC6 /* IQKeyboardVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23C2881A20AFBD3500CF6EC6 /* IQKeyboardVC.xib */; };
 		23FDC34421FAE1E000066C42 /* IGSpinnerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 23FDC34321FAE1E000066C42 /* IGSpinnerCell.m */; };
 		336D324F1F9376401793DEF9 /* libPods-OCDemo_01.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC6E0A4DEB3A28048ABDC9D4 /* libPods-OCDemo_01.a */; };
+		9B708D572266FA7D0005D714 /* NLPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B708D562266FA7D0005D714 /* NLPageViewController.m */; };
+		9B725589224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B725587224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.m */; };
+		9B72558A224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B725588224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.xib */; };
+		9BD43AA222682049007B390D /* EDTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD43AA122682049007B390D /* EDTabView.m */; };
+		9BD43AA522682425007B390D /* LDDVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD43AA422682425007B390D /* LDDVC3.m */; };
+		9BD43AA822684E41007B390D /* TATabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD43AA722684E41007B390D /* TATabView.m */; };
+		9BF4EBAA224B12A0008CCDF0 /* MasonryTableVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF4EBA9224B12A0008CCDF0 /* MasonryTableVC.m */; };
+		9BF4EBAE224B161A008CCDF0 /* MasonryVC1.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BF4EBAC224B161A008CCDF0 /* MasonryVC1.m */; };
 		DB3A1E4520906458009EC30A /* RACVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3A1E4320906457009EC30A /* RACVC.m */; };
 		DB3A1E4620906458009EC30A /* RACVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = DB3A1E4420906457009EC30A /* RACVC.xib */; };
 		DB3A1E4A209078CC009EC30A /* NotificationTestVC.m in Sources */ = {isa = PBXBuildFile; fileRef = DB3A1E48209078CC009EC30A /* NotificationTestVC.m */; };
@@ -143,6 +151,21 @@
 		23FDC34221FAE1E000066C42 /* IGSpinnerCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IGSpinnerCell.h; sourceTree = "<group>"; };
 		23FDC34321FAE1E000066C42 /* IGSpinnerCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IGSpinnerCell.m; sourceTree = "<group>"; };
 		3D5FD566D65191712AA1279D /* Pods-OCDemo_01.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCDemo_01.release.xcconfig"; path = "Pods/Target Support Files/Pods-OCDemo_01/Pods-OCDemo_01.release.xcconfig"; sourceTree = "<group>"; };
+		9B708D552266FA7D0005D714 /* NLPageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NLPageViewController.h; sourceTree = "<group>"; };
+		9B708D562266FA7D0005D714 /* NLPageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NLPageViewController.m; sourceTree = "<group>"; };
+		9B725586224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoLayoutTableViewCell.h; sourceTree = "<group>"; };
+		9B725587224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutTableViewCell.m; sourceTree = "<group>"; };
+		9B725588224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AutoLayoutTableViewCell.xib; sourceTree = "<group>"; };
+		9BD43AA022682049007B390D /* EDTabView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDTabView.h; sourceTree = "<group>"; };
+		9BD43AA122682049007B390D /* EDTabView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDTabView.m; sourceTree = "<group>"; };
+		9BD43AA322682425007B390D /* LDDVC3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDVC3.h; sourceTree = "<group>"; };
+		9BD43AA422682425007B390D /* LDDVC3.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDDVC3.m; sourceTree = "<group>"; };
+		9BD43AA622684E41007B390D /* TATabView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TATabView.h; sourceTree = "<group>"; };
+		9BD43AA722684E41007B390D /* TATabView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TATabView.m; sourceTree = "<group>"; };
+		9BF4EBA8224B12A0008CCDF0 /* MasonryTableVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasonryTableVC.h; sourceTree = "<group>"; };
+		9BF4EBA9224B12A0008CCDF0 /* MasonryTableVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasonryTableVC.m; sourceTree = "<group>"; };
+		9BF4EBAB224B161A008CCDF0 /* MasonryVC1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasonryVC1.h; sourceTree = "<group>"; };
+		9BF4EBAC224B161A008CCDF0 /* MasonryVC1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasonryVC1.m; sourceTree = "<group>"; };
 		B2888098E500DDEEF7E234FF /* Pods-OCDemo_01.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OCDemo_01.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OCDemo_01/Pods-OCDemo_01.debug.xcconfig"; sourceTree = "<group>"; };
 		BC6E0A4DEB3A28048ABDC9D4 /* libPods-OCDemo_01.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OCDemo_01.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB3A1E4220906457009EC30A /* RACVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RACVC.h; sourceTree = "<group>"; };
@@ -187,6 +210,12 @@
 			children = (
 				23145A49211D3B1B002EEDDF /* NLPageController.h */,
 				23145A4A211D3B1B002EEDDF /* NLPageController.m */,
+				9B708D552266FA7D0005D714 /* NLPageViewController.h */,
+				9B708D562266FA7D0005D714 /* NLPageViewController.m */,
+				9BD43AA022682049007B390D /* EDTabView.h */,
+				9BD43AA122682049007B390D /* EDTabView.m */,
+				9BD43AA622684E41007B390D /* TATabView.h */,
+				9BD43AA722684E41007B390D /* TATabView.m */,
 			);
 			path = CustomPageController;
 			sourceTree = "<group>";
@@ -287,6 +316,8 @@
 				2301E38420B6B4A8004D7DAE /* LDDVC1.m */,
 				2314F176212FAFFF0080DF8F /* LDDVC2.h */,
 				2314F177212FAFFF0080DF8F /* LDDVC2.m */,
+				9BD43AA322682425007B390D /* LDDVC3.h */,
+				9BD43AA422682425007B390D /* LDDVC3.m */,
 				232C0EF720CFC4F00035A143 /* LDDHJTableViewController.h */,
 				232C0EF820CFC4F00035A143 /* LDDHJTableViewController.m */,
 				234266EC20D0BBBE000B1F3A /* LDDTabBarViewController.h */,
@@ -330,6 +361,20 @@
 				BC6E0A4DEB3A28048ABDC9D4 /* libPods-OCDemo_01.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9BF4EBA7224B124F008CCDF0 /* Masonry */ = {
+			isa = PBXGroup;
+			children = (
+				9BF4EBA8224B12A0008CCDF0 /* MasonryTableVC.h */,
+				9BF4EBA9224B12A0008CCDF0 /* MasonryTableVC.m */,
+				9BF4EBAB224B161A008CCDF0 /* MasonryVC1.h */,
+				9BF4EBAC224B161A008CCDF0 /* MasonryVC1.m */,
+				9B725586224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.h */,
+				9B725587224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.m */,
+				9B725588224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.xib */,
+			);
+			path = Masonry;
 			sourceTree = "<group>";
 		};
 		DB3A1E3E209062EC009EC30A /* RAC */ = {
@@ -435,6 +480,7 @@
 		DBECBF112089D056004FED83 /* OCDemo_01 */ = {
 			isa = PBXGroup;
 			children = (
+				9BF4EBA7224B124F008CCDF0 /* Masonry */,
 				23145A48211D3AA2002EEDDF /* CustomPageController */,
 				2318874B20B29D1100D8EF29 /* Notification */,
 				23A9DB0B20AF045E0023D764 /* LDD */,
@@ -521,6 +567,7 @@
 			files = (
 				230BCF3620E0E9E1001A90B6 /* neighbour_shot_rule.html in Resources */,
 				23625A632142649400ADE495 /* CellContentText.plist in Resources */,
+				9B72558A224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.xib in Resources */,
 				DB3A1E4620906458009EC30A /* RACVC.xib in Resources */,
 				DBECBF1F2089D056004FED83 /* LaunchScreen.storyboard in Resources */,
 				23C2881C20AFBD3500CF6EC6 /* IQKeyboardVC.xib in Resources */,
@@ -602,6 +649,7 @@
 				DB8C6417208DB20000012736 /* PrintTestVC.m in Sources */,
 				23666C3521338B94005536D0 /* LQFAlertController.m in Sources */,
 				DB3A1E4520906458009EC30A /* RACVC.m in Sources */,
+				9BD43AA222682049007B390D /* EDTabView.m in Sources */,
 				238DEC6221FAF20B00F60DF5 /* CTRefreshView.m in Sources */,
 				23551E8021C79A47001C6C01 /* AdaptiveTableViewCell1.m in Sources */,
 				239411A921EF331E00A5FEE4 /* IGLoadMoreViewController.m in Sources */,
@@ -612,19 +660,25 @@
 				23551E7D21C78E92001C6C01 /* AdaptiveHeightCellVC.m in Sources */,
 				23949D1220BC1B65005B1562 /* BaseView.m in Sources */,
 				2318875220B29E0D00D8EF29 /* NotificationLearnTVC.m in Sources */,
+				9BD43AA522682425007B390D /* LDDVC3.m in Sources */,
+				9BD43AA822684E41007B390D /* TATabView.m in Sources */,
 				23A9DB1020AF04ED0023D764 /* LDDTableViewController.m in Sources */,
 				23FDC34421FAE1E000066C42 /* IGSpinnerCell.m in Sources */,
 				23145A4B211D3B1B002EEDDF /* NLPageController.m in Sources */,
+				9BF4EBAA224B12A0008CCDF0 /* MasonryTableVC.m in Sources */,
 				23BCB61720FF3F7600BEE498 /* ScrollViewInXibVC.m in Sources */,
 				23625A612142547000ADE495 /* LDDTableViewCell1.m in Sources */,
 				DB8C641C208DB7FB00012736 /* UIView+Add.m in Sources */,
 				2302563C2101CDAA006292D9 /* ContentViewController.m in Sources */,
 				234EE9A521E71F54001F69E0 /* IGListDemoVC.m in Sources */,
+				9B708D572266FA7D0005D714 /* NLPageViewController.m in Sources */,
 				DBECBF142089D056004FED83 /* AppDelegate.m in Sources */,
 				238DEC6321FAF20C00F60DF5 /* UIView+CLoadingIndicatorView.m in Sources */,
 				DB3A1E4A209078CC009EC30A /* NotificationTestVC.m in Sources */,
+				9BF4EBAE224B161A008CCDF0 /* MasonryVC1.m in Sources */,
 				23648EBB2109BEE9004AB0F5 /* BezierPathView.m in Sources */,
 				2314F178212FAFFF0080DF8F /* LDDVC2.m in Sources */,
+				9B725589224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.m in Sources */,
 				2318434A20CE290B0075C7A3 /* BaseViewController+Legal.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

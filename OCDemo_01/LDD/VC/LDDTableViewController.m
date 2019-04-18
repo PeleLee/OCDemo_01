@@ -20,6 +20,8 @@
 #import "LDDVC2.h"
 #import "AdaptiveHeightCellVC.h"
 #import "IGListDemoVC.h"
+#import "NLPageViewController.h"
+#import "LDDVC3.h"
 
 @interface LDDTableViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -135,6 +137,15 @@
     [self addCell:@"加载动画_向辉" class:@"LDDVC2"];
     //48
     [self addCell:@"NSDate" class:@"LDDVC2"];
+    //49
+    [self addCell:@"UIViewController present ed/ting ViewController" class:@"LDDVC2"];
+    //50
+    [self addCell:@"SVProgressHUD 显示进度" class:@"LDDVC2"];
+    //51
+    [self addCell:@"HuggingPriority和CompressionResistance" class:@"LDDVC2"];
+    //52
+    [self addCell:@"纯自定义PageVC" class:@"LDDVC3"];
+    //
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     
@@ -271,6 +282,10 @@
             [imgPicker setDelegate:self];
             [imgPicker setAllowsEditing:NO];
             [self.navigationController presentViewController:imgPicker animated:YES completion:nil];
+        }
+        else if ([className isEqualToString:@"52"]) {
+            NLPageViewController *vc = [NLPageViewController new];
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
