@@ -25,18 +25,41 @@
         [self differentOrderOfAddSubView];
     }
     else if (self.index == 1) {
-        [self.view addSubview:self.myTV];
-        [self.myTV mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.right.offset(0);
-            make.top.offset(k_NavBarMaxY);
-            make.bottom.offset(k_SafeAreaHeight);
-        }];
+        [self autoLayoutAndMasonry];
     }
+    else if (self.index == 2) {
+        [self masonryLeftAndTopWithUIImageView];
+    }
+    else if (self.index == 3) {
+        [self aaaa3];
+    }
+}
+
+#pragma mark - 3.
+- (void)aaaa3 {
     
 }
 
-#pragma mark - 1.AutoLayout与Masonry
+#pragma mark - 2.UIImageView left、top
+- (void)masonryLeftAndTopWithUIImageView {
+    UIImageView *iv = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"community_home"]];
+    [self.view addSubview:iv];
+    
+    [iv mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.offset(k_NavBarMaxY).offset(10);
+        make.left.offset(10);
+    }];
+}
 
+#pragma mark - 1.AutoLayout与Masonry
+- (void)autoLayoutAndMasonry {
+    [self.view addSubview:self.myTV];
+    [self.myTV mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.offset(0);
+        make.top.offset(k_NavBarMaxY);
+        make.bottom.offset(k_SafeAreaHeight);
+    }];
+}
 
 #pragma mark - 0.addSubView顺序不同
 - (void)differentOrderOfAddSubView {

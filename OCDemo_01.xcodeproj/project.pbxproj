@@ -52,6 +52,7 @@
 		9B708D572266FA7D0005D714 /* NLPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B708D562266FA7D0005D714 /* NLPageViewController.m */; };
 		9B725589224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B725587224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.m */; };
 		9B72558A224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B725588224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.xib */; };
+		9BB7F9B822CC43A60022F6B1 /* OutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BB7F9B722CC43A60022F6B1 /* OutView.m */; };
 		9BD43AA222682049007B390D /* EDTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD43AA122682049007B390D /* EDTabView.m */; };
 		9BD43AA522682425007B390D /* LDDVC3.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD43AA422682425007B390D /* LDDVC3.m */; };
 		9BD43AA822684E41007B390D /* TATabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9BD43AA722684E41007B390D /* TATabView.m */; };
@@ -156,6 +157,8 @@
 		9B725586224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AutoLayoutTableViewCell.h; sourceTree = "<group>"; };
 		9B725587224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AutoLayoutTableViewCell.m; sourceTree = "<group>"; };
 		9B725588224B1FEB00DEC3F5 /* AutoLayoutTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AutoLayoutTableViewCell.xib; sourceTree = "<group>"; };
+		9BB7F9B622CC43A60022F6B1 /* OutView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OutView.h; sourceTree = "<group>"; };
+		9BB7F9B722CC43A60022F6B1 /* OutView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OutView.m; sourceTree = "<group>"; };
 		9BD43AA022682049007B390D /* EDTabView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EDTabView.h; sourceTree = "<group>"; };
 		9BD43AA122682049007B390D /* EDTabView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EDTabView.m; sourceTree = "<group>"; };
 		9BD43AA322682425007B390D /* LDDVC3.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDDVC3.h; sourceTree = "<group>"; };
@@ -351,6 +354,8 @@
 				232CBE9D21F959070075B75B /* IGLabelCell.m */,
 				23FDC34221FAE1E000066C42 /* IGSpinnerCell.h */,
 				23FDC34321FAE1E000066C42 /* IGSpinnerCell.m */,
+				9BB7F9B622CC43A60022F6B1 /* OutView.h */,
+				9BB7F9B722CC43A60022F6B1 /* OutView.m */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -636,6 +641,7 @@
 				239411A621EF234F00A5FEE4 /* IGListDemoSectionController.m in Sources */,
 				231B88F9212A66D100D5DAE5 /* NLKeychainManager.m in Sources */,
 				236E04ED21A4F8E700181319 /* LDDCustomCameraVC.m in Sources */,
+				9BB7F9B822CC43A60022F6B1 /* OutView.m in Sources */,
 				235AF53921070717009AE388 /* LDDPageViewController.m in Sources */,
 				2301E38520B6B4A8004D7DAE /* LDDVC1.m in Sources */,
 				23949D1520BC1B89005B1562 /* LDDCustomDatePickerView.m in Sources */,

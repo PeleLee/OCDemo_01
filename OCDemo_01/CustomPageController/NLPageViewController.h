@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface NLPageViewController : UIViewController
 
+- (instancetype)initWithTabModel:(id)tabModel;
+
 @end
 
 NS_ASSUME_NONNULL_END

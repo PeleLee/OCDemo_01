@@ -145,7 +145,22 @@
     [self addCell:@"HuggingPriority和CompressionResistance" class:@"LDDVC2"];
     //52
     [self addCell:@"纯自定义PageVC" class:@"LDDVC3"];
-    //
+    //53
+    [self addCell:@"GCD面试相关" class:@"LDDVC3"];
+    // 54
+    [self addCell:@"超出父视图的Button响应" class:@"LDDVC3"];
+    // 55
+    [self addCell:@"Masonry:按比例布局" class:@"LDDVC3"];
+    // 56
+    [self addCell:@"masonry--简单demo" class:@"LDDVC3"];
+    // 57
+    [self addCell:@"nil条件" class:@"LDDVC3"];
+    // 58
+    [self addCell:@"Button Image" class:@"LDDVC3"];
+    // 59
+    [self addCell:@"直接使用masonry remake" class:@"LDDVC3"];
+    // 60
+    [self addCell:@"多层@strongify" class:@"LDDVC3"];
     
     [k_NotificationCenter addObserver:self selector:@selector(changeCellText:) name:@"changeCellText" object:nil];
     

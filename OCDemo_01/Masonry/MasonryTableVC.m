@@ -23,8 +23,14 @@
     self.titlesArray = [NSMutableArray arrayWithCapacity:0];
     self.classNames = [NSMutableArray arrayWithCapacity:0];
     
+    // 0
     [self addCell:@"addSubView顺序不同" class:@"MasonryVC1"];
+    // 1
     [self addCell:@"AutoLayout布局变高cell" class:@"MasonryVC1"];
+    // 2
+    [self addCell:@"UIImageView:top、left" class:@"MasonryVC1"];
+    // 3
+    [self addCell:@"UIImageView" class:@"MasonryVC1"];
     
     [self.tableView reloadData];
 }
